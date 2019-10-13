@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="260dp"
+            android:id="@+id/imagePlayer"
+            android:layout_margin="10dp"
+            />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imeIgrac"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            />
+
+
+
+
+
+</LinearLayout>

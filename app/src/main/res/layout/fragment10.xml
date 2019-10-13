@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ПЛЕЈ-ОФ 2019"
+            android:background="@color/red"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:paddingVertical="5dp"
+            android:paddingHorizontal="10dp"
+            android:textStyle="bold"
+
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="255dp"
+            android:src="@drawable/tabela_1"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
