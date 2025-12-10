@@ -8,14 +8,15 @@ android {
 
     }
 
-    compileSdkVersion 26
+    compileSdkVersion 31
     defaultConfig {
         applicationId "com.hcvardar.manne.rkvaradr"
         minSdkVersion 14
-        targetSdkVersion 26
+        targetSdkVersion 35
         versionCode 5
         versionName "2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk.debugSymbolLevel = "FULL"
     }
     buildTypes {
         release {
@@ -25,6 +26,8 @@ android {
     }
     productFlavors {
     }
+
+    ndkVersion '29.0.14206865 rc3'
 }
 
 dependencies {
