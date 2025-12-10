@@ -33,7 +33,7 @@ public class EkipaActivity extends AppCompatActivity {
     String uri6="https://rkvardar.mk/files/team/2018/08/30/sergei-gorbok-17339.png";
     String uri7="https://rkvardar.mk/files/team/2016/10/05/vuko-borozan-13951.png";
     String uri8="https://rkvardar.mk/files/team/2018/10/26/kristian-disinger-17839.png";
-    String uri9="https://rkvardar.mk/files/team/2018/09/01/marko-mishevski-17360.png";
+    String uri9="https://rkvardar.com.mk/wp-content/uploads/2025/08/web_taleski.png#3345";
     String uri10="https://rkvardar.mk/files/team/2018/08/30/dimitri-kiseljev-17343.png";
     String uri12="https://rkvardar.mk/files/team/2016/10/04/fereira-moraes-rozherio-13963.png";
     String uri13="https://rkvardar.mk/files/team/2018/08/30/gleb-kalarash-17327.png";
@@ -56,7 +56,7 @@ public class EkipaActivity extends AppCompatActivity {
     String url6="https://rkvardar.mk/files/styles/juicebox_small/public/team/2018/08/30/sergei-gorbok-17337.png?itok=deD30ZP8";
     String url7="https://rkvardar.mk/files/styles/juicebox_small/public/team/2016/10/05/vuko-borozan-13952.png?itok=pHbxqEig";
     String url8="https://rkvardar.mk/files/styles/juicebox_small/public/team/2018/10/26/kristian-disinger-17841.png?itok=GO-4tLVn";
-    String url9="https://rkvardar.mk/files/styles/juicebox_small/public/team/2018/09/01/marko-mishevski-17359.png?itok=3HDOZ7to";
+    String url9="https://rkvardar.com.mk/wp-content/uploads/2025/08/web_taleski.png#3345";
     String url10="https://rkvardar.mk/files/styles/juicebox_small/public/team/2018/08/30/dimitri-kiseljev-17342.png?itok=YDBHn25d";
     String url12="https://rkvardar.mk/files/styles/juicebox_small/public/team/2016/10/04/fereira-moraes-rozherio-13964.png?itok=cTKGmiC8";
     String url13="https://rkvardar.mk/files/styles/juicebox_small/public/team/2018/08/30/gleb-kalarash-17338.png?itok=SFh_-qpf";
@@ -109,7 +109,7 @@ public class EkipaActivity extends AppCompatActivity {
         model.add(new EkipaModel("Сергеи \nГорбок", uri6, url6, "4 декември 1982", "лев бег", "98kg", "196cm","32"));
         model.add(new EkipaModel("Вуко \nБорозан", uri7, url7, "9 април 1994", "лев бег", "105kg", "203cm","34"));
         model.add(new EkipaModel("Криситиан \nДисингер", uri8, url8, "15 ноември 1991", "лев бег", "102kg", "202cm","15"));
-        model.add(new EkipaModel("Марко \nМишевски", uri9, url9, "23 август 1999", "лев бег", "92kg", "199cm","97"));
+        model.add(new EkipaModel("Филип \nТалески", uri9, url9, "28 март 1996", "лев бег", "92kg", "202","28"));
         model.add(new EkipaModel("Димитри \nКисељев", uri10, url10, "15 ноември 1994", "десен бег", "98kg", "193cm","50"));
         model.add(new EkipaModel("Данис \nКриштопанс", uri1, url1, "31 мај 1995", "десен бег","135kg","215cm","10"));
         model.add(new EkipaModel("Фереира \nМораеш \nРожеиро", uri12, url12, "11 јануари 1994", "пикер","125kg","204cm","13"));

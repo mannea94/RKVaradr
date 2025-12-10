@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.hcvardar.manne.rkvaradr.Model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.Row_Click_Listener;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class EkipaAdapter extends RecyclerView.Adapter<EkipaAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(EkipaAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final EkipaAdapter.ViewHolder holder, final int position) {
             final EkipaModel model = ekipaModels.get(position);
             holder.playerName.setText(model.getIme());
             holder.playerNumber.setText(model.getBroj());
@@ -63,8 +64,18 @@ public class EkipaAdapter extends RecyclerView.Adapter<EkipaAdapter.ViewHolder> 
 
         Picasso.with(context)
                 .load(model.getImageUrl())
-                .fit()
-                .into(holder.player);
+//                .fit()
+                .into(holder.player, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        holder.player.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    }
+
+                    @Override
+                    public void onError() {
+
+                    }
+                });
 
 //            holder.player.setImageResource(R.drawable.dainis_krishtopans);
 //
