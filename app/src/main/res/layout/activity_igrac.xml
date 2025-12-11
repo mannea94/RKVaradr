@@ -175,6 +175,12 @@
                         android:textColor="@color/yellow"
                         android:textSize="15dp"/>
 
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/imgFlag" />
+
 
                 </LinearLayout>
 

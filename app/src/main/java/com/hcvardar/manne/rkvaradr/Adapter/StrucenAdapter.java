@@ -56,7 +56,6 @@ public class StrucenAdapter extends RecyclerView.Adapter<StrucenAdapter.ViewHold
 
         Picasso.with(context)
                 .load(model.getImageUrl())
-                .fit()
                 .into(holder.imageStab);
 
 //            holder.player.setImageResource(R.drawable.dainis_krishtopans);

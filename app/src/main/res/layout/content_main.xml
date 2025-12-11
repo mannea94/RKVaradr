@@ -86,32 +86,11 @@
 
         </LinearLayout>
 
-
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ПЕХАРИ"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:layout_marginLeft="5dp"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/red"
-            android:layout_marginVertical="3dp"
-            />
-
         <ImageView
+            android:id="@+id/imgCover"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:id="@+id/imageHeder"
-            android:layout_marginTop="5dp"
-            android:layout_alignParentBottom="true"
-            />
+            android:layout_height="200dp"
+            android:layout_marginVertical="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -177,20 +156,22 @@
             android:textColor="@color/white"
             android:textSize="20dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="5dp"
+            android:visibility="gone"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/red"
             android:layout_marginVertical="3dp"
+            android:visibility="gone"
             />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager2"
             android:layout_width="match_parent"
             android:layout_height="400dp"
-
+            android:visibility="gone"
             >
 
         </android.support.v4.view.ViewPager>
@@ -202,7 +183,8 @@
             android:gravity="center|center_vertical|center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
 
 
         <TextView
@@ -245,50 +227,31 @@
             android:layout_height="200dp"
             android:id="@+id/karticka"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
-            <LinearLayout
+            android:padding="10dp"
+            >
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp"
-                >
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="65dp"
-                    android:layout_weight="1"
-                    android:id="@+id/league1"
-                    android:layout_marginRight="10dp"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="65dp"
-                    android:layout_weight="1"
-                    android:id="@+id/league2"/>
-            </LinearLayout>
-
-            <LinearLayout
+                android:layout_height="100dp"
+                android:id="@+id/league1"
+                android:layout_marginVertical="5dp"/>
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_height="100dp"
+                android:id="@+id/league2"
+                android:layout_marginVertical="5dp"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/league3"
+                android:layout_marginVertical="5dp"/>
 
-                >
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="65dp"
-                    android:layout_weight="1"
-                    android:id="@+id/league3"
-                    android:layout_marginRight="10dp"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="65dp"
-                    android:layout_weight="1"
-                    android:id="@+id/league4"/>
-            </LinearLayout>
 
         </LinearLayout>
 
@@ -300,6 +263,32 @@
             android:layout_marginBottom="10dp"
             android:id="@+id/tickets"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ПЕХАРИ"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/red"
+            android:layout_marginVertical="3dp"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="90dp"
+            android:id="@+id/imageHeder"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentBottom="true"
+            />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -368,6 +357,44 @@
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
+                    android:id="@+id/sponzor5"
+                    android:layout_marginRight="10dp"
+                    />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:id="@+id/sponzor6"
+                    />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:id="@+id/sponzor7"
+                    android:layout_marginLeft="10dp"
+                    />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:id="@+id/sponzor8"
+                    android:layout_marginLeft="10dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                >
+
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
                     android:id="@+id/sponzor9"
                     android:layout_marginRight="10dp"
                     />
@@ -392,41 +419,6 @@
                     android:layout_marginLeft="10dp"
                     />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginBottom="10dp">
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="45dp"
-                    android:layout_weight="1"
-                    android:id="@+id/sponzor5"
-                    android:layout_marginRight="10dp"
-                    />
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="45dp"
-                    android:layout_weight="1"
-                    android:id="@+id/sponzor6"
-                    />
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="45dp"
-                    android:layout_weight="1"
-                    android:id="@+id/sponzor7"
-                    android:layout_marginLeft="10dp"
-                    />
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="45dp"
-                    android:layout_weight="1"
-                    android:id="@+id/sponzor8"
-                    android:layout_marginLeft="10dp"
-                    />
 
             </LinearLayout>
 
@@ -435,7 +427,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                android:visibility="gone">
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="45dp"
@@ -489,7 +482,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="© 2019 Ракометен клуб ВАРДАР. Сите права задржани."
+            android:text="@string/prava"
             android:id="@+id/prava"
             android:textSize="12dp"
             android:layout_gravity="center"

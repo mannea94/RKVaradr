@@ -1,0 +1,213 @@
+[
+  {
+    "name": "Милош\nВалах",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_walach.png#3362",
+    "dateOfBirth": "23/11/2001",
+    "position": "Голман",
+    "height": "195",
+    "weight": "/",
+    "playerNumber": "25",
+    "nationality": "POL"
+  },
+  {
+    "name": "Мигуел\nЕспиња Фереира",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_espina.png#3346",
+    "dateOfBirth": "20/07/1993",
+    "position": "Голман",
+    "height": "190",
+    "weight": "/",
+    "playerNumber": "12",
+    "nationality": "POR"
+  },
+  {
+    "name": "Васил\nГогов",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_gogov.png#3369",
+    "dateOfBirth": "03/11/2000",
+    "position": "Голман",
+    "height": "190",
+    "weight": "/",
+    "playerNumber": "99",
+    "nationality": "MKD"
+  },
+  {
+    "name": "Марко\nБогдановски",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_bogdanovski.png",
+    "dateOfBirth": "30/03/2001",
+    "position": "Голман",
+    "height": "0",
+    "weight": "/",
+    "playerNumber": "1",
+    "nationality": "MKD"
+  },
+  {
+    "name": "Марио\nТанкоски",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_tankoski.png#3361",
+    "dateOfBirth": "28/08/1998",
+    "position": "Среден бек",
+    "height": "190",
+    "weight": "/",
+    "playerNumber": "14",
+    "nationality": "MKD"
+  },
+  {
+    "name": "Јака\nМалус",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/10/web_malus2.png#3503",
+    "dateOfBirth": "15/06/1996",
+    "position": "Среден бек",
+    "height": "190",
+    "weight": "/",
+    "playerNumber": "66",
+    "nationality": "SLO"
+  },
+  {
+    "name": "Николас\nБоно",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_bono.png",
+    "dateOfBirth": "16/08/1997",
+    "position": "Среден бек",
+    "height": "180",
+    "weight": "/",
+    "playerNumber": "4",
+    "nationality": "ARG"
+  },
+  {
+    "name": "Филип\nТалески",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_taleski.png#3345",
+    "dateOfBirth": "28/03/1996",
+    "position": "Лев бек",
+    "height": "202",
+    "weight": "/",
+    "playerNumber": "28",
+    "nationality": "MKD"
+  },
+  {
+    "name": "Димитро\nХориха",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/10/web_horiha2.png#3505",
+    "dateOfBirth": "08/10/1997",
+    "position": "Лев бек",
+    "height": "196",
+    "weight": "/",
+    "playerNumber": "24",
+    "nationality": "UKR"
+  },
+  {
+    "name": "Вуко\nБорозан",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_borozan2.png#3344",
+    "dateOfBirth": "09/04/1994",
+    "position": "Лев бек",
+    "height": "203",
+    "weight": "/",
+    "playerNumber": "87",
+    "nationality": "MON"
+  },
+  {
+    "name": "Мерек\nМарчињак",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/10/web_marciniak2.png#3507",
+    "dateOfBirth": "21/09/1995",
+    "position": "Десен бек",
+    "height": "186",
+    "weight": "/",
+    "playerNumber": "21",
+    "nationality": "POL"
+  },
+  {
+    "name": "Урош\nМитровиќ",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_uros2.png#3371",
+    "dateOfBirth": "13/09/2004",
+    "position": "Десен бек",
+    "height": "199",
+    "weight": "/",
+    "playerNumber": "13",
+    "nationality": "SER"
+  },
+  {
+    "name": "Кристијан\nСтаменковиќ",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_stamenkovic.png#3368",
+    "dateOfBirth": "22/03/2005",
+    "position": "Десен бек",
+    "height": "188",
+    "weight": "/",
+    "playerNumber": "17",
+    "nationality": "MKD"
+  },
+  {
+    "name": "Милан\nЛазаревски",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/10/web_mecka.png#3504",
+    "dateOfBirth": "09/02/1997",
+    "position": "Пикер",
+    "height": "194",
+    "weight": "/",
+    "playerNumber": "18",
+    "nationality": "MKD"
+  },
+  {
+    "name": "Кристијан\nАтанасовски",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_anastasovski.png",
+    "dateOfBirth": "12/04/1997",
+    "position": "Пикер",
+    "height": "197",
+    "weight": "/",
+    "playerNumber": "27",
+    "nationality": "MKD"
+  },
+  {
+    "name": "Виктор\nЈанковски",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_jankowski.png",
+    "dateOfBirth": "12/10/2001",
+    "position": "Пикер",
+    "height": "200",
+    "weight": "/",
+    "playerNumber": "78",
+    "nationality": "POL"
+  },
+  {
+    "name": "Махамаду\nКеита",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/10/web_keita2.png#3506",
+    "dateOfBirth": "18/07/1995",
+    "position": "Лево крило",
+    "height": "190",
+    "weight": "/",
+    "playerNumber": "10",
+    "nationality": "FRA"
+  },
+  {
+    "name": "Гоце\nГеоргиевски",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_georgievski.png#3347",
+    "dateOfBirth": "12/02/1987",
+    "position": "Десно крило",
+    "height": "185",
+    "weight": "/",
+    "playerNumber": "9",
+    "nationality": "MKD"
+  },
+  {
+    "name": "Ален\nЌосевски",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_kjose.png",
+    "dateOfBirth": "07/06/2001",
+    "position": "Десно крило",
+    "height": "187",
+    "weight": "/",
+    "playerNumber": "77",
+    "nationality": "MKD"
+  },
+  {
+    "name": "Мигуел\nПинто",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_pinto.png#3364",
+    "dateOfBirth": "26/04/1999",
+    "position": "Десно крило",
+    "height": "194",
+    "weight": "/",
+    "playerNumber": "71",
+    "nationality": "POR"
+  },
+  {
+    "name": "Марио\nСтојановски",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/web_stojanovski.png",
+    "dateOfBirth": "08/09/2004",
+    "position": "Лево крило",
+    "height": "183",
+    "weight": "/",
+    "playerNumber": "2",
+    "nationality": "MKD"
+  }
+]
+

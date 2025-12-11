@@ -72,10 +72,10 @@ public class KlubActivity extends AppCompatActivity {
             "\n" +
             "Натпреварите од домашната Супер лига, СЕХА Газпром лигата и Лигата на шампионите од сезоната 2014/2015, Вардар ги игра во салата во СЦ \"Јане Сандански\", која е со капацитет од 6.500 седишта.\n ";
 
-    String imgUrl1="https://rkvardar.mk/files/styles/article/public/page/2015/01/20/za-klubot-21150.jpg?itok=RMW3jBal";
-    String imgUrl2="https://rkvardar.mk/files/styles/article/public/page/2015/01/20/za-klubot-17130.jpg?itok=NFpxHN9l";
-    String imgUrl3="https://rkvardar.mk/files/styles/article/public/page/2015/01/20/za-klubot-17129.jpg?itok=paLKA6ej";
-    String imgUrl4="https://rkvardar.mk/files/styles/article/public/page/2015/01/20/za-klubot-17135.jpg?itok=Imsm0-SF";
+    String imgUrl1="https://rkvardar.com.mk/wp-content/uploads/2022/12/61621990_10158135670445348_3749768859024883712_n.jpg";
+    String imgUrl2="https://rkvardar.com.mk/wp-content/uploads/2022/12/61988927_10156549813888666_7925485924194975744_n.jpg";
+    String imgUrl3="https://rkvardar.com.mk/wp-content/uploads/2022/12/61819811_10158135654520348_8316488661512224768_n.jpg";
+    String imgUrl4="https://rkvardar.com.mk/wp-content/uploads/2022/12/61554069_10158135654230348_3248177001667756032_n.jpg";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,19 +92,15 @@ public class KlubActivity extends AppCompatActivity {
         text6.setText(txt6);
         Picasso.with(this)
                 .load(imgUrl1)
-                .fit()
                 .into(img1);
         Picasso.with(this)
                 .load(imgUrl2)
-                .fit()
                 .into(img2);
         Picasso.with(this)
                 .load(imgUrl3)
-                .fit()
                 .into(img3);
         Picasso.with(this)
                 .load(imgUrl4)
-                .fit()
                 .into(img4);
     }
 }

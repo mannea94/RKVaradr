@@ -22,11 +22,7 @@ public class RakovodtsvoActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     StrucenAdapter adapter;
 
-    String imgUrl1="https://rkvardar.mk/files/team/2015/02/27/sergej-samsonenko-1012.png";
-    String imgUrl2="https://rkvardar.mk/files/team/2015/02/27/davor-stojanoski-2178.png";
-    String imgUrl3="https://rkvardar.mk/files/team/2015/02/27/marko-savovski-2177.png";
-    String imgUrl4="https://rkvardar.mk/files/team/2016/10/14/eduard-koksharov-8509.png";
-
+    String imgUrl1="https://rkvardar.com.mk/wp-content/uploads/2022/12/mihajlo-mihajlovski-23997.png";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +43,7 @@ public class RakovodtsvoActivity extends AppCompatActivity {
 
     public void getList(){
         ArrayList<EkipaModel> model = new ArrayList<>();
-        model.add(new EkipaModel("Сергеј Самсоненко", imgUrl1,"претседател"));
-        model.add(new EkipaModel("Давор Стојаноски", imgUrl2,"извршен директор"));
-        model.add(new EkipaModel("Марко Савовски", imgUrl3,"оперативен менаџер"));
-        model.add(new EkipaModel("Едуард Кокшаров", imgUrl4,"спортски директор"));
-
-
+        model.add(new EkipaModel("Михајло Михајловски", imgUrl1,"претседател"));
         adapter.setItems(model);
     }
 }

@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Ivan\nЧупиќ",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/Cupic.png",
+    "position": "Главен тренер"
+  },
+  {
+    "name": "Томислав\nЧупиќ",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/tomislav.png",
+    "position": "Помошен тренер"
+  },
+  {
+    "name": "Марио\nКелентриќ",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/Cupic-2.png",
+    "position": "Тренер на голмани"
+  },
+  {
+    "name": "Николина\nБојаџиска",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/nik.png",
+    "position": "Физиотерапевт"
+  },
+  {
+    "name": "Рубинчо\nСрбиновски",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/rubin22.png",
+    "position": "Физиотерапевт"
+  },
+  {
+    "name": "Матеј\nЈовановски",
+    "imageUrl": "https://rkvardar.com.mk/wp-content/uploads/2025/08/matej.png",
+    "position": "Главен тренер"
+  }
+]
+

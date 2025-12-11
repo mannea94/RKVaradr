@@ -30,6 +30,8 @@ public class IgracActivity extends AppCompatActivity {
     TextView visina;
     @BindView(R.id.playerNumber)
     TextView number;
+    @BindView((R.id.imgFlag))
+    ImageView imgFlag;
 
     EkipaModel model;
 
@@ -56,7 +58,10 @@ public class IgracActivity extends AppCompatActivity {
                     .load(model.getImageUrl2())
                     .fit()
                     .into(image);
-
+            Picasso.with(this)
+                    .load(new GlobalClass().checkFlag(model.getNationality()))
+                    .fit()
+                    .into(imgFlag);
         }
 
         if(intent.hasExtra("EXTRA_2")){
@@ -72,6 +77,10 @@ public class IgracActivity extends AppCompatActivity {
                     .load(model.getImageUrl2())
                     .fit()
                     .into(image);
+            Picasso.with(this)
+                    .load(new GlobalClass().checkFlag(model.getNationality()))
+                    .fit()
+                    .into(imgFlag);
 
         }
 

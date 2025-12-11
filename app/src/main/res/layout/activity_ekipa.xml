@@ -11,6 +11,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/textTitle"
+        android:gravity="center_horizontal"
         android:text="@string/ekipa_title"
         android:textSize="25dp"
         android:textColor="@color/white"

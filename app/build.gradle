@@ -13,8 +13,8 @@ android {
         applicationId "com.hcvardar.manne.rkvaradr"
         minSdkVersion 14
         targetSdkVersion 35
-        versionCode 5
-        versionName "2.1"
+        versionCode 6
+        versionName "2.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk.debugSymbolLevel = "FULL"
     }
@@ -48,4 +48,5 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.6.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.1.17'
     implementation 'me.biubiubiu.justifytext:library:1.1'
+    //implementation 'com.github.bumptech.glide:glide:5.0.5'
 }

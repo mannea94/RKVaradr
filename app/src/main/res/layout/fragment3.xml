@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/team1"
-                android:text="МЕТАЛУРГ"
+                android:text="ВАРДАР"
                 android:textColor="@color/white"/>
         </LinearLayout>
 
@@ -37,14 +37,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/time"
-                android:text="28 мај / 19:00"
+                android:text="5 декември 2025"
                 android:textColor="@color/white"
                 android:textSize="15dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/result"
-                android:text="32:29"
+                android:text="31:27"
                 android:textColor="@color/yellow"
                 android:textSize="30dp"/>
         </LinearLayout>
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/team2"
                 android:textColor="@color/white"
-                android:text="ВАРДАР"/>
+                android:text="ТИКВЕШ"/>
         </LinearLayout>
 
     </LinearLayout>

@@ -15,6 +15,7 @@ public class EkipaModel implements Serializable {
     String visina;
     String tezina;
     String broj;
+    String nationality;
     int number;
 
     public EkipaModel(){
@@ -32,7 +33,7 @@ public class EkipaModel implements Serializable {
         this.pozicija=pozicija;
     }
 
-    public EkipaModel(String name, String imageUrl, String imageUrl2, String datum, String pozicija, String tezina, String visina, String broj){
+    public EkipaModel(String name, String imageUrl, String imageUrl2, String datum, String pozicija, String tezina, String visina, String broj, String nationality){
         this.name=name;
         this.imgurl=imageUrl;
         this.imguri=imageUrl2;
@@ -41,6 +42,7 @@ public class EkipaModel implements Serializable {
         this.visina=visina;
         this.tezina=tezina;
         this.broj=broj;
+        this.nationality=nationality;
     }
 
 
@@ -75,6 +77,10 @@ public class EkipaModel implements Serializable {
 
     public String getBroj() {
         return broj;
+    }
+
+    public String getNationality() {
+        return nationality;
     }
 
     public void setBroj(String broj) {

@@ -35,11 +35,11 @@ public class Fragment3 extends Fragment {
         mUnBinder = ButterKnife.bind(this, view);
 
         Picasso.with(getContext())
-                .load("https://rkvardar.mk/files/styles/team-logo/public/teams/metalurg-992.png?itok=ffaZmWfd")
+                .load("https://rkvardar.com.mk/wp-content/uploads/2023/03/REZ-Vardar.png")
                 .into(logo1);
 
         Picasso.with(getContext())
-                .load("https://rkvardar.mk/files/styles/team-logo/public/teams/vardar-14046.png?itok=saUmVGdJ")
+                .load("https://tikves.com.mk/wp-content/uploads/2024/04/Tikves_novost.png")
                 .into(logo2);
 
         return view;
