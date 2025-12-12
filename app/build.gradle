@@ -8,7 +8,7 @@ android {
 
     }
 
-    compileSdkVersion 31
+    compileSdkVersion 36
     defaultConfig {
         applicationId "com.hcvardar.manne.rkvaradr"
         minSdkVersion 14
@@ -17,18 +17,34 @@ android {
         versionCode 6
         versionName "2.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        ndk.debugSymbolLevel = "FULL"
+
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            ndk.debugSymbolLevel = "FULL"
         }
     }
     productFlavors {
     }
 
-    ndkVersion '29.0.14206865 rc3'
+    ndkVersion '29.0.14206865 rc1'
+    namespace 'com.hcvardar.manne.rkvaradr'
+
+    tasks.withType(JavaCompile).configureEach {
+        options.fork = true
+        options.forkOptions.jvmArgs += [
+                '--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED',
+                '--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
+                '--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED']
+    }
+
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
 }
 
 dependencies {
