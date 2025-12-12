@@ -12,7 +12,8 @@ android {
     defaultConfig {
         applicationId "com.hcvardar.manne.rkvaradr"
         minSdkVersion 14
-        targetSdkVersion 35
+        //noinspection EditedTargetSdkVersion
+        targetSdkVersion 36
         versionCode 6
         versionName "2.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
