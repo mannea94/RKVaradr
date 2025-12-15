@@ -1,12 +1,13 @@
 package com.hcvardar.manne.rkvaradr.Fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.hcvardar.manne.rkvaradr.R;
 import com.squareup.picasso.Picasso;
@@ -34,11 +35,11 @@ public class Fragment2 extends Fragment {
         View view = inflater.inflate(R.layout.fragment2, null);
         mUnBinder = ButterKnife.bind(this, view);
 
-        Picasso.with(getContext())
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2023/03/REZ-Vardar.png")
                 .into(logo1);
 
-        Picasso.with(getContext())
+        Picasso.get()
                 .load("https://upload.wikimedia.org/wikipedia/en/3/3d/Fenix_Toulouse_handball_club.png")
                 .into(logo2);
 

@@ -1,16 +1,18 @@
 package com.hcvardar.manne.rkvaradr.Adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hcvardar.manne.rkvaradr.Model.ImageModel;
 import com.hcvardar.manne.rkvaradr.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +48,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             Glide.with(context).load(data.get(position).getUrl())
                     .thumbnail(0.5f)
                     .override(200,200)
-                    .crossFade()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(((MyItemHolder) holder).mImg);
 

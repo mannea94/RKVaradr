@@ -1,13 +1,16 @@
 package com.hcvardar.manne.rkvaradr;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.DrawableImageViewTarget;
 import com.hcvardar.manne.rkvaradr.Model.EkipaModel;
 import com.squareup.picasso.Picasso;
 
@@ -32,6 +35,8 @@ public class IgracActivity extends AppCompatActivity {
     TextView number;
     @BindView((R.id.imgFlag))
     ImageView imgFlag;
+    @BindView(R.id.imgTriangle)
+    ImageView imgTriangle;
 
     EkipaModel model;
 
@@ -43,6 +48,10 @@ public class IgracActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_igrac);
         ButterKnife.bind(this);
+
+        DrawableImageViewTarget divt = new DrawableImageViewTarget(imgTriangle);
+        Glide.with(this).load(R.drawable.triangle_icon).into(divt.getView());
+
         Intent intent = getIntent();
         int pos=0;
         if(intent.hasExtra("EXTRA")){
@@ -54,11 +63,11 @@ public class IgracActivity extends AppCompatActivity {
             pozicija.setText(model.getPozicija());
             tezina.setText(model.getTezina());
             visina.setText(model.getVisina());
-            Picasso.with(this)
+            Picasso.get()
                     .load(model.getImageUrl2())
                     .fit()
                     .into(image);
-            Picasso.with(this)
+            Picasso.get()
                     .load(new GlobalClass().checkFlag(model.getNationality()))
                     .fit()
                     .into(imgFlag);
@@ -73,11 +82,11 @@ public class IgracActivity extends AppCompatActivity {
             pozicija.setText(model.getPozicija());
             tezina.setText(model.getTezina());
             visina.setText(model.getVisina());
-            Picasso.with(this)
+            Picasso.get()
                     .load(model.getImageUrl2())
                     .fit()
                     .into(image);
-            Picasso.with(this)
+            Picasso.get()
                     .load(new GlobalClass().checkFlag(model.getNationality()))
                     .fit()
                     .into(imgFlag);

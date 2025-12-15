@@ -7,7 +7,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.hcvardar.manne.rkvaradr.MainActivity"
     tools:showIn="@layout/app_bar_main"
-    android:background="@drawable/side_nav_bar">
+    android:background="@drawable/side_nav_bar"
+    android:layout_marginTop="?attr/actionBarSize">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -129,13 +130,13 @@
             android:layout_marginVertical="3dp"
             />
 
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:id="@+id/viewPager"
 
             >
-        </android.support.v4.view.ViewPager>
+        </androidx.viewpager.widget.ViewPager>
 
 
 
@@ -167,14 +168,14 @@
             android:visibility="gone"
             />
 
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager2"
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:visibility="gone"
             >
 
-        </android.support.v4.view.ViewPager>
+        </androidx.viewpager.widget.ViewPager>
 
         <LinearLayout
             android:id="@+id/SliderDots2"
@@ -204,11 +205,11 @@
 
 
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewPlayers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:paddingVertical="5dp"
             android:layout_marginBottom="10dp"
             />
@@ -255,7 +256,7 @@
 
         </LinearLayout>
 
-        <pl.droidsonroids.gif.GifImageView
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="@drawable/za_klubot"

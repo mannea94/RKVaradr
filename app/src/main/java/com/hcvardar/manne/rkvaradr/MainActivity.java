@@ -3,16 +3,6 @@ package com.hcvardar.manne.rkvaradr;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +10,19 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.DrawableImageViewTarget;
+import com.google.android.material.navigation.NavigationView;
 import com.hcvardar.manne.rkvaradr.Activity.GalleryActivity2;
 import com.hcvardar.manne.rkvaradr.Activity.RakovodtsvoActivity;
 import com.hcvardar.manne.rkvaradr.Activity.StrucenstabActivity;
@@ -51,7 +54,6 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import pl.droidsonroids.gif.GifImageView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.youtube)
     ImageView youtube;
     @BindView(R.id.tickets)
-    GifImageView tickets;
+    ImageView tickets;
 
     @BindView(R.id.viewPager)
     ViewPager viewPager;
@@ -193,12 +195,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2025/08/Vardar-tim-scaled.jpg")
                 .fit()
                 .into(imgCover);
 
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2025/06/pehari_web_naslovna5.jpg")
                 .fit()
                 .into(imageView);
@@ -211,7 +213,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://vardarfanshop.com/image/catalog/Baneri/Baner_novdres2526B.jpg")
 //                .fit()
                 .into(onlineStore);
@@ -231,91 +233,94 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2019/05/NLB_Banka_temno-2.jpg")
                 .fit()
                 .into(sponzor1);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2019/05/KOM-BANK_web3.png")
                 .fit()
                 .into(sponzor2);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2023/02/20.-Ministerstvo-za-sport-1-480x149.jpg")
                 .fit()
                 .into(sponzor3);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2023/09/SPARKASSE_L_web2.jpg")
                 .into(sponzor4);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2022/12/Pelisterka-logo-res-768x247.jpg")
                 .fit()
                 .into(sponzor5);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2023/08/Neuromedica_web.png")
                 .fit()
                 .into(sponzor6);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2022/12/Kempa_web.png")
                 .fit()
                 .into(sponzor7);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2023/09/fokabo_web-300x119.png")
                 .fit()
                 .into(sponzor8);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2019/05/vat.jpg")
                 .fit()
                 .into(sponzor9);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2019/05/VLT_logo.png")
                 .fit()
                 .into(sponzor10);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2024/09/MTEL_web.png")
                 .fit()
                 .into(sponzor11);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2025/11/ALPE-BANKA-Logotipi.png")
                 .fit()
                 .into(sponzor12);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.mk/files/sponsor/2017/08/11/lyoness-13488.png")
                 .fit()
                 .into(sponzor13);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.mk/files/sponsor/2017/11/17/happy-card-19231.jpg")
                 .fit()
                 .into(sponzor14);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.mk/files/sponsor/2017/11/17/swisslion-19229.jpg")
                 .fit()
                 .into(sponzor15);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.mk/files/sponsor/2017/11/17/olimpiko-14725.jpg")
                 .fit()
                 .into(sponzor16);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.mk/files/sponsor/2018/10/01/cityradio-17638.png")
                 .fit()
                 .into(sponzor17);
 
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.mk/files/page/2015/01/20/za-klubot-18307.png")
                 .fit()
                 .into(karticka);
 
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2025/09/300x100px-1-300x100.png")
                 .fit()
                 .into(league1);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2025/09/300x100px-300x100.png")
                 .fit()
                 .into(league2);
-        Picasso.with(this)
+        Picasso.get()
                 .load("https://rkvardar.com.mk/wp-content/uploads/2025/09/EHF_TV_202425_Web_300x100px-copy.jpg")
                 .fit()
                 .into(league3);
+
+        DrawableImageViewTarget divt = new DrawableImageViewTarget(tickets);
+        Glide.with(this).load(R.drawable.za_klubot).into(divt.getView());
 
         imageMoto.setImageResource(R.drawable.eden_zivot);
 

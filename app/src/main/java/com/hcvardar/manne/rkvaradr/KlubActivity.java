@@ -1,11 +1,12 @@
 package com.hcvardar.manne.rkvaradr;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.squareup.picasso.Picasso;
 
@@ -90,16 +91,16 @@ public class KlubActivity extends AppCompatActivity {
         text4.setText(txt4);
         text5.setText(txt5);
         text6.setText(txt6);
-        Picasso.with(this)
+        Picasso.get()
                 .load(imgUrl1)
                 .into(img1);
-        Picasso.with(this)
+        Picasso.get()
                 .load(imgUrl2)
                 .into(img2);
-        Picasso.with(this)
+        Picasso.get()
                 .load(imgUrl3)
                 .into(img3);
-        Picasso.with(this)
+        Picasso.get()
                 .load(imgUrl4)
                 .into(img4);
     }

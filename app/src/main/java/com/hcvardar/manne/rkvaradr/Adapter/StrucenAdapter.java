@@ -1,12 +1,13 @@
 package com.hcvardar.manne.rkvaradr.Adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.Model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.R;
@@ -54,7 +55,7 @@ public class StrucenAdapter extends RecyclerView.Adapter<StrucenAdapter.ViewHold
 
 
 
-        Picasso.with(context)
+        Picasso.get()
                 .load(model.getImageUrl())
                 .into(holder.imageStab);
 
