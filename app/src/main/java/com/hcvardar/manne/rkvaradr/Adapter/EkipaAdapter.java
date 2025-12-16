@@ -1,6 +1,7 @@
 package com.hcvardar.manne.rkvaradr.Adapter;
 
 import android.content.Context;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.Model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.Row_Click_Listener;
+import com.hcvardar.manne.rkvaradr.interfaces.Row_Click_Listener;
+import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -64,8 +66,7 @@ public class EkipaAdapter extends RecyclerView.Adapter<EkipaAdapter.ViewHolder> 
 
 
         Picasso.get()
-                .load(model.getImageUrl())
-//                .fit()
+                .load(Constants.VARDAR_UPLOADS_URL.concat(model.getImageUrl()))
                 .into(holder.player, new Callback() {
                     @Override
                     public void onSuccess() {
@@ -78,18 +79,6 @@ public class EkipaAdapter extends RecyclerView.Adapter<EkipaAdapter.ViewHolder> 
                     }
 
                 });
-
-//            holder.player.setImageResource(R.drawable.dainis_krishtopans);
-//
-//
-//            holder.player.setImageResource(R.drawable.igor_karachikj);
-//
-//
-//            holder.player.setImageResource(R.drawable.stojanche_stoilov);
-//
-//
-//            holder.player.setImageResource(R.drawable.stash_skube);
-
     }
 
     @Override

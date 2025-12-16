@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr;
+package com.hcvardar.manne.rkvaradr.Activity;
 
 import android.os.Bundle;
 import android.view.Window;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.hcvardar.manne.rkvaradr.R;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;

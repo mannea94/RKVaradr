@@ -3,6 +3,7 @@ package com.hcvardar.manne.rkvaradr;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.hcvardar.manne.rkvaradr.Activity.MainActivity;
 import com.hcvardar.manne.rkvaradr.Model.EkipaData;
 import com.google.gson.Gson;
 

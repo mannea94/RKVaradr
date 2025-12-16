@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr;
+package com.hcvardar.manne.rkvaradr.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.DrawableImageViewTarget;
+import com.hcvardar.manne.rkvaradr.GlobalClass;
 import com.hcvardar.manne.rkvaradr.Model.EkipaModel;
+import com.hcvardar.manne.rkvaradr.R;
+import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -56,7 +59,6 @@ public class IgracActivity extends AppCompatActivity {
         int pos=0;
         if(intent.hasExtra("EXTRA")){
             model = (EkipaModel) intent.getSerializableExtra("EXTRA");
-//            pos= intent.getIntExtra("POS", 0);
             name.setText(model.getIme());
             number.setText(model.getBroj());
             datum.setText(model.getDatum());
@@ -64,7 +66,7 @@ public class IgracActivity extends AppCompatActivity {
             tezina.setText(model.getTezina());
             visina.setText(model.getVisina());
             Picasso.get()
-                    .load(model.getImageUrl2())
+                    .load(Constants.VARDAR_UPLOADS_URL.concat(model.getImageUrl2()))
                     .fit()
                     .into(image);
             Picasso.get()
@@ -75,7 +77,6 @@ public class IgracActivity extends AppCompatActivity {
 
         if(intent.hasExtra("EXTRA_2")){
             model = (EkipaModel) intent.getSerializableExtra("EXTRA_2");
-//            pos= intent.getIntExtra("POS", 0);
             name.setText(model.getIme());
             number.setText(model.getBroj());
             datum.setText(model.getDatum());
@@ -83,7 +84,7 @@ public class IgracActivity extends AppCompatActivity {
             tezina.setText(model.getTezina());
             visina.setText(model.getVisina());
             Picasso.get()
-                    .load(model.getImageUrl2())
+                    .load(Constants.VARDAR_UPLOADS_URL.concat(model.getImageUrl2()))
                     .fit()
                     .into(image);
             Picasso.get()

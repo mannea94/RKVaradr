@@ -8,8 +8,6 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.hcvardar.manne.rkvaradr.EkipaActivity;
-import com.hcvardar.manne.rkvaradr.MainActivity;
 import com.hcvardar.manne.rkvaradr.R;
 
 public class StartActivity extends AppCompatActivity {

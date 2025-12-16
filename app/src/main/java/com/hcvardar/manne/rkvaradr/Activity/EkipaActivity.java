@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr;
+package com.hcvardar.manne.rkvaradr.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,16 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.Adapter.EkipaAdapter;
+import com.hcvardar.manne.rkvaradr.GlobalClass;
 import com.hcvardar.manne.rkvaradr.Model.EkipaData;
 import com.hcvardar.manne.rkvaradr.Model.EkipaModel;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
+import com.hcvardar.manne.rkvaradr.R;
+import com.hcvardar.manne.rkvaradr.interfaces.Row_Click_Listener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,7 +50,7 @@ public class EkipaActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        adapter.setItems(new GlobalClass().getList(this, true));
+        adapter.setItems(new GlobalClass().getList(this, 0));
         adapter.notifyDataSetChanged();
 
     }

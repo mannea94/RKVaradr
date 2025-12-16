@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "hostName": "РК ВАРДАР",
+    "hostLogo": "2023/03/REZ-Vardar.png",
+    "hostResult": 40,
+    "guestName": "РК РАДОВИШ",
+    "guestLogo": "2024/03/REZ-Radovis2.png",
+    "guestResult": 26,
+    "date": "13 декември 2025"
+  },
+  {
+    "id": 2,
+    "hostName": "Е. ПЕЛИСТЕР",
+    "hostLogo": "2023/03/LOGO-ZA-GOLEMINA.png",
+    "hostResult": 28,
+    "guestName": "РК ВАРДАР",
+    "guestLogo": "2023/03/REZ-Vardar.png",
+    "guestResult": 23,
+    "date": "10 декември 2025"
+  },
+  {
+    "id": 3,
+    "hostName": "РК ВАРДАР",
+    "hostLogo": "2023/03/REZ-Vardar.png",
+    "hostResult": 31,
+    "guestName": "ГРК ТИКВЕШ",
+    "guestLogo": "2023/03/REZ-Tikvesh.png",
+    "guestResult": 27,
+    "date": "5 декември 2025"
+  },
+  {
+    "id": 4,
+    "hostName": "РК ВАРДАР",
+    "hostLogo": "2023/03/REZ-Vardar.png",
+    "hostResult": 37,
+    "guestName": "ТУЛУЗ",
+    "guestLogo": "",
+    "guestResult": 35,
+    "date": "2 декември 2025"
+  },
+  {
+    "id": 5,
+    "hostName": "СЕСВЕТЕ",
+    "hostLogo": "",
+    "hostResult": 24,
+    "guestName": "РК ВАРДАР",
+    "guestLogo": "2023/03/REZ-Vardar.png",
+    "guestResult": 38,
+    "date": "25 ноември 2025"
+  },
+  {
+    "id": 6,
+    "hostName": "РК Вардар",
+    "hostLogo": "2023/03/REZ-Vardar.png",
+    "hostResult": 35,
+    "guestName": "КРИСТИАНШТАД",
+    "guestLogo": "",
+    "guestResult": 30,
+    "date": "18 ноември 2025"
+  }
+]
+

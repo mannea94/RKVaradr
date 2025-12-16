@@ -10,10 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.Adapter.StrucenAdapter;
 import com.hcvardar.manne.rkvaradr.GlobalClass;
-import com.hcvardar.manne.rkvaradr.Model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.R;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +34,7 @@ public class StrucenstabActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        adapter.setItems(new GlobalClass().getList(this, false));
+        adapter.setItems(new GlobalClass().getList(this, 1));
     }
 
 }

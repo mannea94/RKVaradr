@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "name": "Vatrostalna",
+    "imageUrl": "2019/05/vat.jpg",
+    "webLink": ""
+  },
+  {
+    "id": 2,
+    "name": "VLT",
+    "imageUrl": "2019/05/VLT_logo.png",
+    "webLink": "https://videolottery.mk/"
+  },
+  {
+    "id": 3,
+    "name": "MTEL",
+    "imageUrl": "2024/09/MTEL_web.png",
+    "webLink": "https://mtel.mk/"
+  },
+  {
+    "id": 4,
+    "name": "Alpe Banka",
+    "imageUrl": "2025/11/ALPE-BANKA-Logotipi.png",
+    "webLink": ""
+  },
+  {
+    "id": 5,
+    "name": "NLB Banka",
+    "imageUrl": "2019/05/NLB_Banka_temno-2.jpg",
+    "webLink": "https://www.nlb.mk/"
+  },
+  {
+    "id": 6,
+    "name": "Komercijalna banka",
+    "imageUrl": "2019/05/KOM-BANK_web3.png",
+    "webLink": "https://www.kb.mk/fizicki-lica.nspx"
+  },
+  {
+    "id": 7,
+    "name": "Ministerstvo za sport",
+    "imageUrl": "2023/02/20.-Ministerstvo-za-sport-1-480x149.jpg",
+    "webLink": "https://ms.gov.mk/"
+  },
+  {
+    "id": 8,
+    "name": "Sparkasse",
+    "imageUrl": "2023/09/SPARKASSE_L_web2.jpg",
+    "webLink": "https://www.s-leasing.mk/"
+  },
+  {
+    "id": 9,
+    "name": "Pelisterka",
+    "imageUrl": "2022/12/Pelisterka-logo-res-768x247.jpg",
+    "webLink": "http://pelisterka.mk/mk/"
+  },
+  {
+    "id": 10,
+    "name": "Neuromedica",
+    "imageUrl": "2023/08/Neuromedica_web.png",
+    "webLink": "https://neuromedica.com.mk/"
+  },
+  {
+    "id": 11,
+    "name": "Kempa",
+    "imageUrl": "2022/12/Kempa_web.png",
+    "webLink": "https://kempa-sports.com/"
+  },
+  {
+    "id": 12,
+    "name": "Focabo",
+    "imageUrl": "2023/09/fokabo_web-300x119.png",
+    "webLink": "https://www.instagram.com/fokabo.sartoria/"
+  }
+]
+

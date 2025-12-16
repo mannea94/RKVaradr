@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hcvardar.manne.rkvaradr.Adapter.GalleryAdapter2;
 import com.hcvardar.manne.rkvaradr.Model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.Row_Click_Listener;
+import com.hcvardar.manne.rkvaradr.interfaces.Row_Click_Listener;
 
 import java.util.ArrayList;
 

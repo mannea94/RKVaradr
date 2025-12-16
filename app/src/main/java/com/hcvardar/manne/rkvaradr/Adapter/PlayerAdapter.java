@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.Model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.Row_Click_Listener;
+import com.hcvardar.manne.rkvaradr.interfaces.Row_Click_Listener;
+import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import ads_mobile_sdk.v7;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -60,7 +60,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
                 }
             });
         Picasso.get()
-                .load(model.getImageUrl2())
+                .load(Constants.VARDAR_UPLOADS_URL.concat(model.getImageUrl2()))
                 .fit()
                 .into(holder.player);
 
