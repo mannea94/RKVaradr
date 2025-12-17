@@ -13,7 +13,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activity.WebViewActivity"
+            android:name=".ui.activity.home.WebViewActivity"
             android:theme="@style/AppTheme.NoActionBar"
              />
         <activity
@@ -28,29 +28,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.EkipaActivity"
+            android:name=".ui.activity.team.EkipaActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.IgracActivity"
+            android:name=".ui.activity.team.IgracActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.KlubActivity"
+            android:name=".ui.activity.home.KlubActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name=".ui.activity.home.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.GalleryActivity"
-            android:label="Галерија" />
-        <activity android:name=".ui.activity.DetailsActivity" />
+            android:name=".ui.activity.gallery.photo.GalleryPhotosActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+             />
+        <activity android:name=".ui.activity.gallery.photo.PhotoDetailsActivity" />
         <activity
-            android:name=".ui.activity.GalleryActivity2"
+            android:name=".ui.activity.gallery.photo.GalleryActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.StrucenstabActivity"
+            android:name=".ui.activity.team.StrucenstabActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.RakovodtsvoActivity"
+            android:name=".ui.activity.team.RakovodtsvoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

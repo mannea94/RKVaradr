@@ -3,8 +3,10 @@ package com.hcvardar.manne.rkvaradr.utils;
 import android.content.Context;
 
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
+import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
 import com.hcvardar.manne.rkvaradr.ui.model.Result;
 import com.hcvardar.manne.rkvaradr.ui.model.Sponsor;
+import com.hcvardar.manne.rkvaradr.ui.model.TableResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -117,6 +119,54 @@ public class GlobalClass {
         }
         return results;
     }
+
+    public ArrayList<PhotoGallery> getListPhotoGallery(Context context, int type){
+        ArrayList<PhotoGallery> photoGalleries = new ArrayList<>();
+        try {
+            JSONArray jsonArray = new JSONArray(readJSONFromAsset(context, type));
+            PhotoGallery photoGallery;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                photoGallery = new PhotoGallery(
+                        obj.getInt("id"),
+                        obj.getString("nameEvent"),
+                        obj.getString("headerImageUrl"),
+                        obj.getString("date")
+                );
+                photoGallery.setImages(obj.getJSONArray("images"));
+                photoGalleries.add(photoGallery);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return photoGalleries;
+    }
+
+    public ArrayList<TableResult> getListTableResults(Context context, int type){
+        ArrayList<TableResult> superLeagues = new ArrayList<>();
+        try {
+            JSONArray jsonArray = new JSONArray(readJSONFromAsset(context, type));
+            TableResult superLiga;
+            superLeagues.add(new TableResult());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                superLiga = new TableResult(
+                        obj.getString("name"),
+                        obj.getString("logo"),
+                        obj.getInt("playedMatches"),
+                        obj.getInt("wonMatches"),
+                        obj.getInt("drawMatches"),
+                        obj.getInt("lostMatches"),
+                        obj.getInt("points")
+                );
+                superLeagues.add(superLiga);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return superLeagues;
+    }
+
     public String readJSONFromAsset(Context context, int type) {
         String json = null;
         try {
@@ -126,6 +176,10 @@ public class GlobalClass {
                 case 1 -> is = context.getAssets().open("StrucenStab.json");
                 case 2 -> is = context.getAssets().open("Sponsors.json");
                 case 3 -> is = context.getAssets().open("Results.json");
+                case 4 -> is = context.getAssets().open("PhotoGallery.json");
+                case 5 -> is = context.getAssets().open("SuperLiga.json");
+                case 6 -> is = context.getAssets().open("PlayOff.json");
+                case 7 -> is = context.getAssets().open("EuropeanLeague.json");
             }
             assert is != null;
             int size = is.available();

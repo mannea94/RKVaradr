@@ -7,5 +7,5 @@ import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
  */
 
 public interface Row_Click_Listener {
-    public void onRowClick(EkipaModel model, int position);
+     void onRowClick(EkipaModel model, int position);
 }

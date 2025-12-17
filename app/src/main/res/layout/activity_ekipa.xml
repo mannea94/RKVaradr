@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hcvardar.manne.rkvaradr.ui.activity.EkipaActivity"
+    tools:context="com.hcvardar.manne.rkvaradr.ui.activity.team.EkipaActivity"
     android:background="@drawable/side_nav_bar">
 
     <TextView

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.hcvardar.manne.rkvaradr.ui.activity.MainActivity"
+    tools:context="com.hcvardar.manne.rkvaradr.ui.activity.home.MainActivity"
     tools:showIn="@layout/app_bar_main"
     android:background="@drawable/side_nav_bar"
     android:layout_marginTop="?attr/actionBarSize">
@@ -158,25 +158,24 @@
             android:visibility="gone"
             />
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager2"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:visibility="gone"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/gray_background_shape"
+            android:layout_marginHorizontal="@dimen/margin_15"
+            >
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="420dp"
+            android:visibility="visible"
             >
 
         </androidx.viewpager.widget.ViewPager>
-
-        <LinearLayout
-            android:id="@+id/SliderDots2"
-            android:layout_below="@+id/viewPager2"
-            android:orientation="horizontal"
-            android:gravity="center|center_vertical|center_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:visibility="gone"/>
-
 
         <TextView
             android:layout_width="wrap_content"
@@ -184,7 +183,9 @@
             android:text="ЕКИПА"
             android:textColor="@color/white"
             android:textSize="20dp"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            />
 
         <View
             android:layout_width="match_parent"

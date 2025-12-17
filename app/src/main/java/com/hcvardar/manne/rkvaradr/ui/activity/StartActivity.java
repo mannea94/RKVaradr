@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.hcvardar.manne.rkvaradr.R;
+import com.hcvardar.manne.rkvaradr.ui.activity.home.MainActivity;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -21,13 +22,10 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         Handler runnable = new Handler();
-        runnable.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(StartActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        runnable.postDelayed(() -> {
+            Intent intent = new Intent(StartActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }, 2000);
     }
 
