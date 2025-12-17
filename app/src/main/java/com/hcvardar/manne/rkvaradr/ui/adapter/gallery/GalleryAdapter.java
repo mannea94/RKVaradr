@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.adapter;
+package com.hcvardar.manne.rkvaradr.ui.adapter.gallery;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,9 +9,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
+import com.hcvardar.manne.rkvaradr.interfaces.PhotoClickListener;
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.interfaces.Row_Click_Listener;
+import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
+import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -23,23 +24,26 @@ import butterknife.ButterKnife;
  * Created by manne on 03.7.2019.
  */
 
-public class GalleryAdapter2 extends RecyclerView.Adapter<GalleryAdapter2.ViewHolder> {
+public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<EkipaModel> ekipaModels = new ArrayList<>();
-    Row_Click_Listener row_click_listener;
+    ArrayList<PhotoGallery> photoGalleries = new ArrayList<>();
+    PhotoClickListener photoClickListener;
 
-    public void setItems(ArrayList<EkipaModel> models){
-        ekipaModels=models;
+    public void setItems(ArrayList<PhotoGallery> photoGalleries){
+        this.photoGalleries=photoGalleries;
     }
 
-    public GalleryAdapter2(Context context1, Row_Click_Listener row_click_listener1){
+    public void onPhotoClickListener(PhotoClickListener listener){
+        this.photoClickListener = listener;
+    }
+
+    public GalleryAdapter(Context context1){
         context=context1;
-        row_click_listener=row_click_listener1;
     }
 
     @Override
-    public GalleryAdapter2.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public GalleryAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycler_view_gallery, parent, false);
@@ -49,39 +53,28 @@ public class GalleryAdapter2 extends RecyclerView.Adapter<GalleryAdapter2.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(GalleryAdapter2.ViewHolder holder, final int position) {
-            final EkipaModel model = ekipaModels.get(position);
-            holder.vardarChampions.setText(model.getIme());
+    public void onBindViewHolder(GalleryAdapter.ViewHolder holder, final int position) {
+            final PhotoGallery photoGallery = photoGalleries.get(position);
+            holder.vardarChampions.setText(photoGallery.getNameEvent());
 
             holder.precekSkopje.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    row_click_listener.onRowClick(model, position);
+                    photoClickListener.onPhotoClick(photoGallery, position);
                 }
             });
 
 
         Picasso.get()
-                .load(model.getImageUrl())
+                .load(Constants.VARDAR_UPLOADS_URL.concat(photoGallery.getHeaderImageUrl()))
                 .fit()
                 .into(holder.precekSkopje);
-
-//            holder.player.setImageResource(R.drawable.dainis_krishtopans);
-//
-//
-//            holder.player.setImageResource(R.drawable.igor_karachikj);
-//
-//
-//            holder.player.setImageResource(R.drawable.stojanche_stoilov);
-//
-//
-//            holder.player.setImageResource(R.drawable.stash_skube);
 
     }
 
     @Override
     public int getItemCount() {
-        return ekipaModels.size();
+        return photoGalleries.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

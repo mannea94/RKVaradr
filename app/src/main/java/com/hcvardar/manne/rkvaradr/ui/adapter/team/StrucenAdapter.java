@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.adapter;
+package com.hcvardar.manne.rkvaradr.ui.adapter.team;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.interfaces.Row_Click_Listener;
-import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -24,46 +22,53 @@ import butterknife.ButterKnife;
  * Created by manne on 03.7.2019.
  */
 
-public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder> {
+public class StrucenAdapter extends RecyclerView.Adapter<StrucenAdapter.ViewHolder> {
 
     Context context;
     ArrayList<EkipaModel> ekipaModels = new ArrayList<>();
-    Row_Click_Listener row_click_listener;
+
 
     public void setItems(ArrayList<EkipaModel> models){
         ekipaModels=models;
     }
 
-    public PlayerAdapter(Context context1, Row_Click_Listener row_click_listener1){
+    public StrucenAdapter(Context context1){
         context=context1;
-        row_click_listener=row_click_listener1;
+
     }
 
     @Override
-    public PlayerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public StrucenAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.recycler_view_igraci, parent, false);
+        View view = inflater.inflate(R.layout.recycler_view_strucen, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
 
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(PlayerAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(StrucenAdapter.ViewHolder holder, final int position) {
             final EkipaModel model = ekipaModels.get(position);
-            holder.playerName.setText(model.getIme());
-            holder.player.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    row_click_listener.onRowClick(model, position);
-                }
-            });
-        Picasso.get()
-                .load(Constants.VARDAR_UPLOADS_URL.concat(model.getImageUrl2()))
-                .fit()
-                .into(holder.player);
+            holder.strucenName.setText(model.getIme());
+            holder.strucenPos.setText(model.getPozicija());
 
+
+
+        Picasso.get()
+                .load(model.getImageUrl())
+                .into(holder.imageStab);
+
+//            holder.player.setImageResource(R.drawable.dainis_krishtopans);
+//
+//
+//            holder.player.setImageResource(R.drawable.igor_karachikj);
+//
+//
+//            holder.player.setImageResource(R.drawable.stojanche_stoilov);
+//
+//
+//            holder.player.setImageResource(R.drawable.stash_skube);
 
     }
 
@@ -73,11 +78,12 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.imagePlayer)
-        ImageView player;
-        @BindView(R.id.imeIgrac)
-        TextView playerName;
-
+        @BindView(R.id.imageStab)
+        ImageView imageStab;
+        @BindView(R.id.strucenName)
+        TextView strucenName;
+        @BindView(R.id.strucenPozicija)
+        TextView strucenPos;
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.activity;
+package com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo;
 
 
 
@@ -23,7 +23,7 @@ import com.hcvardar.manne.rkvaradr.R;
 
 import java.util.ArrayList;
 
-public class DetailsActivity extends AppCompatActivity {
+public class PhotoDetailsActivity extends AppCompatActivity {
 
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -44,11 +44,6 @@ public class DetailsActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_details);
-
-//        toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
-//        setSupportActionBar(toolbar);
-
-
 
         data = getIntent().getParcelableArrayListExtra("data");
         pos = getIntent().getIntExtra("pos", 0);
@@ -89,13 +84,6 @@ public class DetailsActivity extends AppCompatActivity {
 
     }
 
-
-
-
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
         public ArrayList<ImageModel> data = new ArrayList<>();
 

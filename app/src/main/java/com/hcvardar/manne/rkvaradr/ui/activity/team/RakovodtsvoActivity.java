@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.activity;
+package com.hcvardar.manne.rkvaradr.ui.activity.team;
 
 import android.os.Bundle;
 import android.view.Window;
@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hcvardar.manne.rkvaradr.ui.adapter.StrucenAdapter;
+import com.hcvardar.manne.rkvaradr.ui.adapter.team.StrucenAdapter;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.R;
 

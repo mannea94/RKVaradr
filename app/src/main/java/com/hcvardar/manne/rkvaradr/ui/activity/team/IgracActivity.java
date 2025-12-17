@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.activity;
+package com.hcvardar.manne.rkvaradr.ui.activity.team;
 
 import android.content.Intent;
 import android.os.Bundle;

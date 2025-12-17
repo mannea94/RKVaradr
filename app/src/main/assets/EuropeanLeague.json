@@ -1,0 +1,41 @@
+[
+  {
+    "name": "MT MELSUNGEN",
+    "logo": "2024/10/Melsungen.png",
+    "playedMatches": 10,
+    "wonMatches": 9,
+    "drawMatches": 0,
+    "lostMatches": 1,
+    "points": 21
+  },
+  {
+    "name": "HC VARDAR 1961",
+    "logo": "2022/12/retina-logo.png",
+    "playedMatches": 10,
+    "wonMatches": 8,
+    "drawMatches": 1,
+    "lostMatches": 1,
+    "points": 19
+  },
+
+  {
+    "name": "SL BENFICA",
+    "logo": "2025/12/Benfica.png",
+    "playedMatches": 10,
+    "wonMatches": 6,
+    "drawMatches": 1,
+    "lostMatches": 3,
+    "points": 15
+  },
+  {
+    "name": "IFK KRISTIANSTAD",
+    "logo": "2025/07/IFK_Kristianstad_logo.svg.png",
+    "playedMatches": 10,
+    "wonMatches": 3,
+    "drawMatches": 0,
+    "lostMatches": 7,
+    "points": 7
+  }
+
+]
+

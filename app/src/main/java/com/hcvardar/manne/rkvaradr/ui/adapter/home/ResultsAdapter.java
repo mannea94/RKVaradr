@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.adapter;
+package com.hcvardar.manne.rkvaradr.ui.adapter.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

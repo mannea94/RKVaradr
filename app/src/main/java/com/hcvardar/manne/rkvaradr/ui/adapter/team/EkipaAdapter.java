@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.adapter;
+package com.hcvardar.manne.rkvaradr.ui.adapter.team;
 
 import android.content.Context;
 import android.view.LayoutInflater;

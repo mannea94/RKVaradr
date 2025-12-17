@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.adapter;
+package com.hcvardar.manne.rkvaradr.ui.adapter.gallery;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -19,12 +19,12 @@ import java.util.List;
 /**
  * Created by Suleiman19 on 10/22/15.
  */
-public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class GalleryPhotoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     Context context;
     List<ImageModel> data = new ArrayList<>();
 
-    public GalleryAdapter(Context context, List<ImageModel> data) {
+    public GalleryPhotoAdapter(Context context, List<ImageModel> data) {
         this.context = context;
         this.data = data;
     }

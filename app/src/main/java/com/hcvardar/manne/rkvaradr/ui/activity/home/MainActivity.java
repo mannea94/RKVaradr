@@ -1,16 +1,15 @@
-package com.hcvardar.manne.rkvaradr.ui.activity;
+package com.hcvardar.manne.rkvaradr.ui.activity.home;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -23,15 +22,21 @@ import androidx.viewpager.widget.ViewPager;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.DrawableImageViewTarget;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
+import com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo.GalleryActivity;
+import com.hcvardar.manne.rkvaradr.ui.activity.team.EkipaActivity;
+import com.hcvardar.manne.rkvaradr.ui.activity.team.IgracActivity;
+import com.hcvardar.manne.rkvaradr.ui.activity.team.RakovodtsvoActivity;
+import com.hcvardar.manne.rkvaradr.ui.activity.team.StrucenstabActivity;
+import com.hcvardar.manne.rkvaradr.ui.adapter.FragmentAdapter;
 import com.hcvardar.manne.rkvaradr.ui.adapter.MyPageAdapter2;
-import com.hcvardar.manne.rkvaradr.ui.adapter.PlayerAdapter;
-import com.hcvardar.manne.rkvaradr.ui.adapter.ResultsAdapter;
-import com.hcvardar.manne.rkvaradr.ui.adapter.SponsorsAdapter;
+import com.hcvardar.manne.rkvaradr.ui.adapter.team.PlayerAdapter;
+import com.hcvardar.manne.rkvaradr.ui.adapter.home.ResultsAdapter;
+import com.hcvardar.manne.rkvaradr.ui.adapter.home.SponsorsAdapter;
 import com.hcvardar.manne.rkvaradr.CheckConnection;
-import com.hcvardar.manne.rkvaradr.ui.fragments.Fragment10;
-import com.hcvardar.manne.rkvaradr.ui.fragments.Fragment11;
-import com.hcvardar.manne.rkvaradr.ui.fragments.Fragment12;
-import com.hcvardar.manne.rkvaradr.ui.fragments.Fragment13;
+import com.hcvardar.manne.rkvaradr.ui.fragments.EuropeanLeagueFragment;
+import com.hcvardar.manne.rkvaradr.ui.fragments.SuperLigaFragment;
+import com.hcvardar.manne.rkvaradr.ui.fragments.PlayOffFragment;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaData;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
@@ -82,13 +87,12 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.tickets)
     ImageView tickets;
 
-    @BindView(R.id.viewPager2)
-    ViewPager viewPager2;
-    @BindView(R.id.SliderDots2)
-    LinearLayout sliderDotspanel2;
-    private int dotscount2;
-    private ImageView[] dots2;
-    MyPageAdapter2 viewPagerAdapter2;
+    @BindView(R.id.tabLayout)
+    TabLayout tabLayout;
+
+    FragmentAdapter fragmentAdapter;
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
     SponsorsAdapter sponsorsAdapter;
     ArrayList<Sponsor> sponsors;
 
@@ -97,8 +101,6 @@ public class MainActivity extends AppCompatActivity
 
     @BindView(R.id.rvResults)
     RecyclerView rvResults;
-
-    ArrayList<Result> results;
     ResultsAdapter resultsAdapter;
 
     @BindView(R.id.league1)
@@ -111,26 +113,21 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.imgCover)
     ImageView imgCover;
 
-
-    InternetConnection internetConnection;
-    CheckConnection checkConnection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        viewPagerAdapter2 =  new MyPageAdapter2(this.getSupportFragmentManager());
-        viewPagerAdapter2.addFragment(new Fragment10());
-        viewPagerAdapter2.addFragment(new Fragment11());
-        viewPagerAdapter2.addFragment(new Fragment12());
-        viewPagerAdapter2.addFragment(new Fragment13());
-        viewPager2.setAdapter(viewPagerAdapter2);
-        setUpViewDots2();
+        fragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
+        fragmentAdapter.addFragment(new SuperLigaFragment(), "Супер Лига 2025/26");
+        fragmentAdapter.addFragment(new PlayOffFragment(), "Плеј Оф 2024/25");
+        fragmentAdapter.addFragment(new EuropeanLeagueFragment(), "Европска Лига 2025/26");
+        viewPager.setAdapter(fragmentAdapter);
+        tabLayout.setupWithViewPager(viewPager);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        internetConnection=new InternetConnection();
         activity_titles=getResources().getStringArray(R.array.string_array);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -184,63 +181,9 @@ public class MainActivity extends AppCompatActivity
 
         getListeners();
         loadPhotos();
-
+        handleOnBackPressed();
     }
 
-    public void setUpViewDots2(){
-        dotscount2 = viewPagerAdapter2.getCount();
-        dots2 = new ImageView[dotscount2];
-
-        for(int i = 0; i < dotscount2; i++){
-
-            dots2[i] = new ImageView(this);
-            dots2[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.non_active_dot));
-
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-            params.setMargins(8, 0, 8, 0);
-
-            sliderDotspanel2.addView(dots2[i], params);
-
-        }
-
-        dots2[0].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.active_dot));
-
-        viewPager2.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                for(int i = 0; i< dotscount2; i++){
-                    dots2[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.non_active_dot));
-                }
-
-                dots2[position].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.active_dot));
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-    }
-
-
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -256,26 +199,35 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_zaklubot) {
-            // Handle the camera action
             Intent intent = new Intent(MainActivity.this, KlubActivity.class);
             startActivity(intent);
-
         } else if (id == R.id.nav_ekipa) {
             Intent intent = new Intent(MainActivity.this, EkipaActivity.class);
             startActivity(intent);
-
         } else if (id == R.id.nav_galerija) {
-            Intent intent = new Intent(MainActivity.this, GalleryActivity2.class);
+            Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
             startActivity(intent);
-
-        }
-
-        else if (id == R.id.nav_strucen) {
-        Intent intent = new Intent(MainActivity.this, StrucenstabActivity.class);
-        startActivity(intent);
-        }
-        else if (id == R.id.nav_rakovodstvo) {
+        } else if (id == R.id.nav_strucen) {
+            Intent intent = new Intent(MainActivity.this, StrucenstabActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_rakovodstvo) {
             Intent intent = new Intent(MainActivity.this, RakovodtsvoActivity.class);
+            startActivity(intent);
+        } else if(id == R.id.nav_vesti){
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            intent.putExtra("vesti", "https://rkvardar.com.mk/vesti/");
+            startActivity(intent);
+        } else if(id == R.id.nav_results){
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            intent.putExtra("results", "https://rkvardar.com.mk/rezultati/");
+            startActivity(intent);
+        } else if(id == R.id.nav_poranesni_sostavi){
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            intent.putExtra("sostavi", "https://rkvardar.com.mk/sostavi/");
+            startActivity(intent);
+        } else if(id == R.id.nav_contact){
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            intent.putExtra("contact", "https://rkvardar.com.mk/kontakt/");
             startActivity(intent);
         }
 
@@ -362,7 +314,6 @@ public class MainActivity extends AppCompatActivity
 
         Picasso.get()
                 .load("https://vardarfanshop.com/image/catalog/Baneri/Baner_novdres2526B.jpg")
-//                .fit()
                 .into(onlineStore);
 
         Picasso.get()
@@ -386,5 +337,20 @@ public class MainActivity extends AppCompatActivity
             i.putExtra(Constants.SPONSOR_EXTRA, sponsor.getWebLink());
             startActivity(i);
         }
+    }
+
+    public void handleOnBackPressed(){
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                }else {
+                    finish();
+                }
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 }

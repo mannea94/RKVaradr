@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.activity;
+package com.hcvardar.manne.rkvaradr.ui.activity.team;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hcvardar.manne.rkvaradr.ui.adapter.EkipaAdapter;
+import com.hcvardar.manne.rkvaradr.ui.adapter.team.EkipaAdapter;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaData;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;

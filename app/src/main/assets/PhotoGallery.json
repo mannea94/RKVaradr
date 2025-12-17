@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "nameEvent": "Вардар - Алкалоид",
+    "headerImageUrl": "2025/11/DD8_7887-1200x720.jpg",
+    "date": "09.11.2025",
+    "images": ["2025/11/DD5_5988-scaled.jpg", "2025/11/DD5_5993-scaled.jpg", "2025/11/DD5_6031-scaled.jpg",
+               "2025/11/DD5_6054-scaled.jpg", "2025/11/DD5_6062-scaled.jpg", "2025/11/DD5_6069-scaled.jpg",
+               "2025/11/DD5_6072-scaled.jpg", "2025/11/DD5_6116-scaled.jpg", "2025/11/DD5_6119-scaled.jpg",
+               "2025/11/DD8_7490-scaled.jpg", "2025/11/DD8_7495-scaled.jpg", "2025/11/DD8_7507-scaled.jpg",
+               "2025/11/DD8_7513-scaled.jpg", "2025/11/DD8_7887-scaled.jpg", "2025/11/DD8_7889-scaled.jpg",
+               "2025/11/DD8_7891-scaled.jpg", "2025/11/DD8_7893-1-scaled.jpg"]
+  },
+  {
+    "id": 2,
+    "nameEvent": "Вардар – Бутел",
+    "headerImageUrl": "2025/10/VArdar-Butel-2025-4-1200x720.jpg",
+    "date": "25.10.2025",
+    "images": ["2025/10/VArdar-Butel-2025-22-768x555.jpg", "2025/10/VArdar-Butel-2025-21-768x555.jpg", "2025/10/VArdar-Butel-2025-20-768x555.jpg",
+               "2025/10/VArdar-Butel-2025-19-768x555.jpg", "2025/10/VArdar-Butel-2025-18-768x555.jpg", "2025/10/VArdar-Butel-2025-17-768x555.jpg",
+               "2025/10/VArdar-Butel-2025-11-768x555.jpg", "2025/10/VArdar-Butel-2025-12-768x555.jpg", "2025/10/VArdar-Butel-2025-13-768x555.jpg",
+               "2025/10/VArdar-Butel-2025-14-768x555.jpg", "2025/10/VArdar-Butel-2025-15-768x555.jpg", "2025/10/VArdar-Butel-2025-16-768x555.jpg",
+               "2025/10/VArdar-Butel-2025-5.jpg", "2025/10/VArdar-Butel-2025-6-1.jpg", "2025/10/VArdar-Butel-2025-7.jpg",
+               "2025/10/VArdar-Butel-2025-8.jpg", "2025/10/VArdar-Butel-2025-9.jpg", "2025/10/VArdar-Butel-2025-10.jpg",
+               "2025/10/VArdar-Butel-2025-4-768x555.jpg", "2025/10/VArdar-Butel-2025-3-768x512.jpg", "2025/10/VArdar-Butel-2025-2-768x555.jpg",
+               "2025/10/VArdar-Butel-2025-1-768x555.jpg", "2025/10/VArdar-Butel-2025-6-768x555.jpg"]
+  },
+  {
+    "id": 3,
+    "nameEvent": "Вардар – Сесвете (Лига Европа)",
+    "headerImageUrl": "2025/10/Vardar-Sesvete-Liga-Evropa-2025-29-1200x720.jpg",
+    "date": "15.10.2025",
+    "images": ["2025/10/Vardar-Sesvete-Liga-Evropa-2025-1.jpg", "2025/10/Vardar-Sesvete-Liga-Evropa-2025-2.jpg", "2025/10/Vardar-Sesvete-Liga-Evropa-2025-3.jpg",
+               "2025/10/Vardar-Sesvete-Liga-Evropa-2025-4.jpg", "2025/10/Vardar-Sesvete-Liga-Evropa-2025-5.jpg", "2025/10/Vardar-Sesvete-Liga-Evropa-2025-6.jpg",
+               "2025/10/Vardar-Sesvete-Liga-Evropa-2025-7.jpg", "2025/10/Vardar-Sesvete-Liga-Evropa-2025-8.jpg", "2025/10/Vardar-Sesvete-Liga-Evropa-2025-9.jpg",
+               "2025/10/Vardar-Sesvete-Liga-Evropa-2025-10.jpg", "2025/10/Vardar-Sesvete-Liga-Evropa-2025-11.jpg", "2025/10/Vardar-Sesvete-Liga-Evropa-2025-12.jpg",
+               "2025/10/Vardar-Sesvete-Liga-Evropa-2025-13.jpg", "2025/10/Vardar-Sesvete-Liga-Evropa-2025-14.jpg", "2025/10/Vardar-Sesvete-Liga-Evropa-2025-29.jpg",
+               "2025/10/Vardar-Sesvete-Liga-Evropa-2025-30.jpg", "2025/10/Vardar-Sesvete-Liga-Evropa-2025-31.jpg"]
+  },
+  {
+    "id": 4,
+    "nameEvent": "Вардар – Еурофарм Пелистер",
+    "headerImageUrl": "2025/10/DD5_5889-1200x720.jpg",
+    "date": "01.10.2025",
+    "images": ["2025/10/DD8_3513.jpg", "2025/10/DD8_3625.jpg", "2025/10/DD8_3651.jpg",
+               "2025/10/DD8_3664.jpg", "2025/10/DD8_3667.jpg", "2025/10/DD8_3678.jpg",
+               "2025/10/DD8_3689.jpg", "2025/10/DD8_3694.jpg", "2025/10/DD8_3697.jpg",
+               "2025/10/DD8_3709.jpg", "2025/10/DD8_3717.jpg", "2025/10/DD8_3723.jpg",
+               "2025/10/DD8_3735.jpg", "2025/10/DD8_3742.jpg", "2025/10/DD8_3776.jpg",
+               "2025/10/DD8_3795.jpg", "2025/10/DD8_3805.jpg", "2025/10/DD8_3809.jpg",
+               "2025/10/DD8_3814.jpg", "2025/10/DD8_3828.jpg", "2025/10/DD8_3844.jpg",
+               "2025/10/DD8_3863.jpg", "2025/10/DD8_3868.jpg"]
+  },
+  {
+    "id": 5,
+    "nameEvent": "Алкалоид – Вардар плејоф",
+    "headerImageUrl": "2025/05/DD8_6724-1200x720.jpg",
+    "date": "03.05.2025",
+    "images": ["2025/05/DD8_6022.jpg", "2025/05/DD8_6035.jpg", "2025/05/DD8_6042.jpg",
+               "2025/05/DD8_6058.jpg", "2025/05/DD8_6064.jpg", "2025/05/DD8_6073.jpg",
+               "2025/05/DD8_6076.jpg", "2025/05/DD8_6085.jpg", "2025/05/DD8_6091.jpg",
+               "2025/05/DD8_6693.jpg", "2025/05/DD8_6724.jpg", "2025/05/DD8_6729.jpg",
+               "2025/05/DD8_6734.jpg"]
+  }
+
+]
+

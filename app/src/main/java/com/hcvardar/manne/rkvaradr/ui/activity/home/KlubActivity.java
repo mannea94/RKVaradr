@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.activity;
+package com.hcvardar.manne.rkvaradr.ui.activity.home;
 
 import android.os.Bundle;
 import android.view.Window;

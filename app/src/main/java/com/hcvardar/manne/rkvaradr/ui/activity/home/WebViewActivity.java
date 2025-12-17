@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.activity;
+package com.hcvardar.manne.rkvaradr.ui.activity.home;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
@@ -98,6 +98,14 @@ public class WebViewActivity extends AppCompatActivity {
             return getIntent().getStringExtra(Constants.LEAGUE_EHF_TV_EXTRA);
         }else if(getIntent().hasExtra(Constants.SPONSOR_EXTRA)){
             return getIntent().getStringExtra(Constants.SPONSOR_EXTRA);
+        }else if(getIntent().hasExtra("vesti")){
+            return getIntent().getStringExtra("vesti");
+        }else if(getIntent().hasExtra("results")){
+            return getIntent().getStringExtra("results");
+        }else if(getIntent().hasExtra("sostavi")){
+            return getIntent().getStringExtra("sostavi");
+        }else if(getIntent().hasExtra("contact")){
+            return getIntent().getStringExtra("contact");
         }
         return "";
     }

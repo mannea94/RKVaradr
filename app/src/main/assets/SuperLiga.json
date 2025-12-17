@@ -1,0 +1,111 @@
+[
+  {
+    "name": "РК ВАРДАР",
+    "logo": "2022/12/retina-logo.png",
+    "playedMatches": 17,
+    "wonMatches": 16,
+    "drawMatches": 0,
+    "lostMatches": 1,
+    "points": 32
+  },
+  {
+    "name": "ЕУРОФАРМ ПЕЛИСТЕР",
+    "logo": "2023/03/LOGO-ZA-GOLEMINA.png",
+    "playedMatches": 17,
+    "wonMatches": 13,
+    "drawMatches": 2,
+    "lostMatches": 2,
+    "points": 28
+  },
+  {
+    "name": "АЛКАЛОИД",
+    "logo": "2023/03/REZ-Alkaloid.png",
+    "playedMatches": 17,
+    "wonMatches": 12,
+    "drawMatches": 3,
+    "lostMatches": 2,
+    "points": 27
+  },
+  {
+    "name": "ГРК ОХРИД",
+    "logo": "2023/02/REZ-Ohrid.png",
+    "playedMatches": 17,
+    "wonMatches": 13,
+    "drawMatches": 1,
+    "lostMatches": 3,
+    "points": 27
+  },
+  {
+    "name": "БУТЕЛ",
+    "logo": "2025/10/rkbutel-rez.png",
+    "playedMatches": 17,
+    "wonMatches": 8,
+    "drawMatches": 2,
+    "lostMatches": 7,
+    "points": 18
+  },
+  {
+    "name": "ГРК ТИКВЕШ",
+    "logo": "2023/03/REZ-Tikvesh.png",
+    "playedMatches": 17,
+    "wonMatches": 9,
+    "drawMatches": 0,
+    "lostMatches": 8,
+    "points": 18
+  },
+  {
+    "name": "ПРИЛЕП",
+    "logo": "2023/09/REZ-Prilep.png",
+    "playedMatches": 17,
+    "wonMatches": 8,
+    "drawMatches": 0,
+    "lostMatches": 9,
+    "points": 16
+  },
+  {
+    "name": "ЕУРОФАРМ ПЕЛИСТЕР 2",
+    "logo": "2023/03/LOGO-ZA-GOLEMINA.png",
+    "playedMatches": 17,
+    "wonMatches": 7,
+    "drawMatches": 1,
+    "lostMatches": 9,
+    "points": 15
+  },
+  {
+    "name": "ПРОЛЕТ 62",
+    "logo": "2023/09/REZ-TINEX-Prolet.png",
+    "playedMatches": 17,
+    "wonMatches": 5,
+    "drawMatches": 2,
+    "lostMatches": 10,
+    "points": 12
+  },
+  {
+    "name": "СТРУГА",
+    "logo": "2022/12/retina-logo_STR.png",
+    "playedMatches": 17,
+    "wonMatches": 3,
+    "drawMatches": 0,
+    "lostMatches": 14,
+    "points": 6
+  },
+  {
+    "name": "КУМАНОВО",
+    "logo": "2022/12/REZ-Kumanovo.png",
+    "playedMatches": 17,
+    "wonMatches": 2,
+    "drawMatches": 1,
+    "lostMatches": 14,
+    "points": 5
+  },
+  {
+    "name": "РАДОВИШ",
+    "logo": "2024/03/REZ-Radovis2.png",
+    "playedMatches": 17,
+    "wonMatches": 0,
+    "drawMatches": 0,
+    "lostMatches": 17,
+    "points": 0
+  }
+]
+
