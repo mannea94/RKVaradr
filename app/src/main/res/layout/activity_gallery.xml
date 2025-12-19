@@ -8,31 +8,14 @@
     android:background="@drawable/side_nav_bar"
     >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textTitle"
-        android:text="Галерија"
-        android:textSize="30dp"
-        android:textColor="@color/white"
-        android:layout_marginTop="5dp"
-        android:textAlignment="center"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/yellow"
-        android:layout_marginTop="55dp"/>
+    <include layout="@layout/action_bar_layout"
+        android:id="@+id/rlActionBar"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewGallery"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
-
+        android:layout_below="@+id/rlActionBar"
         />
-
-
-
 
 </RelativeLayout>

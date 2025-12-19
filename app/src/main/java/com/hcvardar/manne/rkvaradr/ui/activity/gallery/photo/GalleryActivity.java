@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,6 +25,10 @@ public class GalleryActivity extends AppCompatActivity implements PhotoClickList
 
     @BindView(R.id.recyclerViewGallery)
     RecyclerView recyclerView;
+    @BindView(R.id.tvName)
+    TextView tvName;
+    @BindView(R.id.ivBack)
+    ImageView ivBack;
 
     GalleryAdapter adapter2;
 
@@ -35,6 +41,7 @@ public class GalleryActivity extends AppCompatActivity implements PhotoClickList
         setContentView(R.layout.activity_gallery);
         ButterKnife.bind(this);
 
+        setActionBarInfo();
 
         adapter2 = new GalleryAdapter(this);
         adapter2.onPhotoClickListener(this);
@@ -43,6 +50,13 @@ public class GalleryActivity extends AppCompatActivity implements PhotoClickList
         recyclerView.setAdapter(adapter2);
         getList();
         adapter2.notifyDataSetChanged();
+    }
+
+    public void setActionBarInfo(){
+        tvName.setText(R.string.gallery);
+        ivBack.setOnClickListener(view -> {
+            getOnBackPressedDispatcher().onBackPressed();
+        });
     }
 
     public void getList(){

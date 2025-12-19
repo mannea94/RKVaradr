@@ -39,16 +39,19 @@ public class NewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
         ButterKnife.bind(this);
-        tvName.setText(R.string.news);
 
-        ivBack.setOnClickListener(view -> {
-            getOnBackPressedDispatcher().onBackPressed();
-        });
+        setActionBarInfo();
 
         adapter = new NewsAdapter(this);
         rvNews.setLayoutManager(new LinearLayoutManager(this));
         rvNews.setAdapter(adapter);
         adapter.setItems(new GlobalClass().getListNews(this, 10));
+    }
 
+    public void setActionBarInfo(){
+        tvName.setText(R.string.news);
+        ivBack.setOnClickListener(view -> {
+            getOnBackPressedDispatcher().onBackPressed();
+        });
     }
 }

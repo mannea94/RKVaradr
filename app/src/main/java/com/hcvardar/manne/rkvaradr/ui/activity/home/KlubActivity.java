@@ -1,6 +1,7 @@
 package com.hcvardar.manne.rkvaradr.ui.activity.home;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -23,9 +24,12 @@ public class KlubActivity extends AppCompatActivity {
 
     @BindView(R.id.rvClubInfo)
     RecyclerView rvClubInfo;
-
     @BindView(R.id.rvClubHistory)
     RecyclerView rvClubHistory;
+    @BindView(R.id.tvName)
+    TextView tvName;
+    @BindView(R.id.ivBack)
+    ImageView ivBack;
 
     ClubInfoAdapter adapter;
     ClubHistoryAdapter historyAdapter;
@@ -33,9 +37,6 @@ public class KlubActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_klub);
         ButterKnife.bind(this);
 
@@ -49,5 +50,14 @@ public class KlubActivity extends AppCompatActivity {
         rvClubHistory.setAdapter(historyAdapter);
         historyAdapter.setItems(new GlobalClass().getListClubInfo(this, 9));
         historyAdapter.notifyDataSetChanged();
+
+        setActionBarInfo();
+    }
+
+    public void setActionBarInfo(){
+        tvName.setText(R.string.for_club);
+        ivBack.setOnClickListener(view -> {
+            getOnBackPressedDispatcher().onBackPressed();
+        });
     }
 }

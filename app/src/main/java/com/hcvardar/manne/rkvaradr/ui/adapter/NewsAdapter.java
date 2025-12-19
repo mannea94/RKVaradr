@@ -11,10 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.ui.model.ClubInfo;
 import com.hcvardar.manne.rkvaradr.ui.model.News;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
+import com.hcvardar.manne.rkvaradr.utils.ViewUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -55,8 +57,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         holder.tvTitle.setText(news.getTitle());
 
-        Picasso.get()
-                .load(Constants.VARDAR_UPLOADS_URL.concat(news.getHeaderImage()))
+        holder.ivHeader.getLayoutParams().height = (int) (ViewUtils.getHeight(context) * 0.35);
+
+        Glide.with(context).load(Constants.VARDAR_UPLOADS_URL.concat(news.getHeaderImage()))
+                .centerCrop()
                 .into(holder.ivHeader);
 
     }

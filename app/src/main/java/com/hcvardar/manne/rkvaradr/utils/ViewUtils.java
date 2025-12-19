@@ -1,5 +1,6 @@
 package com.hcvardar.manne.rkvaradr.utils;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
 
@@ -45,6 +46,13 @@ public class ViewUtils {
         return Resources.getSystem().getDisplayMetrics().density * pixels;
     }
 
+    public static int getHeight(Context c){
+        return Integer.parseInt(String.valueOf(c.getResources().getDisplayMetrics().heightPixels));
+    }
+
+    public static int getWidth(Context c){
+        return Integer.parseInt(String.valueOf(c.getResources().getDisplayMetrics().widthPixels));
+    }
 
 
 }
