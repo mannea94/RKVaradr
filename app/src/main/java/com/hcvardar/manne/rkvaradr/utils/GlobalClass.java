@@ -2,7 +2,9 @@ package com.hcvardar.manne.rkvaradr.utils;
 
 import android.content.Context;
 
+import com.hcvardar.manne.rkvaradr.ui.model.ClubInfo;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
+import com.hcvardar.manne.rkvaradr.ui.model.News;
 import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
 import com.hcvardar.manne.rkvaradr.ui.model.Result;
 import com.hcvardar.manne.rkvaradr.ui.model.Sponsor;
@@ -167,6 +169,54 @@ public class GlobalClass {
         return superLeagues;
     }
 
+    public ArrayList<ClubInfo> getListClubInfo(Context context, int type){
+        ArrayList<ClubInfo> clubInfos = new ArrayList<>();
+        try {
+            JSONArray jsonArray = new JSONArray(readJSONFromAsset(context, type));
+            ClubInfo clubInfo;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                if(type == 8){
+                    clubInfo = new ClubInfo(
+                            obj.getString("paragraph"),
+                            obj.getString("imageUrl")
+                    );
+                }else {
+                    clubInfo = new ClubInfo(
+                            obj.getString("title"),
+                            obj.getString("paragraph"),
+                            obj.getString("year")
+                    );
+                }
+                clubInfos.add(clubInfo);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return clubInfos;
+    }
+
+    public ArrayList<News> getListNews(Context context, int type){
+        ArrayList<News> listNews = new ArrayList<>();
+        try {
+            JSONArray jsonArray = new JSONArray(readJSONFromAsset(context, type));
+            News news;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                news = new News(
+                        obj.getString("title"),
+                        obj.getString("headerImage"),
+                        obj.getString("paragraph"),
+                        obj.getString("date")
+                );
+                listNews.add(news);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return listNews;
+    }
+
     public String readJSONFromAsset(Context context, int type) {
         String json = null;
         try {
@@ -180,6 +230,9 @@ public class GlobalClass {
                 case 5 -> is = context.getAssets().open("SuperLiga.json");
                 case 6 -> is = context.getAssets().open("PlayOff.json");
                 case 7 -> is = context.getAssets().open("EuropeanLeague.json");
+                case 8 -> is = context.getAssets().open("ClubInfo.json");
+                case 9 -> is = context.getAssets().open("ClubHistory.json");
+                case 10 -> is = context.getAssets().open("News.json");
             }
             assert is != null;
             int size = is.available();

@@ -10,12 +10,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.activity.home.NewsActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false" />
         <activity
             android:name=".ui.activity.home.WebViewActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-             />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.activity.StartActivity"
             android:exported="true"
@@ -41,8 +44,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.activity.gallery.photo.GalleryPhotosActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-             />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activity.gallery.photo.PhotoDetailsActivity" />
         <activity
             android:name=".ui.activity.gallery.photo.GalleryActivity"

@@ -19,4 +19,8 @@
     <string name="check_internet_settings">Retry</string>
     <string name="check_internet_cancel">Cancel</string>
 
+    <string name="istorija_na_rakometen_klub">Историја на ракометниот клуб Вардар</string>
+    <string name="history">Историја</string>
+    <string name="news">Вести</string>
+
 </resources>

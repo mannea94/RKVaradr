@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rlItem"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rlShape"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:id="@+id/rlYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/rlCircle"
+            android:background="@drawable/gray_background_shape">
+            <TextView
+                android:id="@+id/tvYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textColor="@color/red"
+                android:text="1963/64"
+
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="@dimen/margin_10">
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="2dp"
+                android:layout_height="wrap_content"
+                android:minHeight="170dp"
+                android:background="@color/light_black"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/margin_20"
+                android:layout_height="@dimen/margin_20"
+                android:src="@drawable/shape_circle"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlParagraphs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/rlShape">
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_10"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:text="Naslov tuka"/>
+        <TextView
+            android:id="@+id/tvParagraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_10"
+            android:textColor="@color/white"
+            android:layout_below="@+id/tvTitle"
+            android:text="Paragraf tuka"
+            android:layout_marginBottom="@dimen/margin_20"/>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

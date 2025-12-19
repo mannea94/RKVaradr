@@ -29,19 +29,15 @@ import com.hcvardar.manne.rkvaradr.ui.activity.team.IgracActivity;
 import com.hcvardar.manne.rkvaradr.ui.activity.team.RakovodtsvoActivity;
 import com.hcvardar.manne.rkvaradr.ui.activity.team.StrucenstabActivity;
 import com.hcvardar.manne.rkvaradr.ui.adapter.FragmentAdapter;
-import com.hcvardar.manne.rkvaradr.ui.adapter.MyPageAdapter2;
 import com.hcvardar.manne.rkvaradr.ui.adapter.team.PlayerAdapter;
 import com.hcvardar.manne.rkvaradr.ui.adapter.home.ResultsAdapter;
 import com.hcvardar.manne.rkvaradr.ui.adapter.home.SponsorsAdapter;
-import com.hcvardar.manne.rkvaradr.CheckConnection;
 import com.hcvardar.manne.rkvaradr.ui.fragments.EuropeanLeagueFragment;
 import com.hcvardar.manne.rkvaradr.ui.fragments.SuperLigaFragment;
 import com.hcvardar.manne.rkvaradr.ui.fragments.PlayOffFragment;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaData;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
-import com.hcvardar.manne.rkvaradr.ui.model.InternetConnection;
-import com.hcvardar.manne.rkvaradr.ui.model.Result;
 import com.hcvardar.manne.rkvaradr.ui.model.Sponsor;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.components.CirclePagerIndicatorDecoration;
@@ -214,7 +210,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, RakovodtsvoActivity.class);
             startActivity(intent);
         } else if(id == R.id.nav_vesti){
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            Intent intent = new Intent(MainActivity.this, NewsActivity.class);
             intent.putExtra("vesti", "https://rkvardar.com.mk/vesti/");
             startActivity(intent);
         } else if(id == R.id.nav_results){
