@@ -17,7 +17,6 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.github.barteksc.pdfviewer.PDFView;
 
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.utils.PDFFile;
@@ -37,8 +36,8 @@ public class PDFPreviewFragment extends Fragment {
 
     public Unbinder mUnBinder;
 
-    @BindView(R.id.pdfView)
-    PDFView pdfView;
+//    @BindView(R.id.pdfView)
+//    PDFView pdfView;
 
     @BindView(R.id.pdfImage)
     ImageView pdfImage;
@@ -61,7 +60,8 @@ public class PDFPreviewFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_p_d_f_preview, container, false);
         mUnBinder = ButterKnife.bind(this, view);
 
-        pdfView.setBackgroundColor(Color.LTGRAY);
+        //pdfView.setBackgroundColor(Color.LTGRAY);
+        pdfImage.setBackgroundColor(Color.WHITE);
 
         if(getArguments()!=null) {
             pdfUri = getArguments().getString("pdf_url");
@@ -83,25 +83,16 @@ public class PDFPreviewFragment extends Fragment {
             File pdfFile = PDFFile.downloadPdfToCache(requireContext(), urlString);
             handler.post(() -> {
                 if (pdfFile != null) {
-                    // Android 15+
                     ViewUtils.toGone(progressBar);
-                    if (Build.VERSION.SDK_INT >= 35) {
-                        ViewUtils.toGone(pdfView);
-                        pdfImage.setBackgroundColor(Color.WHITE);
-                        try {
-                            PDFFile.openPdf(pdfFile);
-                            Bitmap firstPage = PDFFile.renderPage(0);
-                            Glide.with(this)
-                                            .load(firstPage)
-                                                    .into(pdfImage);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }else {
-                        ViewUtils.toGone(pdfImage);
-                        pdfView.fromFile(pdfFile).load();
+                    try {
+                        PDFFile.openPdf(pdfFile);
+                        Bitmap firstPage = PDFFile.renderPage(0);
+                        Glide.with(this)
+                                .load(firstPage)
+                                .into(pdfImage);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
-
                 } else {
                     Toast.makeText(requireActivity(),
                             "Failed to load PDF",
