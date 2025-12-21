@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.hcvardar.manne.rkvaradr.ui.activity.home.KlubActivity"
+    android:fitsSystemWindows="true"
     android:background="@drawable/side_nav_bar">
 
 
@@ -29,31 +30,33 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tvSubtitle"
                 android:text="@string/istorija_na_rakometen_klub"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:textColor="@color/red"
+                android:textStyle="bold"
                 android:layout_marginStart="@dimen/margin_10"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvClubInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="@dimen/margin_15"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvSubtitleHistory"
                 android:text="@string/history"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:textColor="@color/red"
                 android:layout_marginStart="@dimen/margin_10"
-                android:layout_marginTop="@dimen/margin_10"/>
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/margin_15"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvClubHistory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="@dimen/margin_15"/>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

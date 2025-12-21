@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".ui.activity.home.WebViewActivity"
-    android:background="@drawable/side_nav_bar"
-    >
+    tools:context=".ui.fragments.PDFPreviewFragment"
+    android:background="@color/white">
 
-    <include layout="@layout/action_bar_layout"
-        android:id="@+id/rlActionBar"/>
 
-    <WebView
-        android:id="@+id/webView"
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/pdfView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <io.getstream.photoview.PhotoView
+        android:id="@+id/pdfImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rlActionBar"
-        />
+         />
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
+
+
 </RelativeLayout>

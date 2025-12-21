@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo.GalleryPhotosActivity"
-    android:background="@drawable/side_nav_bar">
+    android:background="@drawable/side_nav_bar"
+    android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

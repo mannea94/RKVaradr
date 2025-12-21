@@ -57,29 +57,41 @@
                     <ImageView
                         android:layout_width="33dp"
                         android:layout_height="33dp"
-                        android:background="@drawable/facebook"
+                        android:background="@drawable/ic_facebook"
                         android:layout_margin="5dp"
                         android:id="@+id/facebook"
                         />
                     <ImageView
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:background="@drawable/twitter"
-                        android:layout_margin="5dp"
-                        android:id="@+id/twitter"/>
-                    <ImageView
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:background="@drawable/mail"
-                        android:layout_margin="5dp"
-                        android:id="@+id/mail"/>
-                    <ImageView
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:background="@drawable/youtube"
+                        android:layout_width="@dimen/margin_30"
+                        android:layout_height="@dimen/margin_30"
+                        android:background="@drawable/ic_youtube"
                         android:layout_margin="5dp"
                         android:id="@+id/youtube"/>
+                    <ImageView
+                        android:layout_width="@dimen/margin_30"
+                        android:layout_height="@dimen/margin_30"
+                        android:background="@drawable/ic_instagram"
+                        android:layout_margin="5dp"
+                        android:id="@+id/instagram"/>
+                    <ImageView
+                        android:layout_width="@dimen/margin_30"
+                        android:layout_height="@dimen/margin_30"
+                        android:background="@drawable/ic_fun_shop"
+                        android:layout_margin="5dp"
+                        android:id="@+id/fun_shop"/>
 
+                    <ImageView
+                        android:layout_width="@dimen/margin_30"
+                        android:layout_height="@dimen/margin_30"
+                        android:background="@drawable/ic_ticket"
+                        android:layout_margin="5dp"
+                        android:id="@+id/ticket"/>
+                    <ImageView
+                        android:layout_width="@dimen/margin_30"
+                        android:layout_height="@dimen/margin_30"
+                        android:background="@drawable/ic_viber"
+                        android:layout_margin="5dp"
+                        android:id="@+id/viber"/>
 
                 </LinearLayout>
 
@@ -164,7 +176,6 @@
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/gray_background_shape"
-            android:layout_marginHorizontal="@dimen/margin_15"
             >
         </com.google.android.material.tabs.TabLayout>
 

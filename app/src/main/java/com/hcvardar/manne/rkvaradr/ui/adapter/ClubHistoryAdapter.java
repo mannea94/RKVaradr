@@ -2,6 +2,8 @@ package com.hcvardar.manne.rkvaradr.ui.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,18 +61,11 @@ public class ClubHistoryAdapter extends RecyclerView.Adapter<ClubHistoryAdapter.
         holder.tvParagraph.setText(clubInfo.getParagraph());
         holder.tvYear.setText(clubInfo.getYear());
 
+        holder.itemView.post(() -> {
+            holder.view.getLayoutParams().height = holder.itemView.getHeight();
+            holder.view.requestLayout();
+        });
 
-//        holder.rlItem.getViewTreeObserver()
-//                .addOnGlobalLayoutListener(() -> holder.view.getLayoutParams().height = holder.rlItem.getHeight());
-
-        holder.rlItem.measure(View.MeasureSpec.makeMeasureSpec(holder.rlItem.getHeight(),
-                View.MeasureSpec.UNSPECIFIED), View.MeasureSpec.UNSPECIFIED);
-        holder.view.getLayoutParams().height = holder.rlItem.getMeasuredHeight();
-
-//        holder.rlItem.post(() -> {
-//                holder.itemView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-//                holder.view.getLayoutParams().height = holder.rlItem.getMeasuredHeight();
-//        });
     }
 
     @Override

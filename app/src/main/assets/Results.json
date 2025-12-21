@@ -1,5 +1,15 @@
 [
   {
+    "id": 0,
+    "hostName": "ПРИЛЕП",
+    "hostLogo": "2023/09/REZ-Prilep.png",
+    "hostResult": 25,
+    "guestName": "РК ВАРДАР",
+    "guestLogo": "2023/03/REZ-Vardar.png",
+    "guestResult": 31,
+    "date": "16 декември 2025"
+  },
+  {
     "id": 1,
     "hostName": "РК ВАРДАР",
     "hostLogo": "2023/03/REZ-Vardar.png",
@@ -48,16 +58,6 @@
     "guestLogo": "2023/03/REZ-Vardar.png",
     "guestResult": 38,
     "date": "25 ноември 2025"
-  },
-  {
-    "id": 6,
-    "hostName": "РК Вардар",
-    "hostLogo": "2023/03/REZ-Vardar.png",
-    "hostResult": 35,
-    "guestName": "КРИСТИАНШТАД",
-    "guestLogo": "",
-    "guestResult": 30,
-    "date": "18 ноември 2025"
   }
 ]
 

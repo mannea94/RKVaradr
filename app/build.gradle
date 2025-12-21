@@ -57,7 +57,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     implementation 'com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk:0.22.0-beta04'
     implementation 'com.google.android.material:material:1.13.0'
-    implementation 'androidx.activity:activity:1.8.0'
+    implementation 'androidx.activity:activity:1.12.2'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -70,4 +70,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.github.bumptech.glide:glide:5.0.5'
     implementation 'me.biubiubiu.justifytext:library:1.1'
+    implementation 'com.github.mhiew:android-pdf-viewer:3.2.0-beta.3'
+    implementation ("io.getstream:photoview:1.0.3")
+    implementation 'com.github.MasayukiSuda:BubbleLayout:v1.2.2'
 }

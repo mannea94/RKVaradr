@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.home.NewsActivity"
-    android:background="@drawable/side_nav_bar">
+    android:fitsSystemWindows="true"
+    android:background="@drawable/side_nav_bar"
+    >
 
     <include layout="@layout/action_bar_layout"
         android:id="@+id/rlActionBar"/>
@@ -16,5 +18,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rlActionBar"/>
+
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlActionBar"
+        android:layout_alignParentStart="true">
+
+    </FrameLayout>
 
 </RelativeLayout>

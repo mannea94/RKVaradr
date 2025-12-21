@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.R;
@@ -53,9 +54,13 @@ public class TableResultsAdapter extends RecyclerView.Adapter<TableResultsAdapte
 
             if(position == 0){
                 hide(holder);
-                holder.llRow.setBackgroundColor(R.color.red);
+                holder.llRow.setBackgroundColor(
+                        ContextCompat.getColor(context, R.color.red)
+                        );
             }else {
-                holder.llRow.setBackgroundColor(R.color.cardview_shadow_start_color);
+                holder.llRow.setBackgroundColor(
+                        ContextCompat.getColor(context, R.color.light_black)
+                );
                 show(holder);
                 holder.tvName.setText(superLiga.getName());
                 holder.tvPlayedMatches.setText(String.valueOf(superLiga.getPlayedMatches()));

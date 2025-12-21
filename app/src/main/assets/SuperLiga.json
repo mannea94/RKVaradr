@@ -2,29 +2,29 @@
   {
     "name": "РК ВАРДАР",
     "logo": "2022/12/retina-logo.png",
-    "playedMatches": 17,
-    "wonMatches": 16,
+    "playedMatches": 18,
+    "wonMatches": 17,
     "drawMatches": 0,
     "lostMatches": 1,
-    "points": 32
+    "points": 34
   },
   {
     "name": "ЕУРОФАРМ ПЕЛИСТЕР",
     "logo": "2023/03/LOGO-ZA-GOLEMINA.png",
-    "playedMatches": 17,
+    "playedMatches": 18,
     "wonMatches": 13,
     "drawMatches": 2,
     "lostMatches": 2,
-    "points": 28
+    "points": 30
   },
   {
     "name": "АЛКАЛОИД",
     "logo": "2023/03/REZ-Alkaloid.png",
-    "playedMatches": 17,
-    "wonMatches": 12,
-    "drawMatches": 3,
+    "playedMatches": 18,
+    "wonMatches": 13,
+    "drawMatches": 2,
     "lostMatches": 2,
-    "points": 27
+    "points": 29
   },
   {
     "name": "ГРК ОХРИД",
@@ -38,28 +38,28 @@
   {
     "name": "БУТЕЛ",
     "logo": "2025/10/rkbutel-rez.png",
-    "playedMatches": 17,
+    "playedMatches": 18,
     "wonMatches": 8,
     "drawMatches": 2,
-    "lostMatches": 7,
+    "lostMatches": 8,
     "points": 18
   },
   {
     "name": "ГРК ТИКВЕШ",
     "logo": "2023/03/REZ-Tikvesh.png",
-    "playedMatches": 17,
+    "playedMatches": 18,
     "wonMatches": 9,
     "drawMatches": 0,
-    "lostMatches": 8,
+    "lostMatches": 9,
     "points": 18
   },
   {
     "name": "ПРИЛЕП",
     "logo": "2023/09/REZ-Prilep.png",
-    "playedMatches": 17,
+    "playedMatches": 18,
     "wonMatches": 8,
     "drawMatches": 0,
-    "lostMatches": 9,
+    "lostMatches": 10,
     "points": 16
   },
   {

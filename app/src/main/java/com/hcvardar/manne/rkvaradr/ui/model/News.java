@@ -1,8 +1,11 @@
 package com.hcvardar.manne.rkvaradr.ui.model;
 
-public class News {
+import java.io.Serializable;
+
+public class News implements Serializable {
     String title, headerImage, paragraph, date;
 
+    public Report report;
     public News(){}
 
     public News(String title, String headerImage, String paragraph, String date){
@@ -26,5 +29,13 @@ public class News {
 
     public String getDate() {
         return date;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
+    }
+
+    public Report getReport() {
+        return report;
     }
 }

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.hcvardar.manne.rkvaradr.R;
+import com.hcvardar.manne.rkvaradr.interfaces.NewsClickListener;
 import com.hcvardar.manne.rkvaradr.ui.model.ClubInfo;
 import com.hcvardar.manne.rkvaradr.ui.model.News;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
@@ -33,8 +34,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     Context context;
     ArrayList<News> newsList = new ArrayList<>();
 
+    NewsClickListener newsClickListener;
+
     public void setItems(ArrayList<News> newsList){
         this.newsList=newsList;
+    }
+
+    public void onNewsClickListener(NewsClickListener listener){
+        this.newsClickListener = listener;
     }
 
     public NewsAdapter(Context c){
@@ -62,6 +69,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         Glide.with(context).load(Constants.VARDAR_UPLOADS_URL.concat(news.getHeaderImage()))
                 .centerCrop()
                 .into(holder.ivHeader);
+
+        holder.ivHeader.setOnClickListener(view -> {
+            newsClickListener.onNewsClick(news);
+        });
 
     }
 

@@ -74,12 +74,19 @@ public class MainActivity extends AppCompatActivity
 
     @BindView(R.id.facebook)
     ImageView facebook;
-    @BindView(R.id.twitter)
-    ImageView twitter;
-    @BindView(R.id.mail)
-    ImageView mail;
+    @BindView(R.id.fun_shop)
+    ImageView fun_shop;
+    @BindView(R.id.instagram)
+    ImageView instagram;
     @BindView(R.id.youtube)
     ImageView youtube;
+
+    @BindView(R.id.ticket)
+    ImageView ticket;
+
+    @BindView(R.id.viber)
+    ImageView viber;
+
     @BindView(R.id.tickets)
     ImageView tickets;
 
@@ -223,7 +230,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         } else if(id == R.id.nav_contact){
             Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("contact", "https://rkvardar.com.mk/kontakt/");
+            intent.putExtra(Constants.VARDAR_CONTACT_EXTRA, Constants.VARDAR_CONTACT_URL);
             startActivity(intent);
         }
 
@@ -255,19 +262,31 @@ public class MainActivity extends AppCompatActivity
             i.putExtra(Constants.FACEBOOK_EXTRA, Constants.FACEBOOK_URL);
             startActivity(i);
         });
-        twitter.setOnClickListener(v -> {
+        fun_shop.setOnClickListener(v -> {
             Intent i = new Intent(MainActivity.this, WebViewActivity.class);
-            i.putExtra(Constants.X_EXTRA, Constants.X_URL);
+            i.putExtra(Constants.VARDAR_SHOP_EXTRA, Constants.VARDAR_FAN_SHOP_URL);
             startActivity(i);
         });
-        mail.setOnClickListener(v -> {
+        instagram.setOnClickListener(v -> {
             Intent i = new Intent(MainActivity.this, WebViewActivity.class);
-            i.putExtra(Constants.VARDAR_CONTACT_EXTRA, Constants.VARDAR_CONTACT_URL);
+            i.putExtra(Constants.INSTAGRAM_EXTRA, Constants.INSTAGRAM_URL);
             startActivity(i);
         });
         youtube.setOnClickListener(v -> {
             Intent i = new Intent(MainActivity.this, WebViewActivity.class);
             i.putExtra(Constants.YOUTUBE_EXTRA, Constants.YOUTUBE_URL);
+            startActivity(i);
+        });
+
+        ticket.setOnClickListener(v -> {
+            Intent i = new Intent(MainActivity.this, WebViewActivity.class);
+            i.putExtra(Constants.TICKETS_MK_EXTRA, Constants.TICKETS_MK_URL);
+            startActivity(i);
+        });
+
+        viber.setOnClickListener(v -> {
+            Intent i = new Intent(MainActivity.this, WebViewActivity.class);
+            i.putExtra(Constants.VIBER, Constants.VIBER_URL);
             startActivity(i);
         });
 

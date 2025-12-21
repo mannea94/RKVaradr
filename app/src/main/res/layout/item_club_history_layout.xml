@@ -3,20 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/rlItem"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     >
 
     <RelativeLayout
         android:id="@+id/rlShape"
-        android:layout_width="110dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         >
 
-        <RelativeLayout
-            android:id="@+id/rlYear"
+        <com.daasuu.bl.BubbleLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:bl_arrowDirection="right"
+            app:bl_arrowHeight="15dp"
+            app:bl_arrowPosition="8dp"
+            app:bl_arrowWidth="8dp"
+            app:bl_cornersRadius="10dp"
+            app:bl_strokeWidth="1dp"
             android:layout_toStartOf="@+id/rlCircle"
-            android:background="@drawable/gray_background_shape">
+            >
             <TextView
                 android:id="@+id/tvYear"
                 android:layout_width="wrap_content"
@@ -26,7 +33,7 @@
                 android:text="1963/64"
 
                 />
-        </RelativeLayout>
+        </com.daasuu.bl.BubbleLayout>
 
         <RelativeLayout
             android:id="@+id/rlCircle"
@@ -39,16 +46,21 @@
                 android:id="@+id/view"
                 android:layout_width="2dp"
                 android:layout_height="wrap_content"
-                android:minHeight="170dp"
                 android:background="@color/light_black"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentTop="true"
                 />
-
-            <ImageView
+            <View
                 android:layout_width="@dimen/margin_20"
                 android:layout_height="@dimen/margin_20"
-                android:src="@drawable/shape_circle"/>
+                android:background="@drawable/shape_circle"/>
+
+            <View
+                android:layout_width="@dimen/margin_20"
+                android:layout_height="@dimen/margin_20"
+                android:background="@drawable/shape_ring"/>
+
+
 
         </RelativeLayout>
 
@@ -66,6 +78,7 @@
             android:layout_marginHorizontal="@dimen/margin_10"
             android:textColor="@color/white"
             android:textSize="20dp"
+            android:textStyle="bold"
             android:text="Naslov tuka"/>
         <TextView
             android:id="@+id/tvParagraph"
@@ -75,6 +88,7 @@
             android:textColor="@color/white"
             android:layout_below="@+id/tvTitle"
             android:text="Paragraf tuka"
+            android:layout_marginTop="@dimen/margin_10"
             android:layout_marginBottom="@dimen/margin_20"/>
 
     </RelativeLayout>

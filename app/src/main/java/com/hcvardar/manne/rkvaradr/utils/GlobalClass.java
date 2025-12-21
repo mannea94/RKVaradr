@@ -1,11 +1,15 @@
 package com.hcvardar.manne.rkvaradr.utils;
 
 import android.content.Context;
+import android.content.Intent;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.hcvardar.manne.rkvaradr.ui.model.ClubInfo;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.ui.model.News;
 import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
+import com.hcvardar.manne.rkvaradr.ui.model.Report;
 import com.hcvardar.manne.rkvaradr.ui.model.Result;
 import com.hcvardar.manne.rkvaradr.ui.model.Sponsor;
 import com.hcvardar.manne.rkvaradr.ui.model.TableResult;
@@ -38,6 +42,43 @@ public class GlobalClass {
         }else
             return "";
     }
+
+    public static String checkWebviewTitle(Intent i){
+        if (i.hasExtra(Constants.VARDAR_SHOP_EXTRA)) {
+            return "Fun Shop";
+        }else if (i.hasExtra(Constants.VARDAR_OFFICIAL_EXTRA)) {
+            return "РК ВАРДАР";
+        }else if (i.hasExtra(Constants.FACEBOOK_EXTRA)) {
+            return "Facebook";
+        }else if (i.hasExtra(Constants.INSTAGRAM_EXTRA)) {
+            return "Instagram";
+        }else if (i.hasExtra(Constants.YOUTUBE_EXTRA)) {
+            return "YouTube";
+        }else if (i.hasExtra(Constants.TICKETS_MK_EXTRA)) {
+            return "Tickets MK";
+        }else if (i.hasExtra(Constants.VIBER)) {
+            return "Viber";
+        }else if (i.hasExtra(Constants.VARDAR_CONTACT_EXTRA)) {
+            return "Контакт";
+        }else if (i.hasExtra(Constants.TICKETS_PLUS_EXTRA)) {
+            return "Tickets Plus";
+        }else if (i.hasExtra(Constants.LEAGUE_EHF_EXTRA)) {
+            return "EHF";
+        }else if (i.hasExtra(Constants.LEAGUE_EHF_PLUS_EXTRA)) {
+            return "EHF";
+        }else if (i.hasExtra(Constants.LEAGUE_EHF_TV_EXTRA)) {
+            return "EHF TV";
+        }else if(i.hasExtra(Constants.SPONSOR_EXTRA)) {
+            return "Спонзори";
+        }else if(i.hasExtra("results")){
+            return "Резултати";
+        }else if(i.hasExtra("sostavi")){
+            return "Поранешни состави";
+        }
+            return "";
+    }
+
+
     public ArrayList<EkipaModel> getList(Context context, int type){
         /*
         0 -> ekipa
@@ -209,6 +250,13 @@ public class GlobalClass {
                         obj.getString("paragraph"),
                         obj.getString("date")
                 );
+                if(obj.has("Report")){
+                    Report report = new Report(
+                            obj.getJSONObject("Report").getString("matchInfo"),
+                            obj.getJSONObject("Report").getString("pdfUrl")
+                    );
+                    news.setReport(report);
+                }
                 listNews.add(news);
             }
         } catch (JSONException e) {

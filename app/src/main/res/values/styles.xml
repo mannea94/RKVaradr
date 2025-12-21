@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/black_overlay</item>
         <item name="colorPrimaryDark">@color/light_black</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/light_black</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
