@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,11 +14,15 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
-            android:name=".ui.activity.gallery.video.YoutubeVideoActivity"
+            android:name=".ui.activity.home.ContactActivity"
+            android:configChanges="orientation"
             android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.gallery.video.YoutubeVideoActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
             android:exported="false"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.activity.home.NewsActivity"
             android:exported="true"
@@ -52,7 +56,8 @@
         <activity
             android:name=".ui.activity.gallery.photo.GalleryPhotosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activity.gallery.photo.PhotoDetailsActivity" />
+        <activity android:name=".ui.activity.gallery.photo.PhotoDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.activity.gallery.photo.GalleryActivity"
             android:theme="@style/AppTheme.NoActionBar" />

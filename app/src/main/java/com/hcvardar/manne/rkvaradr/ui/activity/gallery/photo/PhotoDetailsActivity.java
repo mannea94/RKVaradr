@@ -2,11 +2,17 @@ package com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo;
 
 
 
+import static android.view.View.INVISIBLE;
+
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +28,9 @@ import com.hcvardar.manne.rkvaradr.R;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PhotoDetailsActivity extends AppCompatActivity {
 
 
@@ -31,20 +40,33 @@ public class PhotoDetailsActivity extends AppCompatActivity {
 
     Toolbar toolbar;
 
+    @BindView(R.id.tvName)
+    TextView tvName;
+    @BindView(R.id.ivBack)
+    ImageView ivBack;
+    @BindView(R.id.ivLogo)
+    ImageView ivLogo;
+
     /**
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_details);
+        ButterKnife.bind(this);
+
 
         data = getIntent().getParcelableArrayListExtra("data");
         pos = getIntent().getIntExtra("pos", 0);
 
-        setTitle(data.get(pos).getName());
+        //setTitle(data.get(pos).getName());
+        tvName.setText(data.get(pos).getName());
+        ivLogo.setVisibility(INVISIBLE);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -66,7 +88,8 @@ public class PhotoDetailsActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
 
                 //noinspection ConstantConditions
-                setTitle(data.get(position).getName());
+                //setTitle(data.get(position).getName());
+                tvName.setText(data.get(position).getName());
 
             }
 
@@ -76,7 +99,9 @@ public class PhotoDetailsActivity extends AppCompatActivity {
             }
         });
 
-
+        ivBack.setOnClickListener(view -> {
+            getOnBackPressedDispatcher().onBackPressed();
+        });
 
     }
 

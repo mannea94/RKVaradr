@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/side_nav_bar"
+    tools:context=".ui.activity.home.ContactActivity">
+
+    <include layout="@layout/action_bar_layout"
+        android:id="@+id/rlActionBar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlActionBar"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTitle"
+            android:text="@string/rk_vardar_title"
+            android:textSize="30dp"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="@dimen/margin_10"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvParagraph"
+            android:text="@string/contact_info"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginHorizontal="@dimen/margin_10"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

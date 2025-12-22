@@ -1,9 +1,8 @@
 package com.hcvardar.manne.rkvaradr.ui.activity.home;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,10 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.ui.adapter.ClubHistoryAdapter;
-import com.hcvardar.manne.rkvaradr.ui.adapter.ClubInfoAdapter;
+import com.hcvardar.manne.rkvaradr.ui.adapter.club.ClubHistoryAdapter;
+import com.hcvardar.manne.rkvaradr.ui.adapter.club.ClubInfoAdapter;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
-import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,9 +32,11 @@ public class KlubActivity extends AppCompatActivity {
     ClubInfoAdapter adapter;
     ClubHistoryAdapter historyAdapter;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_klub);
         ButterKnife.bind(this);
 

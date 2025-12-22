@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     >
     <ImageView
         android:layout_width="match_parent"
@@ -11,15 +10,25 @@
         android:id="@+id/precekSkopje"
         />
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@drawable/background_faded"
+        android:layout_alignParentBottom="true"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textGallery"
         android:text="ПРЕЧЕК НА ЕВРОПСКИОТ ПРВАК"
         android:textColor="@color/white"
-        android:textSize="23dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:background="@color/black_transparent"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="@dimen/margin_5"
+        android:paddingBottom="@dimen/margin_10"
+        />
 
 </RelativeLayout>

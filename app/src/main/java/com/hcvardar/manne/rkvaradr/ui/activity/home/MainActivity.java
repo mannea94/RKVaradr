@@ -1,6 +1,8 @@
 package com.hcvardar.manne.rkvaradr.ui.activity.home;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.Menu;
@@ -31,7 +33,6 @@ import com.hcvardar.manne.rkvaradr.MainViewModelFactory;
 import com.hcvardar.manne.rkvaradr.NetworkMonitor;
 import com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo.GalleryActivity;
 import com.hcvardar.manne.rkvaradr.ui.activity.team.EkipaActivity;
-import com.hcvardar.manne.rkvaradr.ui.activity.team.IgracActivity;
 import com.hcvardar.manne.rkvaradr.ui.activity.team.RakovodtsvoActivity;
 import com.hcvardar.manne.rkvaradr.ui.activity.team.StrucenstabActivity;
 import com.hcvardar.manne.rkvaradr.ui.adapter.FragmentAdapter;
@@ -47,7 +48,6 @@ import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.ui.model.Sponsor;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.components.CirclePagerIndicatorDecoration;
-import com.hcvardar.manne.rkvaradr.interfaces.Row_Click_Listener;
 import com.hcvardar.manne.rkvaradr.interfaces.SponsorClickListener;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Picasso;
@@ -128,9 +128,11 @@ public class MainActivity extends AppCompatActivity
     private boolean isCallbackRegistered = false;
 
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
@@ -155,21 +157,17 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         DrawableImageViewTarget divt = new DrawableImageViewTarget(tickets);
-        Glide.with(this).load(R.drawable.za_klubot).into(divt.getView());
+        Glide.with(this).load(R.drawable.tickets_mk).into(divt.getView());
 
         imageMoto.setImageResource(R.drawable.eden_zivot);
 
         model=new EkipaModel();
         data=new EkipaData();
 
-        adapter = new PlayerAdapter(this, new Row_Click_Listener() {
-            @Override
-            public void onRowClick(EkipaModel model, int position) {
-                Intent intent = new Intent(MainActivity.this, IgracActivity.class);
-                intent.putExtra("EXTRA_2", model);
-                intent.putExtra("POS", position);
-                startActivity(intent);
-            }
+        adapter = new PlayerAdapter(this, (model, position) -> {
+            Intent intent = new Intent(MainActivity.this, EkipaActivity.class);
+            intent.putExtra("player_info", model);
+            startActivity(intent);
         });
 
         recyclerView.setHasFixedSize(true);
@@ -248,8 +246,7 @@ public class MainActivity extends AppCompatActivity
             intent.putExtra("sostavi", "https://rkvardar.com.mk/sostavi/");
             startActivity(intent);
         } else if(id == R.id.nav_contact){
-            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra(Constants.VARDAR_CONTACT_EXTRA, Constants.VARDAR_CONTACT_URL);
+            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
             startActivity(intent);
         }
 
@@ -311,7 +308,7 @@ public class MainActivity extends AppCompatActivity
 
         tickets.setOnClickListener(v -> {
             Intent i = new Intent(MainActivity.this, WebViewActivity.class);
-            i.putExtra(Constants.TICKETS_PLUS_EXTRA, Constants.TICKETS_PLUS_URL);
+            i.putExtra(Constants.TICKETS_MK_EXTRA, Constants.TICKETS_MK_URL);
             startActivity(i);
         });
 

@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.adapter;
+package com.hcvardar.manne.rkvaradr.ui.adapter.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,11 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.interfaces.NewsClickListener;
-import com.hcvardar.manne.rkvaradr.ui.model.ClubInfo;
 import com.hcvardar.manne.rkvaradr.ui.model.News;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.hcvardar.manne.rkvaradr.utils.ViewUtils;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -65,6 +63,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.tvTitle.setText(news.getTitle());
 
         holder.ivHeader.getLayoutParams().height = (int) (ViewUtils.getHeight(context) * 0.35);
+        holder.view.getLayoutParams().height = (int) (ViewUtils.getHeight(context) * 0.4/2);
+        holder.view_reverse.getLayoutParams().height = (int) (ViewUtils.getHeight(context) * 0.4/2);
+
 
         Glide.with(context).load(Constants.VARDAR_UPLOADS_URL.concat(news.getHeaderImage()))
                 .centerCrop()
@@ -86,6 +87,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         ImageView ivHeader;
         @BindView(R.id.tvTitle)
         TextView tvTitle;
+        @BindView(R.id.view)
+        View view;
+        @BindView(R.id.view_reverse)
+        View view_reverse;
+
 
         public ViewHolder(View itemView) {
             super(itemView);

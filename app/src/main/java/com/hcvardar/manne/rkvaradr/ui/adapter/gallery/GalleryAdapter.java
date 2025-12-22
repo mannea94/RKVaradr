@@ -1,5 +1,6 @@
 package com.hcvardar.manne.rkvaradr.ui.adapter.gallery;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.hcvardar.manne.rkvaradr.interfaces.PhotoClickListener;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
+import com.hcvardar.manne.rkvaradr.utils.ViewUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -53,21 +55,19 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(GalleryAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(GalleryAdapter.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
             final PhotoGallery photoGallery = photoGalleries.get(position);
             holder.vardarChampions.setText(photoGallery.getNameEvent());
 
-            holder.precekSkopje.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    photoClickListener.onPhotoClick(photoGallery, position);
-                }
-            });
+            holder.precekSkopje.setOnClickListener(v -> photoClickListener.onPhotoClick(photoGallery, position));
 
+        holder.precekSkopje.getLayoutParams().height = (int) (ViewUtils.getHeight(context) * 0.3);
+        holder.view.getLayoutParams().height = (int) (ViewUtils.getHeight(context) * 0.3/2);
 
         Picasso.get()
                 .load(Constants.VARDAR_UPLOADS_URL.concat(photoGallery.getHeaderImageUrl()))
                 .fit()
+                .centerCrop()
                 .into(holder.precekSkopje);
 
     }
@@ -82,6 +82,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
         ImageView precekSkopje;
         @BindView(R.id.textGallery)
         TextView vardarChampions;
+        @BindView(R.id.view)
+        View view;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

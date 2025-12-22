@@ -1,15 +1,12 @@
 package com.hcvardar.manne.rkvaradr.ui.activity.home;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -18,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.interfaces.NewsClickListener;
-import com.hcvardar.manne.rkvaradr.ui.adapter.NewsAdapter;
+import com.hcvardar.manne.rkvaradr.ui.adapter.home.NewsAdapter;
 import com.hcvardar.manne.rkvaradr.ui.fragments.CurrentNewsFragment;
 import com.hcvardar.manne.rkvaradr.ui.model.News;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
@@ -39,9 +36,11 @@ public class NewsActivity extends AppCompatActivity implements NewsClickListener
 
     NewsAdapter adapter;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_news);
         ButterKnife.bind(this);
 

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.ui.adapter.TableResultsAdapter;
+import com.hcvardar.manne.rkvaradr.ui.adapter.home.TableResultsAdapter;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 
 import butterknife.BindView;

@@ -1,6 +1,8 @@
 package com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
@@ -35,13 +37,13 @@ public class GalleryActivity extends AppCompatActivity implements PhotoClickList
 
     boolean isVideo;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_gallery);
         ButterKnife.bind(this);
-
-        setActionBarInfo();
 
         isVideo = getIntent().getBooleanExtra("isVideo", false);
 
@@ -51,7 +53,7 @@ public class GalleryActivity extends AppCompatActivity implements PhotoClickList
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter2);
         getList();
-        adapter2.notifyDataSetChanged();
+        setActionBarInfo();
     }
 
     public void setActionBarInfo(){
@@ -75,7 +77,7 @@ public class GalleryActivity extends AppCompatActivity implements PhotoClickList
     public void onPhotoClick(PhotoGallery photoGallery, int position) {
         if(photoGallery.isVideo()){
             Intent intent = new Intent(GalleryActivity.this, YoutubeVideoActivity.class);
-            intent.putExtra("extra_gallery", photoGallery);
+            intent.putExtra("extra_video", photoGallery);
             startActivity(intent);
         }else {
             Intent intent = new Intent(GalleryActivity.this, GalleryPhotosActivity.class);

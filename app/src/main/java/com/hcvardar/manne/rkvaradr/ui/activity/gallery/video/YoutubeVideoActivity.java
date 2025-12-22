@@ -52,7 +52,7 @@ public class YoutubeVideoActivity extends AppCompatActivity{
         setContentView(R.layout.activity_youtube_video);
         ButterKnife.bind(this);
 
-        photoGallery = (PhotoGallery) getIntent().getSerializableExtra("extra_gallery");
+        photoGallery = (PhotoGallery) getIntent().getSerializableExtra("extra_video");
 
         // VERY IMPORTANT (prevents memory leaks)
         getLifecycle().addObserver(youTubePlayerView);

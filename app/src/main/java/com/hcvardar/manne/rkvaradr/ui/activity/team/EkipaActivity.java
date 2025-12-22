@@ -1,15 +1,24 @@
 package com.hcvardar.manne.rkvaradr.ui.activity.team;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.ui.adapter.team.EkipaAdapter;
+import com.hcvardar.manne.rkvaradr.ui.fragments.CurrentNewsFragment;
+import com.hcvardar.manne.rkvaradr.ui.fragments.PlayerFragment;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaData;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
@@ -23,29 +32,40 @@ public class EkipaActivity extends AppCompatActivity {
 
     @BindView(R.id.recyclerViewPeople)
     RecyclerView recyclerView;
+    @BindView(R.id.tvName)
+    TextView tvName;
+    @BindView(R.id.ivBack)
+    ImageView ivBack;
     EkipaAdapter adapter;
     EkipaData data;
     EkipaModel model;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_ekipa);
         ButterKnife.bind(this);
         model=new EkipaModel();
         data=new EkipaData();
 
-        adapter = new EkipaAdapter(this, new Row_Click_Listener() {
-            @Override
-            public void onRowClick(EkipaModel model, int position) {
-                Intent intent = new Intent(EkipaActivity.this, IgracActivity.class);
-                intent.putExtra("EXTRA", model);
-                intent.putExtra("POS", position);
-                startActivity(intent);
-            }
+        if(getIntent().hasExtra("player_info")){
+            model = (EkipaModel) getIntent().getSerializableExtra("player_info");
+            PlayerFragment fragment = new PlayerFragment();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("current_player", model);
+            fragment.setArguments(bundle);
+            replaceFragment(fragment);
+        }
+
+        adapter = new EkipaAdapter(this, (model, position) -> {
+            PlayerFragment fragment = new PlayerFragment();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("current_player", model);
+            fragment.setArguments(bundle);
+            replaceFragment(fragment);
         });
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -53,5 +73,22 @@ public class EkipaActivity extends AppCompatActivity {
         adapter.setItems(new GlobalClass().getList(this, 0));
         adapter.notifyDataSetChanged();
 
+        setActionBarInfo();
+    }
+
+    public void setActionBarInfo(){
+        tvName.setText(R.string.team);
+        ivBack.setOnClickListener(view -> {
+            getOnBackPressedDispatcher().onBackPressed();
+        });
+    }
+
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.commit();
     }
 }

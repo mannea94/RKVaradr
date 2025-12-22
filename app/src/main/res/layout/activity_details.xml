@@ -10,12 +10,15 @@
     android:fitsSystemWindows="true">
 
 
+    <include layout="@layout/action_bar_layout"
+        android:id="@+id/rlActionBar"/>
 
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlActionBar"/>
 
 
 
@@ -24,12 +27,12 @@
 
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/detail_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@android:color/transparent"
-        app:elevation="0dp"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/detail_toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        app:elevation="0dp"-->
+<!--        app:popupTheme="@style/AppTheme.PopupOverlay" />-->
 
 </RelativeLayout>

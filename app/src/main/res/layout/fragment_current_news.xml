@@ -20,6 +20,7 @@
                 android:id="@+id/tvTitle"
                 android:text="@string/istorija_na_rakometen_klub"
                 android:textSize="20dp"
+                android:textStyle="bold"
                 android:textColor="@color/white"
                 android:layout_marginHorizontal="@dimen/margin_10"
                 />
