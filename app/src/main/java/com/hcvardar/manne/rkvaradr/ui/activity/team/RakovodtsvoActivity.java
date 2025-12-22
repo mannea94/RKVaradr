@@ -5,6 +5,8 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,6 +25,10 @@ public class RakovodtsvoActivity extends AppCompatActivity {
 
     @BindView(R.id.recyclerViewStrucen)
     RecyclerView recyclerView;
+    @BindView(R.id.tvName)
+    TextView tvName;
+    @BindView(R.id.ivBack)
+    ImageView ivBack;
     StrucenAdapter adapter;
 
     String imgUrl1="https://rkvardar.com.mk/wp-content/uploads/2022/12/mihajlo-mihajlovski-23997.png";
@@ -32,9 +38,6 @@ public class RakovodtsvoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_rakovodstvo);
         ButterKnife.bind(this);
 
@@ -43,6 +46,7 @@ public class RakovodtsvoActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         getList();
+        setActionBarInfo();
 
     }
 
@@ -50,5 +54,12 @@ public class RakovodtsvoActivity extends AppCompatActivity {
         ArrayList<EkipaModel> model = new ArrayList<>();
         model.add(new EkipaModel("Михајло Михајловски", imgUrl1,"претседател"));
         adapter.setItems(model);
+    }
+
+    public void setActionBarInfo(){
+        tvName.setText(R.string.management);
+        ivBack.setOnClickListener(view -> {
+            getOnBackPressedDispatcher().onBackPressed();
+        });
     }
 }

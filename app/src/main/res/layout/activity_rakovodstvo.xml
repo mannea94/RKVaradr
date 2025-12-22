@@ -4,30 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context="com.hcvardar.manne.rkvaradr.ui.activity.team.StrucenstabActivity"
     android:background="@drawable/side_nav_bar">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textTitle"
-        android:text="Раководство"
-        android:textSize="30dp"
-        android:textColor="@color/white"
-        android:layout_marginTop="10dp"
-        android:textAlignment="center"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/yellow"
-        android:layout_marginTop="60dp"/>
+    <include layout="@layout/action_bar_layout"
+        android:id="@+id/rlActionBar"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewStrucen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="65dp"
+        android:layout_below="@+id/rlActionBar"
         />
 
 </RelativeLayout>

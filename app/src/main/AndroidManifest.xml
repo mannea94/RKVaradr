@@ -44,9 +44,7 @@
         <activity
             android:name=".ui.activity.team.EkipaActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.activity.team.IgracActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".ui.activity.home.KlubActivity"
             android:theme="@style/AppTheme.NoActionBar" />
