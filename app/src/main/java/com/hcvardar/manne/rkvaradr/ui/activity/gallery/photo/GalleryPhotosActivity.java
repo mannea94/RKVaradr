@@ -2,7 +2,6 @@ package com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -11,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hcvardar.manne.rkvaradr.ui.adapter.gallery.GalleryPhotoAdapter;
 import com.hcvardar.manne.rkvaradr.ui.model.ImageModel;
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.RecyclerItemClickListener;
+import com.hcvardar.manne.rkvaradr.components.RecyclerItemClickListener;
 import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 

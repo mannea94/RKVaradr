@@ -170,14 +170,26 @@ public class GlobalClass {
             PhotoGallery photoGallery;
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject obj = jsonArray.getJSONObject(i);
-                photoGallery = new PhotoGallery(
-                        obj.getInt("id"),
-                        obj.getString("nameEvent"),
-                        obj.getString("headerImageUrl"),
-                        obj.getString("date")
-                );
-                photoGallery.setImages(obj.getJSONArray("images"));
-                photoGalleries.add(photoGallery);
+                if(type==4){
+                    photoGallery = new PhotoGallery(
+                            obj.getInt("id"),
+                            obj.getString("nameEvent"),
+                            obj.getString("headerImageUrl"),
+                            obj.getString("date")
+                    );
+                    photoGallery.setImages(obj.getJSONArray("images"));
+                    photoGalleries.add(photoGallery);
+                }else {
+                    photoGallery = new PhotoGallery(
+                            obj.getString("nameEvent"),
+                            obj.getString("headerImageUrl"),
+                            obj.getString("date"),
+                            obj.getString("videoId")
+                    );
+                    photoGallery.setVideo(true);
+                    photoGalleries.add(photoGallery);
+                }
+
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -281,6 +293,7 @@ public class GlobalClass {
                 case 8 -> is = context.getAssets().open("ClubInfo.json");
                 case 9 -> is = context.getAssets().open("ClubHistory.json");
                 case 10 -> is = context.getAssets().open("News.json");
+                case 11 -> is = context.getAssets().open("VideoGallery.json");
             }
             assert is != null;
             int size = is.available();

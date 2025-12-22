@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "nameEvent": "СУПЕР ЛИГА: ОХРИД – ВАРДАР 1961",
+    "headerImageUrl": "2025/12/video-oh-var-1024x720.jpg",
+    "date": "04/12/2025",
+    "isVideo": true,
+    "videoId": "IS6Z-x8buqw"
+  },
+  {
+    "id": 2,
+    "nameEvent": "ПЛЕЈОФ: РК ВАРДАР 1961 – РК ЕУРОФАРМ ПЕЛИСТЕР",
+    "headerImageUrl": "2025/10/DD8_4076ss-1024x720.jpg",
+    "date": "01/06/2025",
+    "isVideo": true,
+    "videoId": "v-nEqI7rU5U"
+  },
+  {
+    "id": 3,
+    "nameEvent": "ФИНАЛЕ КУП: ВАРДАР 1961 – ЕУРОФАРМ ПЕЛИСТЕР",
+    "headerImageUrl": "2025/06/DD8_922622-1200x720.jpg",
+    "date": "01/06/2025",
+    "isVideo": true,
+    "videoId": "v-nEqI7rU5U"
+  },
+  {
+    "id": 3,
+    "nameEvent": "ПЛЕЈОФ: ВАРДАР 1961 – АЛКАЛОИД",
+    "headerImageUrl": "2025/04/DD8_9226-1200x720.jpg",
+    "date": "03/04/2025",
+    "isVideo": true,
+    "videoId": "87ORkIDN66s"
+  }
+
+]
+

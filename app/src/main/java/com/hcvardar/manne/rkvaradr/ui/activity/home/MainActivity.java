@@ -1,10 +1,12 @@
 package com.hcvardar.manne.rkvaradr.ui.activity.home;
 
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -12,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
@@ -23,6 +26,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.DrawableImageViewTarget;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.hcvardar.manne.rkvaradr.MainViewModel;
+import com.hcvardar.manne.rkvaradr.MainViewModelFactory;
+import com.hcvardar.manne.rkvaradr.NetworkMonitor;
 import com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo.GalleryActivity;
 import com.hcvardar.manne.rkvaradr.ui.activity.team.EkipaActivity;
 import com.hcvardar.manne.rkvaradr.ui.activity.team.IgracActivity;
@@ -116,6 +122,12 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.imgCover)
     ImageView imgCover;
 
+    private MainViewModel viewModel;
+    private ConnectivityManager connectivityManager;
+    private ConnectivityManager.NetworkCallback networkCallback;
+    private boolean isCallbackRegistered = false;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -185,6 +197,8 @@ public class MainActivity extends AppCompatActivity
         getListeners();
         loadPhotos();
         handleOnBackPressed();
+        //checkInternet();
+
     }
 
 
@@ -207,8 +221,13 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_ekipa) {
             Intent intent = new Intent(MainActivity.this, EkipaActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_galerija) {
+        } else if (id == R.id.nav_gallery_photo) {
             Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
+            intent.putExtra("isVideo", false);
+            startActivity(intent);
+        } else if (id == R.id.nav_gallery_video) {
+            Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
+            intent.putExtra("isVideo", true);
             startActivity(intent);
         } else if (id == R.id.nav_strucen) {
             Intent intent = new Intent(MainActivity.this, StrucenstabActivity.class);
@@ -368,4 +387,25 @@ public class MainActivity extends AppCompatActivity
         };
         getOnBackPressedDispatcher().addCallback(this, callback);
     }
+
+    public void checkInternet(){
+        NetworkMonitor networkMonitor =
+                new NetworkMonitor(getApplicationContext());
+
+        viewModel = new ViewModelProvider(
+                this,
+                new MainViewModelFactory(networkMonitor)
+        ).get(MainViewModel.class);
+
+        viewModel.isConnected().observe(this, connected -> {
+            if (Boolean.TRUE.equals(connected)) {
+                // online UI
+                Toast.makeText(this, "✅ Connected", Toast.LENGTH_SHORT).show();
+            } else {
+                // offline UI
+                Toast.makeText(this, "No Internet connection", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }

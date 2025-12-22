@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +16,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
-import com.hcvardar.manne.rkvaradr.DepthPageTransformer;
+import com.hcvardar.manne.rkvaradr.components.DepthPageTransformer;
 import com.hcvardar.manne.rkvaradr.ui.model.ImageModel;
 import com.hcvardar.manne.rkvaradr.R;
 

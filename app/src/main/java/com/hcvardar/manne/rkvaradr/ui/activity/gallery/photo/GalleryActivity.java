@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.interfaces.PhotoClickListener;
+import com.hcvardar.manne.rkvaradr.ui.activity.gallery.video.YoutubeVideoActivity;
 import com.hcvardar.manne.rkvaradr.ui.adapter.gallery.GalleryAdapter;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
@@ -32,6 +33,8 @@ public class GalleryActivity extends AppCompatActivity implements PhotoClickList
 
     GalleryAdapter adapter2;
 
+    boolean isVideo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,8 @@ public class GalleryActivity extends AppCompatActivity implements PhotoClickList
         ButterKnife.bind(this);
 
         setActionBarInfo();
+
+        isVideo = getIntent().getBooleanExtra("isVideo", false);
 
         adapter2 = new GalleryAdapter(this);
         adapter2.onPhotoClickListener(this);
@@ -50,21 +55,33 @@ public class GalleryActivity extends AppCompatActivity implements PhotoClickList
     }
 
     public void setActionBarInfo(){
-        tvName.setText(R.string.gallery);
+        if(isVideo)
+            tvName.setText(R.string.video_gallery);
+        else
+            tvName.setText(R.string.photo_gallery);
         ivBack.setOnClickListener(view -> {
             getOnBackPressedDispatcher().onBackPressed();
         });
     }
 
     public void getList(){
-        adapter2.setItems(new GlobalClass().getListPhotoGallery(this, 4));
+        if(isVideo)
+            adapter2.setItems(new GlobalClass().getListPhotoGallery(this, 11));
+        else
+            adapter2.setItems(new GlobalClass().getListPhotoGallery(this, 4));
     }
 
     @Override
     public void onPhotoClick(PhotoGallery photoGallery, int position) {
-        Intent intent = new Intent(GalleryActivity.this, GalleryPhotosActivity.class);
-        intent.putExtra("extra_gallery",photoGallery);
-        intent.putExtra("pos_gallery",position);
-        startActivity(intent);
+        if(photoGallery.isVideo()){
+            Intent intent = new Intent(GalleryActivity.this, YoutubeVideoActivity.class);
+            intent.putExtra("extra_gallery", photoGallery);
+            startActivity(intent);
+        }else {
+            Intent intent = new Intent(GalleryActivity.this, GalleryPhotosActivity.class);
+            intent.putExtra("extra_gallery",photoGallery);
+            intent.putExtra("pos_gallery",position);
+            startActivity(intent);
+        }
     }
 }

@@ -27,13 +27,16 @@
             android:title="Раководство" />
         <item
             android:id="@+id/nav_vesti"
-
             android:title="Вести"
             />
         <item
-            android:id="@+id/nav_galerija"
+            android:id="@+id/nav_gallery_photo"
 
-            android:title="Галерија" />
+            android:title="Фото Галерија" />
+        <item
+            android:id="@+id/nav_gallery_video"
+
+            android:title="Видео Галерија" />
         <item
             android:id="@+id/nav_results"
 
