@@ -52,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="right"
+                    android:gravity="end"
                     >
 
                     <ImageView
@@ -109,10 +109,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ONLINE ПРОДАВНИЦА"
+            android:text="@string/online_store"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:layout_marginLeft="5dp"/>
+            android:textSize="20sp"
+            android:layout_marginStart="5dp"/>
 
         <View
             android:layout_width="match_parent"
@@ -125,16 +125,15 @@
             android:id="@+id/onlineStore"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:layout_alignParentBottom="true"
             android:layout_marginTop="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="РЕЗУЛТАТИ"
+            android:text="@string/results"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:layout_marginLeft="5dp"/>
+            android:textSize="20sp"
+            android:layout_marginStart="5dp"/>
 
         <View
             android:layout_width="match_parent"
@@ -156,10 +155,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ПРВЕНСТВА"
+            android:text="@string/championships"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:layout_marginLeft="5dp"
+            android:textSize="20sp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:visibility="gone"/>
 
@@ -192,10 +191,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ЕКИПА"
+            android:text="@string/team"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:layout_marginLeft="5dp"
+            android:textSize="20sp"
+            android:textAllCaps="true"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             />
 
@@ -254,10 +254,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ПЕХАРИ"
+            android:text="@string/cups"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:layout_marginLeft="5dp"/>
+            android:textSize="20sp"
+            android:layout_marginStart="5dp"/>
 
         <View
             android:layout_width="match_parent"
@@ -272,18 +272,16 @@
             android:minHeight="90dp"
             android:id="@+id/imageHeder"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_alignParentBottom="true"
-            />
+            android:layout_marginBottom="5dp" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="СПОНЗОРИ И ПРИЈАТЕЛИ"
+            android:text="@string/sponsors_and_friends"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:layout_marginLeft="5dp"/>
+            android:textSize="20sp"
+            android:layout_marginStart="5dp"/>
 
         <View
             android:layout_width="match_parent"
@@ -305,7 +303,7 @@
             android:layout_height="wrap_content"
             android:text="@string/prava"
             android:id="@+id/prava"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:textColor="@color/white"

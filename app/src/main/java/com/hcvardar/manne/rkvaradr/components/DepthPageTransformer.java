@@ -3,8 +3,9 @@ package com.hcvardar.manne.rkvaradr.components;
 import android.view.View;
 
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
-public class DepthPageTransformer implements ViewPager.PageTransformer {
+public class DepthPageTransformer implements ViewPager2.PageTransformer {
     private static final float MIN_SCALE = 0.75f;
 
     public void transformPage(View view, float position) {

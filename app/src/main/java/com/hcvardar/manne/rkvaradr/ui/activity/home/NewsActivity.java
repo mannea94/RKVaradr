@@ -19,11 +19,11 @@ import com.hcvardar.manne.rkvaradr.ui.adapter.home.NewsAdapter;
 import com.hcvardar.manne.rkvaradr.ui.fragments.news.CurrentNewsFragment;
 import com.hcvardar.manne.rkvaradr.ui.model.News;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
-import com.hcvardar.manne.rkvaradr.utils.ViewUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@SuppressLint("NonConstantResourceId")
 public class NewsActivity extends AppCompatActivity implements NewsClickListener {
 
     @BindView(R.id.tvName)
@@ -55,9 +55,7 @@ public class NewsActivity extends AppCompatActivity implements NewsClickListener
 
     public void setActionBarInfo(){
         tvName.setText(R.string.news);
-        ivBack.setOnClickListener(view -> {
-            getOnBackPressedDispatcher().onBackPressed();
-        });
+        ivBack.setOnClickListener(view -> getOnBackPressedDispatcher().onBackPressed());
     }
 
     @Override

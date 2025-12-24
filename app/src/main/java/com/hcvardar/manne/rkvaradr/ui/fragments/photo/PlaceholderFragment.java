@@ -58,7 +58,7 @@ public class PlaceholderFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
 
-        final ImageView imageView = (ImageView) rootView.findViewById(R.id.detail_image);
+        final ImageView imageView = rootView.findViewById(R.id.detail_image);
 
         Glide.with(requireActivity())
                 .load(url)

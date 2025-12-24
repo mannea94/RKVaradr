@@ -1,22 +1,13 @@
 package com.hcvardar.manne.rkvaradr.utils;
-
-import static android.view.View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
-import android.os.Build;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 public class ViewUtils {
 
     public static int width = 400;
     public static int height = 400;
-
-    public static int width_blog = 1200;
-    public static int height_blog = 1200;
 
     public static void needShow(View v, boolean show) {
         if (v == null) return;

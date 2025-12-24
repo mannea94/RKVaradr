@@ -1,5 +1,6 @@
 package com.hcvardar.manne.rkvaradr.ui.fragments.news;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -21,10 +22,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-
+@SuppressLint("NonConstantResourceId")
 public class CurrentNewsFragment extends Fragment {
 
     public Unbinder mUnBinder;
+
 
     @BindView(R.id.tvTitle)
     TextView tvTitle;

@@ -8,7 +8,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -20,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.hcvardar.manne.rkvaradr.components.DepthPageTransformer;
 import com.hcvardar.manne.rkvaradr.ui.adapter.gallery.SectionsPagerAdapter;
@@ -32,13 +32,15 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PhotoDetailsActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
+@SuppressLint("NonConstantResourceId")
+public class PhotoDetailsActivity extends AppCompatActivity {
 
     private static final int STORAGE_PERMISSION_CODE = 1001;
     SectionsPagerAdapter mSectionsPagerAdapter;
     ArrayList<ImageModel> data;
     int pos;
     String imageUrl="";
+
     @BindView(R.id.tvName)
     TextView tvName;
     @BindView(R.id.ivClose)
@@ -48,7 +50,7 @@ public class PhotoDetailsActivity extends AppCompatActivity implements ViewPager
     @BindView(R.id.ivShare)
     ImageView ivShare;
     @BindView(R.id.view_pager)
-    ViewPager mViewPager;
+    ViewPager2 mViewPager;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -74,44 +76,43 @@ public class PhotoDetailsActivity extends AppCompatActivity implements ViewPager
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), data);
+        mSectionsPagerAdapter = new SectionsPagerAdapter(this, data);
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager.addOnPageChangeListener(this);
-        mViewPager.setPageTransformer(true, new DepthPageTransformer());
+
+        mViewPager.setPageTransformer(new DepthPageTransformer());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setCurrentItem(pos);
+        registerOnPageChangeCallback();
 
+        ivClose.setOnClickListener(view -> getOnBackPressedDispatcher().onBackPressed());
 
-        ivClose.setOnClickListener(view -> {
-            getOnBackPressedDispatcher().onBackPressed();
+        ivDownload.setOnClickListener(view -> saveImageWithPermissionCheck());
+
+        ivShare.setOnClickListener(view -> ImageDownload.downloadAndShareImage(this, imageUrl));
+
+    }
+
+    public void registerOnPageChangeCallback(){
+        mViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                tvName.setText(data.get(position).getName());
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                super.onPageScrollStateChanged(state);
+            }
         });
-
-        ivDownload.setOnClickListener(view -> {
-            saveImageWithPermissionCheck();
-        });
-
-        ivShare.setOnClickListener(view -> {
-            ImageDownload.downloadAndShareImage(this, imageUrl);
-        });
-
     }
 
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-        //noinspection ConstantConditions
-        tvName.setText(data.get(position).getName());
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
 
     private void saveImageWithPermissionCheck() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -158,4 +159,5 @@ public class PhotoDetailsActivity extends AppCompatActivity implements ViewPager
             }
         }
     }
+
 }

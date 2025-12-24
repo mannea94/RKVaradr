@@ -8,40 +8,29 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
-import com.hcvardar.manne.rkvaradr.utils.ViewUtils;
-
-import org.chromium.support_lib_boundary.ProcessGlobalConfigConstants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@SuppressLint("NonConstantResourceId")
 public class WebViewActivity extends AppCompatActivity {
 
-    @SuppressLint("NonConstantResourceId")
+
     @BindView(R.id.webView)
     WebView webView;
-    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
 

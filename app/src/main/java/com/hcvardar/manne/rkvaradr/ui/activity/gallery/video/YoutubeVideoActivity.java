@@ -1,17 +1,15 @@
 package com.hcvardar.manne.rkvaradr.ui.activity.gallery.video;
 
-import android.content.pm.ActivityInfo;
+import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,6 +30,7 @@ import butterknife.ButterKnife;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 
+@SuppressLint("NonConstantResourceId")
 public class YoutubeVideoActivity extends AppCompatActivity implements
     FullscreenListener {
 

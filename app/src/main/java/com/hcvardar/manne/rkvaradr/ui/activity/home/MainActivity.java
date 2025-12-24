@@ -3,7 +3,6 @@ package com.hcvardar.manne.rkvaradr.ui.activity.home;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -57,10 +56,12 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@SuppressLint("NonConstantResourceId")
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SponsorClickListener {
 
     String [] activity_titles;
+
     @BindView(R.id.imageHeder)
     ImageView imageView;
     @BindView(R.id.imageMoto)
@@ -101,7 +102,6 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.viewPager)
     ViewPager viewPager;
     SponsorsAdapter sponsorsAdapter;
-    ArrayList<Sponsor> sponsors;
 
     @BindView(R.id.rvSponsors)
     RecyclerView rvSponsors;
@@ -120,13 +120,8 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.imgCover)
     ImageView imgCover;
 
-    private MainViewModel viewModel;
-    private ConnectivityManager connectivityManager;
-    private ConnectivityManager.NetworkCallback networkCallback;
-    private boolean isCallbackRegistered = false;
 
-
-    @SuppressLint("SourceLockedOrientationActivity")
+    @SuppressLint({"SourceLockedOrientationActivity", "NotifyDataSetChanged"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -141,17 +136,17 @@ public class MainActivity extends AppCompatActivity
         viewPager.setAdapter(fragmentAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         activity_titles=getResources().getStringArray(R.array.string_array);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         DrawableImageViewTarget divt = new DrawableImageViewTarget(tickets);
@@ -204,7 +199,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -247,16 +241,14 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
     public void getListeners(){
 
-        imageView.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, KlubActivity.class));
-        });
+        imageView.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, KlubActivity.class)));
 
         //WEBVIEW
         onlineStore.setOnClickListener(v -> {
@@ -371,7 +363,7 @@ public class MainActivity extends AppCompatActivity
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
                 if (drawer.isDrawerOpen(GravityCompat.START)) {
                     drawer.closeDrawer(GravityCompat.START);
                 }else {
@@ -386,7 +378,7 @@ public class MainActivity extends AppCompatActivity
         NetworkMonitor networkMonitor =
                 new NetworkMonitor(getApplicationContext());
 
-        viewModel = new ViewModelProvider(
+        MainViewModel viewModel = new ViewModelProvider(
                 this,
                 new MainViewModelFactory(networkMonitor)
         ).get(MainViewModel.class);

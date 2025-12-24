@@ -1,37 +1,40 @@
 package com.hcvardar.manne.rkvaradr.ui.adapter.gallery;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.hcvardar.manne.rkvaradr.ui.fragments.photo.PlaceholderFragment;
 import com.hcvardar.manne.rkvaradr.ui.model.ImageModel;
 
 import java.util.ArrayList;
 
-public class SectionsPagerAdapter extends FragmentPagerAdapter {
-    public ArrayList<ImageModel> data = new ArrayList<>();
+public class SectionsPagerAdapter extends FragmentStateAdapter {
+    public ArrayList<ImageModel> data;
 
-    public SectionsPagerAdapter(FragmentManager fm, ArrayList<ImageModel> data) {
-        super(fm);
+    public SectionsPagerAdapter(@NonNull FragmentActivity activity,
+                                ArrayList<ImageModel> data) {
+        super(activity);
         this.data = data;
     }
 
+    @NonNull
     @Override
-    public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position, data.get(position).getName(), data.get(position).getUrl());
+    public Fragment createFragment(int position) {
+        ImageModel model = data.get(position);
+        return PlaceholderFragment.newInstance(
+                position,
+                model.getName(),
+                model.getUrl()
+        );
     }
 
     @Override
-    public int getCount() {
-        // Show 3 total pages.
+    public int getItemCount() {
         return data.size();
     }
 
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return data.get(position).getName();
-    }
 }

@@ -1,5 +1,6 @@
 package com.hcvardar.manne.rkvaradr.ui.fragments.news;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -30,13 +31,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-
+@SuppressLint("NonConstantResourceId")
 public class PDFPreviewFragment extends Fragment {
 
     public Unbinder mUnBinder;
-
-//    @BindView(R.id.pdfView)
-//    PDFView pdfView;
 
     @BindView(R.id.pdfImage)
     ImageView pdfImage;

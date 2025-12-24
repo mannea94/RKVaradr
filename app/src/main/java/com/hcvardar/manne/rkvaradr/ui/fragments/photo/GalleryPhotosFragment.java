@@ -1,5 +1,6 @@
 package com.hcvardar.manne.rkvaradr.ui.fragments.photo;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,7 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-
+@SuppressLint("NonConstantResourceId")
 public class GalleryPhotosFragment extends Fragment {
 
     public Unbinder mUnBinder;

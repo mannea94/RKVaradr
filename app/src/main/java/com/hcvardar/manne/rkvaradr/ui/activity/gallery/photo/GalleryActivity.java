@@ -25,8 +25,8 @@ import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@SuppressLint("NonConstantResourceId")
 public class GalleryActivity extends AppCompatActivity implements PhotoClickListener {
-
 
     @BindView(R.id.recyclerViewGallery)
     RecyclerView recyclerView;
@@ -63,9 +63,7 @@ public class GalleryActivity extends AppCompatActivity implements PhotoClickList
             tvName.setText(R.string.video_gallery);
         else
             tvName.setText(R.string.photo_gallery);
-        ivBack.setOnClickListener(view -> {
-            getOnBackPressedDispatcher().onBackPressed();
-        });
+        ivBack.setOnClickListener(view -> getOnBackPressedDispatcher().onBackPressed());
     }
 
     public void getList(){

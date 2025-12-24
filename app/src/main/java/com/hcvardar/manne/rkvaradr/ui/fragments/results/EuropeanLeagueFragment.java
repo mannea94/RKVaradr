@@ -1,5 +1,6 @@
 package com.hcvardar.manne.rkvaradr.ui.fragments.results;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +22,7 @@ import butterknife.Unbinder;
 /**
  * Created by manne on 08.7.2019.
  */
-
+@SuppressLint("NonConstantResourceId")
 public class EuropeanLeagueFragment extends Fragment {
     public Unbinder mUnBinder;
 
@@ -32,7 +33,7 @@ public class EuropeanLeagueFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_table_results, null);
+        View view = inflater.inflate(R.layout.fragment_table_results, container, false);
         mUnBinder = ButterKnife.bind(this, view);
 
         adapter = new TableResultsAdapter(getActivity());

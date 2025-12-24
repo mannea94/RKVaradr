@@ -23,7 +23,9 @@ import com.hcvardar.manne.rkvaradr.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@SuppressLint("NonConstantResourceId")
 public class EkipaActivity extends AppCompatActivity {
+
 
     @BindView(R.id.recyclerViewPeople)
     RecyclerView recyclerView;
@@ -34,7 +36,7 @@ public class EkipaActivity extends AppCompatActivity {
     EkipaAdapter adapter;
     EkipaModel model;
 
-    @SuppressLint("SourceLockedOrientationActivity")
+    @SuppressLint({"SourceLockedOrientationActivity", "NotifyDataSetChanged"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
