@@ -41,5 +41,8 @@
     <string name="championships">ПРВЕНСТВА</string>
     <string name="cups">ПЕХАРИ</string>
     <string name="sponsors_and_friends">СПОНЗОРИ И ПРИЈАТЕЛИ</string>
+    <string name="super_league_2025_26">Супер Лига 2025/26</string>
+    <string name="play_off_2024_25">Плеј Оф 2024/25</string>
+    <string name="european_league_2025_26">Европска Лига 2025/26</string>
 
 </resources>

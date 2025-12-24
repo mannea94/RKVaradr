@@ -21,12 +21,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.DrawableImageViewTarget;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.hcvardar.manne.rkvaradr.MainViewModel;
 import com.hcvardar.manne.rkvaradr.MainViewModelFactory;
 import com.hcvardar.manne.rkvaradr.NetworkMonitor;
@@ -49,9 +50,6 @@ import com.hcvardar.manne.rkvaradr.components.CirclePagerIndicatorDecoration;
 import com.hcvardar.manne.rkvaradr.interfaces.SponsorClickListener;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Picasso;
-
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -100,7 +98,7 @@ public class MainActivity extends AppCompatActivity
 
     FragmentAdapter fragmentAdapter;
     @BindView(R.id.viewPager)
-    ViewPager viewPager;
+    ViewPager2 viewPager;
     SponsorsAdapter sponsorsAdapter;
 
     @BindView(R.id.rvSponsors)
@@ -129,12 +127,15 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        fragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
-        fragmentAdapter.addFragment(new SuperLigaFragment(), "Супер Лига 2025/26");
-        fragmentAdapter.addFragment(new PlayOffFragment(), "Плеј Оф 2024/25");
-        fragmentAdapter.addFragment(new EuropeanLeagueFragment(), "Европска Лига 2025/26");
+        fragmentAdapter = new FragmentAdapter(this);
+        fragmentAdapter.addFragment(new SuperLigaFragment(), getString(R.string.super_league_2025_26));
+        fragmentAdapter.addFragment(new PlayOffFragment(), getString(R.string.play_off_2024_25));
+        fragmentAdapter.addFragment(new EuropeanLeagueFragment(), getString(R.string.european_league_2025_26));
         viewPager.setAdapter(fragmentAdapter);
-        tabLayout.setupWithViewPager(viewPager);
+
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> tab.setText(fragmentAdapter.getTitle(position))
+        ).attach();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
