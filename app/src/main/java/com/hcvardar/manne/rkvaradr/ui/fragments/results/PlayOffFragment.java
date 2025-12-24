@@ -1,5 +1,6 @@
-package com.hcvardar.manne.rkvaradr.ui.fragments;
+package com.hcvardar.manne.rkvaradr.ui.fragments.results;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,24 +22,26 @@ import butterknife.Unbinder;
 /**
  * Created by manne on 08.7.2019.
  */
-
-public class EuropeanLeagueFragment extends Fragment {
+@SuppressLint("NonConstantResourceId")
+public class PlayOffFragment extends Fragment {
     public Unbinder mUnBinder;
+
 
     @BindView(R.id.rvTableResults)
     RecyclerView rvTableResults;
     TableResultsAdapter adapter;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_table_results, null);
+        View view = inflater.inflate(R.layout.fragment_table_results, container, false);
         mUnBinder = ButterKnife.bind(this, view);
 
         adapter = new TableResultsAdapter(getActivity());
         rvTableResults.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvTableResults.setAdapter(adapter);
-        adapter.setItems(new GlobalClass().getListTableResults(getActivity(), 7));
+        adapter.setItems(new GlobalClass().getListTableResults(getActivity(), 6));
 
         return view;
     }

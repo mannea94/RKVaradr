@@ -8,40 +8,29 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
-import com.hcvardar.manne.rkvaradr.utils.ViewUtils;
-
-import org.chromium.support_lib_boundary.ProcessGlobalConfigConstants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@SuppressLint("NonConstantResourceId")
 public class WebViewActivity extends AppCompatActivity {
 
-    @SuppressLint("NonConstantResourceId")
+
     @BindView(R.id.webView)
     WebView webView;
-    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
 
@@ -94,11 +83,6 @@ public class WebViewActivity extends AppCompatActivity {
                 return handleUri(uri);
             }
 
-            // For Android < Lollipop
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return handleUri(Uri.parse(url));
-            }
 
             private boolean handleUri(Uri uri) {
                 String scheme = uri.getScheme();
@@ -151,7 +135,6 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     public void setActionBarInfo(){
-        ViewUtils.showStatusBar(this);
         tvName.setText(GlobalClass.checkWebviewTitle(getIntent()));
         ivBack.setOnClickListener(view -> {
             if (webView.canGoBack()) {
@@ -211,8 +194,8 @@ public class WebViewActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        webView.destroy();
         super.onDestroy();
+        webView.destroy();
     }
 
 }

@@ -1,47 +1,45 @@
 package com.hcvardar.manne.rkvaradr.ui.adapter;
 
 
+import android.annotation.SuppressLint;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import java.util.ArrayList;
 
-public class FragmentAdapter extends FragmentPagerAdapter {
+public class FragmentAdapter extends FragmentStateAdapter {
 
-    private boolean locked = false;
-    private int lockedIndex;
+    private final ArrayList<String> titles = new ArrayList<>();
+    private final ArrayList<Fragment> fragments = new ArrayList<>();
 
-    public FragmentAdapter(FragmentManager fm) {
-        super(fm);
+    public FragmentAdapter(@NonNull FragmentActivity activity) {
+        super(activity);
     }
 
-    public void addFragment(Fragment fragment, String title){
-        titles.add(title);
+    @SuppressLint("NotifyDataSetChanged")
+    public void addFragment(Fragment fragment, String title) {
         fragments.add(fragment);
-    }
-
-    public void setLocked(boolean locked, int page) {
-        this.locked = locked;
-        lockedIndex = page;
+        titles.add(title);
         notifyDataSetChanged();
     }
 
-    public ArrayList<String> titles = new ArrayList<>();
-    public ArrayList<Fragment> fragments = new ArrayList<>();
-
+    @NonNull
     @Override
-    public Fragment getItem(int position) {
+    public Fragment createFragment(int position) {
         return fragments.get(position);
     }
 
     @Override
-    public int getCount() {
+    public int getItemCount() {
         return fragments.size();
     }
 
-    @Override
-    public CharSequence getPageTitle(int position) {
+    public String getTitle(int position) {
         return titles.get(position);
     }
 

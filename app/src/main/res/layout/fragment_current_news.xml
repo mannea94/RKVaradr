@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.CurrentNewsFragment"
+    tools:context=".ui.fragments.news.CurrentNewsFragment"
     android:background="@drawable/side_nav_bar">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,7 +16,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tvTitle"
                 android:text="@string/istorija_na_rakometen_klub"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:layout_marginHorizontal="@dimen/margin_10"
@@ -47,7 +44,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:text="Vesti"
                 android:layout_marginHorizontal="@dimen/margin_10"
                 android:visibility="gone"
                 />
@@ -55,6 +51,5 @@
 
         </LinearLayout>
 
-    </ScrollView>
 
-</RelativeLayout>
+</ScrollView>

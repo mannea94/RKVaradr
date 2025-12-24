@@ -1,38 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo.PhotoDetailsActivity"
     android:background="@drawable/side_nav_bar"
     android:fitsSystemWindows="true">
 
 
-    <include layout="@layout/action_bar_layout"
-        android:id="@+id/rlActionBar"/>
 
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/container"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rlActionBar"/>
+        />
+
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="@dimen/margin_20"
+       android:layout_marginHorizontal="@dimen/margin_20">
+       <TextView
+           android:id="@+id/tvName"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="22sp"
+           android:textColor="@color/white"
+           android:layout_centerHorizontal="true"
+           android:layout_centerVertical="true"
+           />
+
+       <ImageView
+           android:id="@+id/ivClose"
+           android:layout_width="@dimen/margin_30"
+           android:layout_height="@dimen/margin_30"
+           android:layout_centerVertical="true"
+           android:src="@drawable/ic_close"
+           />
+
+       <ImageView
+           android:id="@+id/ivDownload"
+           android:layout_width="@dimen/margin_25"
+           android:layout_height="@dimen/margin_25"
+           android:layout_centerVertical="true"
+           android:layout_toStartOf="@+id/ivShare"
+           android:layout_marginEnd="@dimen/margin_10"
+           android:src="@drawable/ic_download"
+           />
+
+       <ImageView
+           android:id="@+id/ivShare"
+           android:layout_width="@dimen/margin_25"
+           android:layout_height="@dimen/margin_25"
+           android:layout_centerVertical="true"
+           android:layout_alignParentEnd="true"
+           android:src="@drawable/ic_share"
+           />
+   </RelativeLayout>
 
 
 
-
-
-
-
-
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/detail_toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="?attr/actionBarSize"-->
-<!--        android:background="@android:color/transparent"-->
-<!--        app:elevation="0dp"-->
-<!--        app:popupTheme="@style/AppTheme.PopupOverlay" />-->
 
 </RelativeLayout>

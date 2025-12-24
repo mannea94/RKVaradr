@@ -3,7 +3,6 @@ package com.hcvardar.manne.rkvaradr.ui.activity.home;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,12 +21,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.DrawableImageViewTarget;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.hcvardar.manne.rkvaradr.MainViewModel;
 import com.hcvardar.manne.rkvaradr.MainViewModelFactory;
 import com.hcvardar.manne.rkvaradr.NetworkMonitor;
@@ -39,11 +39,10 @@ import com.hcvardar.manne.rkvaradr.ui.adapter.FragmentAdapter;
 import com.hcvardar.manne.rkvaradr.ui.adapter.team.PlayerAdapter;
 import com.hcvardar.manne.rkvaradr.ui.adapter.home.ResultsAdapter;
 import com.hcvardar.manne.rkvaradr.ui.adapter.home.SponsorsAdapter;
-import com.hcvardar.manne.rkvaradr.ui.fragments.EuropeanLeagueFragment;
-import com.hcvardar.manne.rkvaradr.ui.fragments.SuperLigaFragment;
-import com.hcvardar.manne.rkvaradr.ui.fragments.PlayOffFragment;
+import com.hcvardar.manne.rkvaradr.ui.fragments.results.EuropeanLeagueFragment;
+import com.hcvardar.manne.rkvaradr.ui.fragments.results.SuperLigaFragment;
+import com.hcvardar.manne.rkvaradr.ui.fragments.results.PlayOffFragment;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaData;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.ui.model.Sponsor;
 import com.hcvardar.manne.rkvaradr.R;
@@ -52,16 +51,15 @@ import com.hcvardar.manne.rkvaradr.interfaces.SponsorClickListener;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Picasso;
 
-
-import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@SuppressLint("NonConstantResourceId")
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SponsorClickListener {
 
     String [] activity_titles;
+
     @BindView(R.id.imageHeder)
     ImageView imageView;
     @BindView(R.id.imageMoto)
@@ -70,7 +68,6 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.recyclerViewPlayers)
     RecyclerView recyclerView;
     PlayerAdapter adapter;
-    EkipaData data;
     EkipaModel model;
     @BindView(R.id.vardarLogo)
     ImageView logo;
@@ -101,9 +98,8 @@ public class MainActivity extends AppCompatActivity
 
     FragmentAdapter fragmentAdapter;
     @BindView(R.id.viewPager)
-    ViewPager viewPager;
+    ViewPager2 viewPager;
     SponsorsAdapter sponsorsAdapter;
-    ArrayList<Sponsor> sponsors;
 
     @BindView(R.id.rvSponsors)
     RecyclerView rvSponsors;
@@ -122,13 +118,8 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.imgCover)
     ImageView imgCover;
 
-    private MainViewModel viewModel;
-    private ConnectivityManager connectivityManager;
-    private ConnectivityManager.NetworkCallback networkCallback;
-    private boolean isCallbackRegistered = false;
 
-
-    @SuppressLint("SourceLockedOrientationActivity")
+    @SuppressLint({"SourceLockedOrientationActivity", "NotifyDataSetChanged"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,24 +127,27 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        fragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
-        fragmentAdapter.addFragment(new SuperLigaFragment(), "Супер Лига 2025/26");
-        fragmentAdapter.addFragment(new PlayOffFragment(), "Плеј Оф 2024/25");
-        fragmentAdapter.addFragment(new EuropeanLeagueFragment(), "Европска Лига 2025/26");
+        fragmentAdapter = new FragmentAdapter(this);
+        fragmentAdapter.addFragment(new SuperLigaFragment(), getString(R.string.super_league_2025_26));
+        fragmentAdapter.addFragment(new PlayOffFragment(), getString(R.string.play_off_2024_25));
+        fragmentAdapter.addFragment(new EuropeanLeagueFragment(), getString(R.string.european_league_2025_26));
         viewPager.setAdapter(fragmentAdapter);
-        tabLayout.setupWithViewPager(viewPager);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> tab.setText(fragmentAdapter.getTitle(position))
+        ).attach();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         activity_titles=getResources().getStringArray(R.array.string_array);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         DrawableImageViewTarget divt = new DrawableImageViewTarget(tickets);
@@ -162,7 +156,6 @@ public class MainActivity extends AppCompatActivity
         imageMoto.setImageResource(R.drawable.eden_zivot);
 
         model=new EkipaModel();
-        data=new EkipaData();
 
         adapter = new PlayerAdapter(this, (model, position) -> {
             Intent intent = new Intent(MainActivity.this, EkipaActivity.class);
@@ -207,7 +200,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -250,16 +242,14 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
     public void getListeners(){
 
-        imageView.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, KlubActivity.class));
-        });
+        imageView.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, KlubActivity.class)));
 
         //WEBVIEW
         onlineStore.setOnClickListener(v -> {
@@ -374,7 +364,7 @@ public class MainActivity extends AppCompatActivity
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
                 if (drawer.isDrawerOpen(GravityCompat.START)) {
                     drawer.closeDrawer(GravityCompat.START);
                 }else {
@@ -389,7 +379,7 @@ public class MainActivity extends AppCompatActivity
         NetworkMonitor networkMonitor =
                 new NetworkMonitor(getApplicationContext());
 
-        viewModel = new ViewModelProvider(
+        MainViewModel viewModel = new ViewModelProvider(
                 this,
                 new MainViewModelFactory(networkMonitor)
         ).get(MainViewModel.class);

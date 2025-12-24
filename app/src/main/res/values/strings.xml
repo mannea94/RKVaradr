@@ -35,4 +35,14 @@
     <string name="rk_vardar_title">РК ВАРДАР 1961 АД СКОПЈЕ</string>
     <string name="contact_info">Адреса\nБулевар АСНОМ бр. 1, 1000 Скопје, Македонија\n\n\ncontact@rkvardar1961.com\n\nmedia@rkvardar1961.com</string>
 
+    <string name="image_saved_to_gallery">Сликата е зачувана во галерија</string>
+    <string name="online_store">ONLINE ПРОДАВНИЦА</string>
+    <string name="results">РЕЗУЛТАТИ</string>
+    <string name="championships">ПРВЕНСТВА</string>
+    <string name="cups">ПЕХАРИ</string>
+    <string name="sponsors_and_friends">СПОНЗОРИ И ПРИЈАТЕЛИ</string>
+    <string name="super_league_2025_26">Супер Лига 2025/26</string>
+    <string name="play_off_2024_25">Плеј Оф 2024/25</string>
+    <string name="european_league_2025_26">Европска Лига 2025/26</string>
+
 </resources>

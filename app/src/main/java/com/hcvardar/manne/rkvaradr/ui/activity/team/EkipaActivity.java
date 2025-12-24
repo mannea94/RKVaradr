@@ -1,11 +1,9 @@
 package com.hcvardar.manne.rkvaradr.ui.activity.team;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,18 +15,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.ui.adapter.team.EkipaAdapter;
-import com.hcvardar.manne.rkvaradr.ui.fragments.CurrentNewsFragment;
 import com.hcvardar.manne.rkvaradr.ui.fragments.PlayerFragment;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaData;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.interfaces.Row_Click_Listener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@SuppressLint("NonConstantResourceId")
 public class EkipaActivity extends AppCompatActivity {
+
 
     @BindView(R.id.recyclerViewPeople)
     RecyclerView recyclerView;
@@ -37,10 +34,9 @@ public class EkipaActivity extends AppCompatActivity {
     @BindView(R.id.ivBack)
     ImageView ivBack;
     EkipaAdapter adapter;
-    EkipaData data;
     EkipaModel model;
 
-    @SuppressLint("SourceLockedOrientationActivity")
+    @SuppressLint({"SourceLockedOrientationActivity", "NotifyDataSetChanged"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +45,6 @@ public class EkipaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ekipa);
         ButterKnife.bind(this);
         model=new EkipaModel();
-        data=new EkipaData();
 
         if(getIntent().hasExtra("player_info")){
             model = (EkipaModel) getIntent().getSerializableExtra("player_info");
