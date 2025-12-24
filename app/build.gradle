@@ -9,8 +9,8 @@ android {
         minSdkVersion 24
         //noinspection EditedTargetSdkVersion
         targetSdkVersion 36
-        versionCode 9
-        versionName "2.5"
+        versionCode 10
+        versionName "2.6"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -69,7 +69,6 @@ dependencies {
     implementation 'com.stanfy:gson-xml-java:0.1.7'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.github.bumptech.glide:glide:5.0.5'
-    //implementation 'com.github.mhiew:android-pdf-viewer:3.2.0-beta.3'
     implementation ("io.getstream:photoview:1.0.3")
     implementation 'com.github.MasayukiSuda:BubbleLayout:v1.2.2'
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.10.0"
