@@ -74,6 +74,5 @@ dependencies {
     implementation 'com.github.MasayukiSuda:BubbleLayout:v1.2.2'
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.10.0"
     implementation "androidx.lifecycle:lifecycle-livedata:2.10.0"
-    //implementation "com.pierfrancescosoffritti.androidyoutubeplayer:core:13.0.0"
-    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:custom-ui:13.0.0'
+    implementation "com.pierfrancescosoffritti.androidyoutubeplayer:core:13.0.0"
 }

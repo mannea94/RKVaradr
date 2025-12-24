@@ -35,4 +35,6 @@
     <string name="rk_vardar_title">РК ВАРДАР 1961 АД СКОПЈЕ</string>
     <string name="contact_info">Адреса\nБулевар АСНОМ бр. 1, 1000 Скопје, Македонија\n\n\ncontact@rkvardar1961.com\n\nmedia@rkvardar1961.com</string>
 
+    <string name="image_saved_to_gallery">Сликата е зачувана во галерија</string>
+
 </resources>

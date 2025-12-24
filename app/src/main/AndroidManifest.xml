@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
+
 
     <application
         android:allowBackup="true"
@@ -12,16 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".ui.activity.home.ContactActivity"
-            android:configChanges="orientation"
             android:theme="@style/AppTheme.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".ui.activity.gallery.video.YoutubeVideoActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.activity.home.NewsActivity"
@@ -51,9 +54,7 @@
         <activity
             android:name=".ui.activity.home.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.activity.gallery.photo.GalleryPhotosActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".ui.activity.gallery.photo.PhotoDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -65,6 +66,18 @@
         <activity
             android:name=".ui.activity.team.RakovodtsvoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
+
 
 </manifest>

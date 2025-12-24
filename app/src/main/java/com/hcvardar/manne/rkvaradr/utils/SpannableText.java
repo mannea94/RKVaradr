@@ -1,7 +1,6 @@
 package com.hcvardar.manne.rkvaradr.utils;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -20,7 +19,7 @@ import androidx.annotation.NonNull;
 
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.ui.activity.home.NewsActivity;
-import com.hcvardar.manne.rkvaradr.ui.fragments.PDFPreviewFragment;
+import com.hcvardar.manne.rkvaradr.ui.fragments.news.PDFPreviewFragment;
 import com.hcvardar.manne.rkvaradr.ui.model.Report;
 
 public class SpannableText {

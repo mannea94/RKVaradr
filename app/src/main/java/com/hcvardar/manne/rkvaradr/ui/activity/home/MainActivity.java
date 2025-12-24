@@ -39,11 +39,10 @@ import com.hcvardar.manne.rkvaradr.ui.adapter.FragmentAdapter;
 import com.hcvardar.manne.rkvaradr.ui.adapter.team.PlayerAdapter;
 import com.hcvardar.manne.rkvaradr.ui.adapter.home.ResultsAdapter;
 import com.hcvardar.manne.rkvaradr.ui.adapter.home.SponsorsAdapter;
-import com.hcvardar.manne.rkvaradr.ui.fragments.EuropeanLeagueFragment;
-import com.hcvardar.manne.rkvaradr.ui.fragments.SuperLigaFragment;
-import com.hcvardar.manne.rkvaradr.ui.fragments.PlayOffFragment;
+import com.hcvardar.manne.rkvaradr.ui.fragments.results.EuropeanLeagueFragment;
+import com.hcvardar.manne.rkvaradr.ui.fragments.results.SuperLigaFragment;
+import com.hcvardar.manne.rkvaradr.ui.fragments.results.PlayOffFragment;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaData;
 import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
 import com.hcvardar.manne.rkvaradr.ui.model.Sponsor;
 import com.hcvardar.manne.rkvaradr.R;
@@ -70,7 +69,6 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.recyclerViewPlayers)
     RecyclerView recyclerView;
     PlayerAdapter adapter;
-    EkipaData data;
     EkipaModel model;
     @BindView(R.id.vardarLogo)
     ImageView logo;
@@ -162,7 +160,6 @@ public class MainActivity extends AppCompatActivity
         imageMoto.setImageResource(R.drawable.eden_zivot);
 
         model=new EkipaModel();
-        data=new EkipaData();
 
         adapter = new PlayerAdapter(this, (model, position) -> {
             Intent intent = new Intent(MainActivity.this, EkipaActivity.class);

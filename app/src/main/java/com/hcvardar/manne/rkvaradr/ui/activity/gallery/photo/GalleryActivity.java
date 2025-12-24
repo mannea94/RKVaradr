@@ -4,12 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +18,7 @@ import com.hcvardar.manne.rkvaradr.interfaces.PhotoClickListener;
 import com.hcvardar.manne.rkvaradr.ui.activity.gallery.video.YoutubeVideoActivity;
 import com.hcvardar.manne.rkvaradr.ui.adapter.gallery.GalleryAdapter;
 import com.hcvardar.manne.rkvaradr.R;
+import com.hcvardar.manne.rkvaradr.ui.fragments.photo.GalleryPhotosFragment;
 import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 
@@ -80,10 +82,20 @@ public class GalleryActivity extends AppCompatActivity implements PhotoClickList
             intent.putExtra("extra_video", photoGallery);
             startActivity(intent);
         }else {
-            Intent intent = new Intent(GalleryActivity.this, GalleryPhotosActivity.class);
-            intent.putExtra("extra_gallery",photoGallery);
-            intent.putExtra("pos_gallery",position);
-            startActivity(intent);
+            GalleryPhotosFragment fragment = new GalleryPhotosFragment();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("extra_gallery", photoGallery);
+            fragment.setArguments(bundle);
+            replaceFragment(fragment);
         }
+    }
+
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.commit();
     }
 }

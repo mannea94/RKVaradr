@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.fragments;
+package com.hcvardar.manne.rkvaradr.ui.fragments.results;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,12 +22,13 @@ import butterknife.Unbinder;
  * Created by manne on 08.7.2019.
  */
 
-public class SuperLigaFragment extends Fragment {
+public class PlayOffFragment extends Fragment {
     public Unbinder mUnBinder;
 
     @BindView(R.id.rvTableResults)
     RecyclerView rvTableResults;
     TableResultsAdapter adapter;
+
 
     @Nullable
     @Override
@@ -38,7 +39,7 @@ public class SuperLigaFragment extends Fragment {
         adapter = new TableResultsAdapter(getActivity());
         rvTableResults.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvTableResults.setAdapter(adapter);
-        adapter.setItems(new GlobalClass().getListTableResults(getActivity(), 5));
+        adapter.setItems(new GlobalClass().getListTableResults(getActivity(), 6));
 
         return view;
     }

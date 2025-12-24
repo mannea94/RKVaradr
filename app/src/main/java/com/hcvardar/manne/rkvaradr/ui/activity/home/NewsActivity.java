@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.interfaces.NewsClickListener;
 import com.hcvardar.manne.rkvaradr.ui.adapter.home.NewsAdapter;
-import com.hcvardar.manne.rkvaradr.ui.fragments.CurrentNewsFragment;
+import com.hcvardar.manne.rkvaradr.ui.fragments.news.CurrentNewsFragment;
 import com.hcvardar.manne.rkvaradr.ui.model.News;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 import com.hcvardar.manne.rkvaradr.utils.ViewUtils;
@@ -54,7 +54,6 @@ public class NewsActivity extends AppCompatActivity implements NewsClickListener
     }
 
     public void setActionBarInfo(){
-        ViewUtils.showStatusBar(this);
         tvName.setText(R.string.news);
         ivBack.setOnClickListener(view -> {
             getOnBackPressedDispatcher().onBackPressed();

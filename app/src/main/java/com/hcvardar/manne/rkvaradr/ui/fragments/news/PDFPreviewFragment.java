@@ -1,8 +1,7 @@
-package com.hcvardar.manne.rkvaradr.ui.fragments;
+package com.hcvardar.manne.rkvaradr.ui.fragments.news;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;

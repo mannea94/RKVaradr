@@ -94,11 +94,6 @@ public class WebViewActivity extends AppCompatActivity {
                 return handleUri(uri);
             }
 
-            // For Android < Lollipop
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return handleUri(Uri.parse(url));
-            }
 
             private boolean handleUri(Uri uri) {
                 String scheme = uri.getScheme();
@@ -151,7 +146,6 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     public void setActionBarInfo(){
-        ViewUtils.showStatusBar(this);
         tvName.setText(GlobalClass.checkWebviewTitle(getIntent()));
         ivBack.setOnClickListener(view -> {
             if (webView.canGoBack()) {
@@ -211,8 +205,8 @@ public class WebViewActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        webView.destroy();
         super.onDestroy();
+        webView.destroy();
     }
 
 }

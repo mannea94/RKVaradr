@@ -8,6 +8,7 @@
     tools:context="com.hcvardar.manne.rkvaradr.ui.activity.home.MainActivity"
     tools:showIn="@layout/app_bar_main"
     android:background="@drawable/side_nav_bar"
+    android:fitsSystemWindows="true"
     android:layout_marginTop="?attr/actionBarSize">
 
     <LinearLayout
