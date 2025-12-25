@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by manne on 03.7.2019.
  */
 
-public class EkipaModel implements Serializable {
+public class Player implements Serializable {
     String name;
     String imgurl;
     String imguri;
@@ -18,22 +18,22 @@ public class EkipaModel implements Serializable {
     String nationality;
     int number;
 
-    public EkipaModel(){
+    public Player(){
 
     }
 
-    public EkipaModel(String name, String imgurl){
+    public Player(String name, String imgurl){
         this.name=name;
         this.imgurl=imgurl;
     }
 
-    public EkipaModel(String name, String imgurl, String pozicija){
+    public Player(String name, String imgurl, String pozicija){
         this.name=name;
         this.imgurl=imgurl;
         this.pozicija=pozicija;
     }
 
-    public EkipaModel(String name, String imageUrl, String imageUrl2, String datum, String pozicija, String tezina, String visina, String broj, String nationality){
+    public Player(String name, String imageUrl, String imageUrl2, String datum, String pozicija, String tezina, String visina, String broj, String nationality){
         this.name=name;
         this.imgurl=imageUrl;
         this.imguri=imageUrl2;

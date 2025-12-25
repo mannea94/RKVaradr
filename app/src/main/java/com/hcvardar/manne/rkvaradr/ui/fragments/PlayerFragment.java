@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.DrawableImageViewTarget;
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
+import com.hcvardar.manne.rkvaradr.ui.model.Player;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 import com.squareup.picasso.Picasso;
@@ -45,7 +45,7 @@ public class PlayerFragment extends Fragment {
     @BindView(R.id.imgTriangle)
     ImageView imgTriangle;
 
-    EkipaModel model;
+    Player model;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,9 +62,9 @@ public class PlayerFragment extends Fragment {
         DrawableImageViewTarget divt = new DrawableImageViewTarget(imgTriangle);
         Glide.with(this).load(R.drawable.triangle_icon).into(divt.getView());
 
-        model = new EkipaModel();
+        model = new Player();
         if(getArguments()!=null){
-            model = (EkipaModel) getArguments().getSerializable("current_player");
+            model = (Player) getArguments().getSerializable("current_player");
             if(model!=null){
                 name.setText(model.getIme());
                 number.setText(model.getBroj());

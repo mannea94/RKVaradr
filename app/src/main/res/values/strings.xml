@@ -5,7 +5,8 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="ekipa_title">РК Вардар 2025/26</string>
+    <string name="rk_vardar_1961">РК Вардар 1961</string>
+    <string name="composition_2025_26">СОСТАВ 2025/26</string>
 
     <string-array name="string_array">
         <item>За клубот</item>
@@ -44,5 +45,10 @@
     <string name="super_league_2025_26">Супер Лига 2025/26</string>
     <string name="play_off_2024_25">Плеј Оф 2024/25</string>
     <string name="european_league_2025_26">Европска Лига 2025/26</string>
+
+    <string name="goalkeepers">ГОЛМАНИ</string>
+    <string name="backs">БЕКОВИ</string>
+    <string name="pickers">ПИКЕРИ</string>
+    <string name="wings">КРИЛА</string>
 
 </resources>

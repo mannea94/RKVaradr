@@ -3,8 +3,6 @@ package com.hcvardar.manne.rkvaradr.ui.activity.team;
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.ui.adapter.team.StrucenAdapter;
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
+import com.hcvardar.manne.rkvaradr.ui.model.Player;
 import com.hcvardar.manne.rkvaradr.R;
 
 import java.util.ArrayList;
@@ -51,8 +49,8 @@ public class RakovodtsvoActivity extends AppCompatActivity {
     }
 
     public void getList(){
-        ArrayList<EkipaModel> model = new ArrayList<>();
-        model.add(new EkipaModel("Михајло Михајловски", imgUrl1,"претседател"));
+        ArrayList<Player> model = new ArrayList<>();
+        model.add(new Player("Михајло Михајловски", imgUrl1,"претседател"));
         adapter.setItems(model);
     }
 

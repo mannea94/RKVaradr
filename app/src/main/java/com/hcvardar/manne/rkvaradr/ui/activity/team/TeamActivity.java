@@ -14,17 +14,26 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hcvardar.manne.rkvaradr.ui.adapter.team.EkipaAdapter;
+import com.bumptech.glide.Glide;
+import com.hcvardar.manne.rkvaradr.ui.adapter.team.SortedTeamAdapter;
+import com.hcvardar.manne.rkvaradr.ui.adapter.team.TeamAdapter;
 import com.hcvardar.manne.rkvaradr.ui.fragments.PlayerFragment;
+import com.hcvardar.manne.rkvaradr.ui.model.PlayerPosition;
+import com.hcvardar.manne.rkvaradr.ui.model.TeamSorted;
+import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
+import com.hcvardar.manne.rkvaradr.ui.model.Player;
 import com.hcvardar.manne.rkvaradr.R;
+
+import org.checkerframework.checker.units.qual.A;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 @SuppressLint("NonConstantResourceId")
-public class EkipaActivity extends AppCompatActivity {
+public class TeamActivity extends AppCompatActivity {
 
 
     @BindView(R.id.recyclerViewPeople)
@@ -33,8 +42,10 @@ public class EkipaActivity extends AppCompatActivity {
     TextView tvName;
     @BindView(R.id.ivBack)
     ImageView ivBack;
-    EkipaAdapter adapter;
-    EkipaModel model;
+    Player model;
+
+    ArrayList<PlayerPosition> playerPositions;
+    SortedTeamAdapter sortedTeamAdapter;
 
     @SuppressLint({"SourceLockedOrientationActivity", "NotifyDataSetChanged"})
     @Override
@@ -42,12 +53,15 @@ public class EkipaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_ekipa);
+        setContentView(R.layout.activity_team);
         ButterKnife.bind(this);
-        model=new EkipaModel();
+
+        model=new Player();
+
+        playerPositions = new GlobalClass().getSortedList(this, 12);
 
         if(getIntent().hasExtra("player_info")){
-            model = (EkipaModel) getIntent().getSerializableExtra("player_info");
+            model = (Player) getIntent().getSerializableExtra("player_info");
             PlayerFragment fragment = new PlayerFragment();
             Bundle bundle = new Bundle();
             bundle.putSerializable("current_player", model);
@@ -55,18 +69,10 @@ public class EkipaActivity extends AppCompatActivity {
             replaceFragment(fragment);
         }
 
-        adapter = new EkipaAdapter(this, (model, position) -> {
-            PlayerFragment fragment = new PlayerFragment();
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("current_player", model);
-            fragment.setArguments(bundle);
-            replaceFragment(fragment);
-        });
-        recyclerView.setHasFixedSize(true);
+        sortedTeamAdapter = new SortedTeamAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
-        adapter.setItems(new GlobalClass().getList(this, 0));
-        adapter.notifyDataSetChanged();
+        recyclerView.setAdapter(sortedTeamAdapter);
+        sortedTeamAdapter.setItems(playerPositions);
 
         setActionBarInfo();
     }

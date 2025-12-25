@@ -176,6 +176,8 @@ public class WebViewActivity extends AppCompatActivity {
             return getIntent().getStringExtra("results");
         }else if(getIntent().hasExtra("sostavi")){
             return getIntent().getStringExtra("sostavi");
+        }else if(getIntent().hasExtra("extra_video")){
+            return getIntent().getStringExtra("extra_video");
         }
         return "";
     }

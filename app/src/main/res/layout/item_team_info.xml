@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/rlTop"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+    >
+<ImageView
+    android:id="@+id/iv_team"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin_5"
+    />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/textTitle"
+    android:text="@string/rk_vardar_1961"
+    android:textSize="15sp"
+    android:textColor="@color/white"
+    android:layout_marginTop="@dimen/margin_10"
+    android:layout_marginHorizontal="@dimen/margin_10"
+    android:layout_below="@+id/iv_team"
+    android:layout_centerHorizontal="true"
+    />
+
+<RelativeLayout
+    android:id="@+id/rlSeason"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/textTitle">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/red"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/tvTeam"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTeam"
+        android:text="@string/composition_2025_26"
+        android:textSize="25sp"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="@dimen/margin_5"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/red"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/tvTeam"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>
+
+
+</RelativeLayout>

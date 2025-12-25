@@ -17,14 +17,7 @@
 
             android:title="Екипа"
             />
-        <item
-            android:id="@+id/nav_strucen"
 
-            android:title="Стручен штаб" />
-        <item
-            android:id="@+id/nav_rakovodstvo"
-
-            android:title="Раководство" />
         <item
             android:id="@+id/nav_vesti"
             android:title="Вести"

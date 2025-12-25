@@ -32,7 +32,7 @@ import com.hcvardar.manne.rkvaradr.MainViewModel;
 import com.hcvardar.manne.rkvaradr.MainViewModelFactory;
 import com.hcvardar.manne.rkvaradr.NetworkMonitor;
 import com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo.GalleryActivity;
-import com.hcvardar.manne.rkvaradr.ui.activity.team.EkipaActivity;
+import com.hcvardar.manne.rkvaradr.ui.activity.team.TeamActivity;
 import com.hcvardar.manne.rkvaradr.ui.activity.team.RakovodtsvoActivity;
 import com.hcvardar.manne.rkvaradr.ui.activity.team.StrucenstabActivity;
 import com.hcvardar.manne.rkvaradr.ui.adapter.FragmentAdapter;
@@ -43,7 +43,7 @@ import com.hcvardar.manne.rkvaradr.ui.fragments.results.EuropeanLeagueFragment;
 import com.hcvardar.manne.rkvaradr.ui.fragments.results.SuperLigaFragment;
 import com.hcvardar.manne.rkvaradr.ui.fragments.results.PlayOffFragment;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
+import com.hcvardar.manne.rkvaradr.ui.model.Player;
 import com.hcvardar.manne.rkvaradr.ui.model.Sponsor;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.components.CirclePagerIndicatorDecoration;
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.recyclerViewPlayers)
     RecyclerView recyclerView;
     PlayerAdapter adapter;
-    EkipaModel model;
+    Player model;
     @BindView(R.id.vardarLogo)
     ImageView logo;
 
@@ -155,10 +155,10 @@ public class MainActivity extends AppCompatActivity
 
         imageMoto.setImageResource(R.drawable.eden_zivot);
 
-        model=new EkipaModel();
+        model=new Player();
 
         adapter = new PlayerAdapter(this, (model, position) -> {
-            Intent intent = new Intent(MainActivity.this, EkipaActivity.class);
+            Intent intent = new Intent(MainActivity.this, TeamActivity.class);
             intent.putExtra("player_info", model);
             startActivity(intent);
         });
@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, KlubActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_ekipa) {
-            Intent intent = new Intent(MainActivity.this, EkipaActivity.class);
+            Intent intent = new Intent(MainActivity.this, TeamActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_gallery_photo) {
             Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
@@ -218,12 +218,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery_video) {
             Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
             intent.putExtra("isVideo", true);
-            startActivity(intent);
-        } else if (id == R.id.nav_strucen) {
-            Intent intent = new Intent(MainActivity.this, StrucenstabActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_rakovodstvo) {
-            Intent intent = new Intent(MainActivity.this, RakovodtsvoActivity.class);
             startActivity(intent);
         } else if(id == R.id.nav_vesti){
             Intent intent = new Intent(MainActivity.this, NewsActivity.class);

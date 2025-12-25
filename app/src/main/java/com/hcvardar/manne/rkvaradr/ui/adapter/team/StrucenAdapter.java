@@ -9,8 +9,9 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
+import com.hcvardar.manne.rkvaradr.ui.model.Player;
 import com.hcvardar.manne.rkvaradr.R;
+import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -25,11 +26,11 @@ import butterknife.ButterKnife;
 public class StrucenAdapter extends RecyclerView.Adapter<StrucenAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<EkipaModel> ekipaModels = new ArrayList<>();
+    ArrayList<Player> players = new ArrayList<>();
 
 
-    public void setItems(ArrayList<EkipaModel> models){
-        ekipaModels=models;
+    public void setItems(ArrayList<Player> models){
+        players =models;
     }
 
     public StrucenAdapter(Context context1){
@@ -49,32 +50,20 @@ public class StrucenAdapter extends RecyclerView.Adapter<StrucenAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(StrucenAdapter.ViewHolder holder, final int position) {
-            final EkipaModel model = ekipaModels.get(position);
+            final Player model = players.get(position);
             holder.strucenName.setText(model.getIme());
             holder.strucenPos.setText(model.getPozicija());
 
 
 
         Picasso.get()
-                .load(model.getImageUrl())
+                .load(Constants.VARDAR_UPLOADS_URL.concat(model.getImageUrl()))
                 .into(holder.imageStab);
-
-//            holder.player.setImageResource(R.drawable.dainis_krishtopans);
-//
-//
-//            holder.player.setImageResource(R.drawable.igor_karachikj);
-//
-//
-//            holder.player.setImageResource(R.drawable.stojanche_stoilov);
-//
-//
-//            holder.player.setImageResource(R.drawable.stash_skube);
-
     }
 
     @Override
     public int getItemCount() {
-        return ekipaModels.size();
+        return players.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
