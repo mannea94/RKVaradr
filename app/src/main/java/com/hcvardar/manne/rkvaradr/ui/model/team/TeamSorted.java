@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.model;
+package com.hcvardar.manne.rkvaradr.ui.model.team;
 
 import com.google.gson.annotations.SerializedName;
 

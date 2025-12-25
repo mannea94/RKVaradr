@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hcvardar.manne.rkvaradr.ui.model.Player;
+import com.hcvardar.manne.rkvaradr.ui.model.team.Player;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Picasso;
@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
  * Created by manne on 03.7.2019.
  */
 
-public class StrucenAdapter extends RecyclerView.Adapter<StrucenAdapter.ViewHolder> {
+public class StuffAdapter extends RecyclerView.Adapter<StuffAdapter.ViewHolder> {
 
     Context context;
     ArrayList<Player> players = new ArrayList<>();
@@ -33,13 +33,13 @@ public class StrucenAdapter extends RecyclerView.Adapter<StrucenAdapter.ViewHold
         players =models;
     }
 
-    public StrucenAdapter(Context context1){
+    public StuffAdapter(Context context1){
         context=context1;
 
     }
 
     @Override
-    public StrucenAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public StuffAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycler_view_strucen, parent, false);
@@ -49,7 +49,7 @@ public class StrucenAdapter extends RecyclerView.Adapter<StrucenAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(StrucenAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(StuffAdapter.ViewHolder holder, final int position) {
             final Player model = players.get(position);
             holder.strucenName.setText(model.getIme());
             holder.strucenPos.setText(model.getPozicija());

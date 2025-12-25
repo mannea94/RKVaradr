@@ -33,18 +33,16 @@ import com.hcvardar.manne.rkvaradr.MainViewModelFactory;
 import com.hcvardar.manne.rkvaradr.NetworkMonitor;
 import com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo.GalleryActivity;
 import com.hcvardar.manne.rkvaradr.ui.activity.team.TeamActivity;
-import com.hcvardar.manne.rkvaradr.ui.activity.team.RakovodtsvoActivity;
-import com.hcvardar.manne.rkvaradr.ui.activity.team.StrucenstabActivity;
-import com.hcvardar.manne.rkvaradr.ui.adapter.FragmentAdapter;
+import com.hcvardar.manne.rkvaradr.ui.adapter.home.FragmentAdapter;
 import com.hcvardar.manne.rkvaradr.ui.adapter.team.PlayerAdapter;
 import com.hcvardar.manne.rkvaradr.ui.adapter.home.ResultsAdapter;
 import com.hcvardar.manne.rkvaradr.ui.adapter.home.SponsorsAdapter;
 import com.hcvardar.manne.rkvaradr.ui.fragments.results.EuropeanLeagueFragment;
-import com.hcvardar.manne.rkvaradr.ui.fragments.results.SuperLigaFragment;
+import com.hcvardar.manne.rkvaradr.ui.fragments.results.SuperLeagueFragment;
 import com.hcvardar.manne.rkvaradr.ui.fragments.results.PlayOffFragment;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
-import com.hcvardar.manne.rkvaradr.ui.model.Player;
-import com.hcvardar.manne.rkvaradr.ui.model.Sponsor;
+import com.hcvardar.manne.rkvaradr.ui.model.team.Player;
+import com.hcvardar.manne.rkvaradr.ui.model.home.Sponsor;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.components.CirclePagerIndicatorDecoration;
 import com.hcvardar.manne.rkvaradr.interfaces.SponsorClickListener;
@@ -128,7 +126,7 @@ public class MainActivity extends AppCompatActivity
         ButterKnife.bind(this);
 
         fragmentAdapter = new FragmentAdapter(this);
-        fragmentAdapter.addFragment(new SuperLigaFragment(), getString(R.string.super_league_2025_26));
+        fragmentAdapter.addFragment(new SuperLeagueFragment(), getString(R.string.super_league_2025_26));
         fragmentAdapter.addFragment(new PlayOffFragment(), getString(R.string.play_off_2024_25));
         fragmentAdapter.addFragment(new EuropeanLeagueFragment(), getString(R.string.european_league_2025_26));
         viewPager.setAdapter(fragmentAdapter);
@@ -206,7 +204,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_zaklubot) {
-            Intent intent = new Intent(MainActivity.this, KlubActivity.class);
+            Intent intent = new Intent(MainActivity.this, ClubActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_ekipa) {
             Intent intent = new Intent(MainActivity.this, TeamActivity.class);
@@ -243,7 +241,7 @@ public class MainActivity extends AppCompatActivity
 
     public void getListeners(){
 
-        imageView.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, KlubActivity.class)));
+        imageView.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ClubActivity.class)));
 
         //WEBVIEW
         onlineStore.setOnClickListener(v -> {

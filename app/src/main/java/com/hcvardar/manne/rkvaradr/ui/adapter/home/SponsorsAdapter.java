@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hcvardar.manne.rkvaradr.ui.model.Sponsor;
+import com.hcvardar.manne.rkvaradr.ui.model.home.Sponsor;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.interfaces.SponsorClickListener;
 import com.hcvardar.manne.rkvaradr.utils.Constants;

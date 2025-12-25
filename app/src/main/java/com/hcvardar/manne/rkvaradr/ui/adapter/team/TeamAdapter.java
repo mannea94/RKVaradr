@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.hcvardar.manne.rkvaradr.components.TopCropTransformation;
-import com.hcvardar.manne.rkvaradr.ui.model.Player;
+import com.hcvardar.manne.rkvaradr.ui.model.team.Player;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.interfaces.Row_Click_Listener;
 import com.hcvardar.manne.rkvaradr.utils.Constants;

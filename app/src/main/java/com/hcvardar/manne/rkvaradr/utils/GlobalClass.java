@@ -3,16 +3,16 @@ package com.hcvardar.manne.rkvaradr.utils;
 import android.content.Context;
 import android.content.Intent;
 
-import com.hcvardar.manne.rkvaradr.ui.model.ClubInfo;
-import com.hcvardar.manne.rkvaradr.ui.model.Player;
-import com.hcvardar.manne.rkvaradr.ui.model.News;
-import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
-import com.hcvardar.manne.rkvaradr.ui.model.PlayerPosition;
-import com.hcvardar.manne.rkvaradr.ui.model.Report;
-import com.hcvardar.manne.rkvaradr.ui.model.Result;
-import com.hcvardar.manne.rkvaradr.ui.model.Sponsor;
-import com.hcvardar.manne.rkvaradr.ui.model.TableResult;
-import com.hcvardar.manne.rkvaradr.ui.model.TeamSorted;
+import com.hcvardar.manne.rkvaradr.ui.model.club.ClubInfo;
+import com.hcvardar.manne.rkvaradr.ui.model.team.Player;
+import com.hcvardar.manne.rkvaradr.ui.model.news.News;
+import com.hcvardar.manne.rkvaradr.ui.model.gallery.PhotoGallery;
+import com.hcvardar.manne.rkvaradr.ui.model.team.PlayerPosition;
+import com.hcvardar.manne.rkvaradr.ui.model.news.Report;
+import com.hcvardar.manne.rkvaradr.ui.model.home.Result;
+import com.hcvardar.manne.rkvaradr.ui.model.home.Sponsor;
+import com.hcvardar.manne.rkvaradr.ui.model.home.TableResult;
+import com.hcvardar.manne.rkvaradr.ui.model.team.TeamSorted;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -91,8 +91,7 @@ public class GlobalClass {
             Player player;
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject obj = jsonArray.getJSONObject(i);
-                if(type==0){
-                    player = new Player(
+                player = new Player(
                         obj.getString("name"),
                         obj.getString("imageUrl"),
                         obj.getString("imageUrl"),
@@ -103,13 +102,6 @@ public class GlobalClass {
                         obj.getString("playerNumber"),
                         obj.getString("nationality")
                 );
-                }else {
-                    player = new Player(
-                            obj.getString("name"),
-                            obj.getString("imageUrl"),
-                            obj.getString("position")
-                    );
-                }
                 model.add(player);
             }
         } catch (JSONException e) {
@@ -344,7 +336,7 @@ public class GlobalClass {
             InputStream is = null;
             switch (type){
                 case 0 -> is = context.getAssets().open("Team.json");
-                case 1 -> is = context.getAssets().open("StrucenStab.json");
+                case 1 -> is = context.getAssets().open("TeamSorted.json");
                 case 2 -> is = context.getAssets().open("Sponsors.json");
                 case 3 -> is = context.getAssets().open("Results.json");
                 case 4 -> is = context.getAssets().open("PhotoGallery.json");
@@ -355,7 +347,6 @@ public class GlobalClass {
                 case 9 -> is = context.getAssets().open("ClubHistory.json");
                 case 10 -> is = context.getAssets().open("News.json");
                 case 11 -> is = context.getAssets().open("VideoGallery.json");
-                case 12 -> is = context.getAssets().open("TeamSorted.json");
             }
             assert is != null;
             int size = is.available();

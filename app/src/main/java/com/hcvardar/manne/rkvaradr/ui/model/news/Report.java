@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.model;
+package com.hcvardar.manne.rkvaradr.ui.model.news;
 
 import java.io.Serializable;
 

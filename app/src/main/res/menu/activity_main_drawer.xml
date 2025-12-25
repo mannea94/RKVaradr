@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view"
 
     >
@@ -10,38 +9,38 @@
         <item
             android:id="@+id/nav_zaklubot"
 
-            android:title="Kлуб"
+            android:title="@string/for_club"
             />
         <item
             android:id="@+id/nav_ekipa"
 
-            android:title="Екипа"
+            android:title="@string/team"
             />
 
         <item
             android:id="@+id/nav_vesti"
-            android:title="Вести"
+            android:title="@string/news"
             />
         <item
             android:id="@+id/nav_gallery_photo"
 
-            android:title="Фото Галерија" />
+            android:title="@string/photo_gallery" />
         <item
             android:id="@+id/nav_gallery_video"
 
-            android:title="Видео Галерија" />
+            android:title="@string/video_gallery" />
         <item
             android:id="@+id/nav_results"
 
-            android:title="Резултати" />
+            android:title="@string/results" />
         <item
             android:id="@+id/nav_poranesni_sostavi"
 
-            android:title="Поранешни состави" />
+            android:title="@string/former_lineups" />
         <item
             android:id="@+id/nav_contact"
 
-            android:title="Контакт" />
+            android:title="@string/contact" />
     </group>
 
 

@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 import com.hcvardar.manne.rkvaradr.ui.activity.home.MainActivity;
 import com.google.gson.Gson;
-import com.hcvardar.manne.rkvaradr.ui.model.Player;
+import com.hcvardar.manne.rkvaradr.ui.model.team.Player;
 
 /**
  * Created by manne on 03.7.2019.

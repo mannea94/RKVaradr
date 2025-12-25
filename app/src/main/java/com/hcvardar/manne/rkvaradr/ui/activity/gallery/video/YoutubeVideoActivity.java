@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
+import com.hcvardar.manne.rkvaradr.ui.model.gallery.PhotoGallery;
 import com.hcvardar.manne.rkvaradr.utils.ViewUtils;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;

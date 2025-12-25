@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.fragments;
+package com.hcvardar.manne.rkvaradr.ui.fragments.team;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.DrawableImageViewTarget;
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.ui.model.Player;
+import com.hcvardar.manne.rkvaradr.ui.model.team.Player;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 import com.squareup.picasso.Picasso;
@@ -91,4 +91,5 @@ public class PlayerFragment extends Fragment {
         super.onDestroy();
         mUnBinder.unbind();
     }
+
 }

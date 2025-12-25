@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.hcvardar.manne.rkvaradr.ui.model.ImageModel;
+import com.hcvardar.manne.rkvaradr.ui.model.gallery.ImageModel;
 import com.hcvardar.manne.rkvaradr.R;
 
 import java.util.ArrayList;

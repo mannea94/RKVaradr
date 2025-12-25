@@ -32,13 +32,14 @@
     <string name="team">Екипа</string>
     <string name="expert_stuff">Стручен штаб</string>
     <string name="management">Раководство</string>
+    <string name="former_lineups">Поранешни состави</string>
 
     <string name="rk_vardar_title">РК ВАРДАР 1961 АД СКОПЈЕ</string>
     <string name="contact_info">Адреса\nБулевар АСНОМ бр. 1, 1000 Скопје, Македонија\n\n\ncontact@rkvardar1961.com\n\nmedia@rkvardar1961.com</string>
 
     <string name="image_saved_to_gallery">Сликата е зачувана во галерија</string>
     <string name="online_store">ONLINE ПРОДАВНИЦА</string>
-    <string name="results">РЕЗУЛТАТИ</string>
+    <string name="results">Резултати</string>
     <string name="championships">ПРВЕНСТВА</string>
     <string name="cups">ПЕХАРИ</string>
     <string name="sponsors_and_friends">СПОНЗОРИ И ПРИЈАТЕЛИ</string>

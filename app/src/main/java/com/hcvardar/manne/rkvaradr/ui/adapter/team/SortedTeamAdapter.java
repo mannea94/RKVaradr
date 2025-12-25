@@ -2,7 +2,6 @@ package com.hcvardar.manne.rkvaradr.ui.adapter.team;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,15 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.components.TopCropTransformation;
-import com.hcvardar.manne.rkvaradr.interfaces.Row_Click_Listener;
+
 import com.hcvardar.manne.rkvaradr.ui.activity.team.TeamActivity;
-import com.hcvardar.manne.rkvaradr.ui.fragments.PlayerFragment;
-import com.hcvardar.manne.rkvaradr.ui.model.Player;
-import com.hcvardar.manne.rkvaradr.ui.model.PlayerPosition;
-import com.hcvardar.manne.rkvaradr.ui.model.TeamSorted;
+import com.hcvardar.manne.rkvaradr.ui.fragments.team.PlayerFragment;
+import com.hcvardar.manne.rkvaradr.ui.model.team.Player;
+import com.hcvardar.manne.rkvaradr.ui.model.team.PlayerPosition;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
-import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 
 import java.util.ArrayList;
 
@@ -255,7 +251,7 @@ public class SortedTeamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
     public void setAdapterAndRecyclerViewStuff(RecyclerView rvPlayers, ArrayList<Player> players){
-        StrucenAdapter adapter = new StrucenAdapter(context);
+        StuffAdapter adapter = new StuffAdapter(context);
         rvPlayers.setHasFixedSize(true);
         rvPlayers.setLayoutManager(new LinearLayoutManager(context));
         rvPlayers.setAdapter(adapter);

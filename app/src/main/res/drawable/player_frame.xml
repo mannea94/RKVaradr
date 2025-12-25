@@ -1,8 +1,10 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:width="200dp"
     android:height="240dp"
     android:viewportWidth="200"
-    android:viewportHeight="240">
+    android:viewportHeight="240"
+    tools:ignore="VectorRaster">
 
     <!-- Outer soft glow -->
     <path

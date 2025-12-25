@@ -18,7 +18,7 @@ import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class KlubActivity extends AppCompatActivity {
+public class ClubActivity extends AppCompatActivity {
 
     @BindView(R.id.rvClubInfo)
     RecyclerView rvClubInfo;
@@ -37,7 +37,7 @@ public class KlubActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        setContentView(R.layout.activity_klub);
+        setContentView(R.layout.activity_club);
         ButterKnife.bind(this);
 
         adapter = new ClubInfoAdapter(this);

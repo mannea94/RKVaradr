@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.model;
+package com.hcvardar.manne.rkvaradr.ui.model.club;
 
 public class ClubInfo {
     String paragraph, imageUrl, year, title;
