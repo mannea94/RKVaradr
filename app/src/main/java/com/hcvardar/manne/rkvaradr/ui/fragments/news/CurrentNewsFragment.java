@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.ui.model.News;
+import com.hcvardar.manne.rkvaradr.ui.model.news.News;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.hcvardar.manne.rkvaradr.utils.SpannableText;
 import com.hcvardar.manne.rkvaradr.utils.ViewUtils;

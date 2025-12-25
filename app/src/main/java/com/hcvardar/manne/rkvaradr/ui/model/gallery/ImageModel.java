@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.model;
+package com.hcvardar.manne.rkvaradr.ui.model.gallery;
 
 import android.os.Parcel;
 import android.os.Parcelable;

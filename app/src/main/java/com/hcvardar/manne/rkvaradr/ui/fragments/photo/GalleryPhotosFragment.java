@@ -15,8 +15,8 @@ import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.components.RecyclerItemClickListener;
 import com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo.PhotoDetailsActivity;
 import com.hcvardar.manne.rkvaradr.ui.adapter.gallery.GalleryPhotoAdapter;
-import com.hcvardar.manne.rkvaradr.ui.model.ImageModel;
-import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
+import com.hcvardar.manne.rkvaradr.ui.model.gallery.ImageModel;
+import com.hcvardar.manne.rkvaradr.ui.model.gallery.PhotoGallery;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 
 import java.util.ArrayList;

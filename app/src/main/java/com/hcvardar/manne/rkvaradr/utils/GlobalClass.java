@@ -3,16 +3,16 @@ package com.hcvardar.manne.rkvaradr.utils;
 import android.content.Context;
 import android.content.Intent;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.hcvardar.manne.rkvaradr.ui.model.ClubInfo;
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
-import com.hcvardar.manne.rkvaradr.ui.model.News;
-import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
-import com.hcvardar.manne.rkvaradr.ui.model.Report;
-import com.hcvardar.manne.rkvaradr.ui.model.Result;
-import com.hcvardar.manne.rkvaradr.ui.model.Sponsor;
-import com.hcvardar.manne.rkvaradr.ui.model.TableResult;
+import com.hcvardar.manne.rkvaradr.ui.model.club.ClubInfo;
+import com.hcvardar.manne.rkvaradr.ui.model.team.Player;
+import com.hcvardar.manne.rkvaradr.ui.model.news.News;
+import com.hcvardar.manne.rkvaradr.ui.model.gallery.PhotoGallery;
+import com.hcvardar.manne.rkvaradr.ui.model.team.PlayerPosition;
+import com.hcvardar.manne.rkvaradr.ui.model.news.Report;
+import com.hcvardar.manne.rkvaradr.ui.model.home.Result;
+import com.hcvardar.manne.rkvaradr.ui.model.home.Sponsor;
+import com.hcvardar.manne.rkvaradr.ui.model.home.TableResult;
+import com.hcvardar.manne.rkvaradr.ui.model.team.TeamSorted;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -79,20 +79,19 @@ public class GlobalClass {
     }
 
 
-    public ArrayList<EkipaModel> getList(Context context, int type){
+    public ArrayList<Player> getList(Context context, int type){
         /*
         0 -> ekipa
         1 -> strucen stab
         2 -> sponzori
         * */
-        ArrayList<EkipaModel> model = new ArrayList<>();
+        ArrayList<Player> model = new ArrayList<>();
         try {
             JSONArray jsonArray = new JSONArray(readJSONFromAsset(context, type));
-            EkipaModel ekipaModel;
+            Player player;
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject obj = jsonArray.getJSONObject(i);
-                if(type==0){
-                    ekipaModel = new EkipaModel(
+                player = new Player(
                         obj.getString("name"),
                         obj.getString("imageUrl"),
                         obj.getString("imageUrl"),
@@ -103,19 +102,73 @@ public class GlobalClass {
                         obj.getString("playerNumber"),
                         obj.getString("nationality")
                 );
-                }else {
-                    ekipaModel = new EkipaModel(
-                            obj.getString("name"),
-                            obj.getString("imageUrl"),
-                            obj.getString("position")
-                    );
-                }
-                model.add(ekipaModel);
+                model.add(player);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return model;
+    }
+
+    public ArrayList<PlayerPosition> getSortedList(Context context, int type){
+        /*Player position
+        1 - goalkeeper
+        2 - back
+        3 - picker
+        4 - wing
+        * */
+        TeamSorted teamSorted = new TeamSorted();
+        ArrayList<PlayerPosition> playerPositions = new ArrayList<>();
+        PlayerPosition playerPosition = new PlayerPosition();
+        playerPositions.add(playerPosition);
+        try {
+            JSONObject jsonObject = new JSONObject(readJSONFromAsset(context, type));
+            if(jsonObject.has("Goalkeepers")){
+                teamSorted.setTeamList(jsonObject.getJSONArray("Goalkeepers"), 1);
+                playerPosition = new PlayerPosition();
+                playerPosition.setPosition("Goalkeepers");
+                playerPosition.setPlayers(teamSorted.getGoalkeepers());
+                playerPositions.add(playerPosition);
+            }
+            if(jsonObject.has("Backs")){
+                teamSorted.setTeamList(jsonObject.getJSONArray("Backs"), 2);
+                playerPosition = new PlayerPosition();
+                playerPosition.setPosition("Backs");
+                playerPosition.setPlayers(teamSorted.getBacks());
+                playerPositions.add(playerPosition);
+            }
+            if(jsonObject.has("Picker")){
+                teamSorted.setTeamList(jsonObject.getJSONArray("Picker"), 3);
+                playerPosition = new PlayerPosition();
+                playerPosition.setPosition("Picker");
+                playerPosition.setPlayers(teamSorted.getPicker());
+                playerPositions.add(playerPosition);
+            }
+            if(jsonObject.has("Wings")){
+                teamSorted.setTeamList(jsonObject.getJSONArray("Wings"), 4);
+                playerPosition = new PlayerPosition();
+                playerPosition.setPosition("Wings");
+                playerPosition.setPlayers(teamSorted.getWings());
+                playerPositions.add(playerPosition);
+            }
+            if(jsonObject.has("ExpertStuff")){
+                teamSorted.setTeamList(jsonObject.getJSONArray("ExpertStuff"), 5);
+                playerPosition = new PlayerPosition();
+                playerPosition.setPosition("ExpertStuff");
+                playerPosition.setPlayers(teamSorted.getExpertStuff());
+                playerPositions.add(playerPosition);
+            }
+            if(jsonObject.has("Management")){
+                teamSorted.setTeamList(jsonObject.getJSONArray("Management"), 6);
+                playerPosition = new PlayerPosition();
+                playerPosition.setPosition("Management");
+                playerPosition.setPlayers(teamSorted.getManagement());
+                playerPositions.add(playerPosition);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return playerPositions;
     }
 
     public ArrayList<Sponsor> getListSponsors(Context context, int type){
@@ -282,8 +335,8 @@ public class GlobalClass {
         try {
             InputStream is = null;
             switch (type){
-                case 0 -> is = context.getAssets().open("Ekipa.json");
-                case 1 -> is = context.getAssets().open("StrucenStab.json");
+                case 0 -> is = context.getAssets().open("Team.json");
+                case 1 -> is = context.getAssets().open("TeamSorted.json");
                 case 2 -> is = context.getAssets().open("Sponsors.json");
                 case 3 -> is = context.getAssets().open("Results.json");
                 case 4 -> is = context.getAssets().open("PhotoGallery.json");

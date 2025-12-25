@@ -1,0 +1,42 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:width="200dp"
+    android:height="240dp"
+    android:viewportWidth="200"
+    android:viewportHeight="240"
+    tools:ignore="VectorRaster">
+
+    <!-- Outer soft glow -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#30FFFFFF"
+        android:strokeWidth="10"
+        android:pathData="
+            M40,10
+            L160,10
+            C170,10 185,25 185,40
+            L185,120
+            C185,170 120,215 100,230
+            C80,215 15,170 15,120
+            L15,40
+            C15,25 30,10 40,10
+            Z" />
+
+    <!-- Inner sharp stroke -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#90FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="
+            M40,10
+            L160,10
+            C170,10 185,25 185,40
+            L185,120
+            C185,170 120,215 100,230
+            C80,215 15,170 15,120
+            L15,40
+            C15,25 30,10 40,10
+            Z" />
+</vector>
+
+

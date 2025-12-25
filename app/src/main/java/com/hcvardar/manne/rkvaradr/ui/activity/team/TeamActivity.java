@@ -7,6 +7,7 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -14,17 +15,20 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hcvardar.manne.rkvaradr.ui.adapter.team.EkipaAdapter;
-import com.hcvardar.manne.rkvaradr.ui.fragments.PlayerFragment;
+import com.hcvardar.manne.rkvaradr.ui.adapter.team.SortedTeamAdapter;
+import com.hcvardar.manne.rkvaradr.ui.fragments.team.PlayerFragment;
+import com.hcvardar.manne.rkvaradr.ui.model.team.PlayerPosition;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
+import com.hcvardar.manne.rkvaradr.ui.model.team.Player;
 import com.hcvardar.manne.rkvaradr.R;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 @SuppressLint("NonConstantResourceId")
-public class EkipaActivity extends AppCompatActivity {
+public class TeamActivity extends AppCompatActivity {
 
 
     @BindView(R.id.recyclerViewPeople)
@@ -33,8 +37,10 @@ public class EkipaActivity extends AppCompatActivity {
     TextView tvName;
     @BindView(R.id.ivBack)
     ImageView ivBack;
-    EkipaAdapter adapter;
-    EkipaModel model;
+    Player model;
+
+    ArrayList<PlayerPosition> playerPositions;
+    SortedTeamAdapter sortedTeamAdapter;
 
     @SuppressLint({"SourceLockedOrientationActivity", "NotifyDataSetChanged"})
     @Override
@@ -42,32 +48,26 @@ public class EkipaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_ekipa);
+        setContentView(R.layout.activity_team);
         ButterKnife.bind(this);
-        model=new EkipaModel();
+
+        model = new Player();
 
         if(getIntent().hasExtra("player_info")){
-            model = (EkipaModel) getIntent().getSerializableExtra("player_info");
+            handleOnBackPressed();
+            model = (Player) getIntent().getSerializableExtra("player_info");
             PlayerFragment fragment = new PlayerFragment();
             Bundle bundle = new Bundle();
             bundle.putSerializable("current_player", model);
             fragment.setArguments(bundle);
             replaceFragment(fragment);
+        }else {
+            playerPositions = new GlobalClass().getSortedList(this, 1);
+            sortedTeamAdapter = new SortedTeamAdapter(this);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setAdapter(sortedTeamAdapter);
+            sortedTeamAdapter.setItems(playerPositions);
         }
-
-        adapter = new EkipaAdapter(this, (model, position) -> {
-            PlayerFragment fragment = new PlayerFragment();
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("current_player", model);
-            fragment.setArguments(bundle);
-            replaceFragment(fragment);
-        });
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
-        adapter.setItems(new GlobalClass().getList(this, 0));
-        adapter.notifyDataSetChanged();
-
         setActionBarInfo();
     }
 
@@ -85,5 +85,14 @@ public class EkipaActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         fragmentTransaction.commit();
+    }
+
+    public void handleOnBackPressed(){
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                finish();
+            }
+        });
     }
 }

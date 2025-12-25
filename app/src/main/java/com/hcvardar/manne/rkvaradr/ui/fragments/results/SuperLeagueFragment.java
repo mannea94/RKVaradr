@@ -23,7 +23,7 @@ import butterknife.Unbinder;
  * Created by manne on 08.7.2019.
  */
 @SuppressLint("NonConstantResourceId")
-public class SuperLigaFragment extends Fragment {
+public class SuperLeagueFragment extends Fragment {
     public Unbinder mUnBinder;
 
 

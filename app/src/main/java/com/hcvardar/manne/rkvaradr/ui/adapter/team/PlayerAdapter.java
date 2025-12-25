@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
+import com.hcvardar.manne.rkvaradr.ui.model.team.Player;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.interfaces.Row_Click_Listener;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
@@ -27,11 +27,11 @@ import butterknife.ButterKnife;
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<EkipaModel> ekipaModels = new ArrayList<>();
+    ArrayList<Player> players = new ArrayList<>();
     Row_Click_Listener row_click_listener;
 
-    public void setItems(ArrayList<EkipaModel> models){
-        ekipaModels=models;
+    public void setItems(ArrayList<Player> models){
+        players =models;
     }
 
     public PlayerAdapter(Context context1, Row_Click_Listener row_click_listener1){
@@ -51,7 +51,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(PlayerAdapter.ViewHolder holder, final int position) {
-            final EkipaModel model = ekipaModels.get(position);
+            final Player model = players.get(position);
             holder.playerName.setText(model.getIme());
             holder.player.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -69,7 +69,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return ekipaModels.size();
+        return players.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -3,12 +3,10 @@ package com.hcvardar.manne.rkvaradr.ui.adapter.gallery;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.hcvardar.manne.rkvaradr.ui.fragments.photo.PlaceholderFragment;
-import com.hcvardar.manne.rkvaradr.ui.model.ImageModel;
+import com.hcvardar.manne.rkvaradr.ui.model.gallery.ImageModel;
 
 import java.util.ArrayList;
 

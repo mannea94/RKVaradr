@@ -1,4 +1,4 @@
-package com.hcvardar.manne.rkvaradr.ui.model;
+package com.hcvardar.manne.rkvaradr.ui.model.home;
 
 public class Sponsor {
     int id;

@@ -9,8 +9,9 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hcvardar.manne.rkvaradr.ui.model.EkipaModel;
+import com.hcvardar.manne.rkvaradr.ui.model.team.Player;
 import com.hcvardar.manne.rkvaradr.R;
+import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -22,23 +23,23 @@ import butterknife.ButterKnife;
  * Created by manne on 03.7.2019.
  */
 
-public class StrucenAdapter extends RecyclerView.Adapter<StrucenAdapter.ViewHolder> {
+public class StuffAdapter extends RecyclerView.Adapter<StuffAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<EkipaModel> ekipaModels = new ArrayList<>();
+    ArrayList<Player> players = new ArrayList<>();
 
 
-    public void setItems(ArrayList<EkipaModel> models){
-        ekipaModels=models;
+    public void setItems(ArrayList<Player> models){
+        players =models;
     }
 
-    public StrucenAdapter(Context context1){
+    public StuffAdapter(Context context1){
         context=context1;
 
     }
 
     @Override
-    public StrucenAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public StuffAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycler_view_strucen, parent, false);
@@ -48,33 +49,21 @@ public class StrucenAdapter extends RecyclerView.Adapter<StrucenAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(StrucenAdapter.ViewHolder holder, final int position) {
-            final EkipaModel model = ekipaModels.get(position);
+    public void onBindViewHolder(StuffAdapter.ViewHolder holder, final int position) {
+            final Player model = players.get(position);
             holder.strucenName.setText(model.getIme());
             holder.strucenPos.setText(model.getPozicija());
 
 
 
         Picasso.get()
-                .load(model.getImageUrl())
+                .load(Constants.VARDAR_UPLOADS_URL.concat(model.getImageUrl()))
                 .into(holder.imageStab);
-
-//            holder.player.setImageResource(R.drawable.dainis_krishtopans);
-//
-//
-//            holder.player.setImageResource(R.drawable.igor_karachikj);
-//
-//
-//            holder.player.setImageResource(R.drawable.stojanche_stoilov);
-//
-//
-//            holder.player.setImageResource(R.drawable.stash_skube);
-
     }
 
     @Override
     public int getItemCount() {
-        return ekipaModels.size();
+        return players.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

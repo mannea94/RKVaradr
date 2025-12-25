@@ -22,8 +22,10 @@ public class Constants {
     public static String X_URL = "https://x.com/hcvardar";
     public static String YOUTUBE_URL = "https://www.youtube.com/@VardarTV/videos";
     public static String VIBER_URL = "https://invite.viber.com/?g2=AQBZAM7hQC7fXE5V6q%2BPK0fZqnZEf2DqJoF2NkALFRLXifX1EU9ioMky1pXyORKw&lang=en";
+    public static String YOUTUBE_SHORT_URL = "https://www.youtube.com/watch?v=";
 
-
+    //Photos
+    public static String TEAM_URL = "2025/08/Vardar-tim-scaled.jpg";
 
     //EXTRAS
     public static String VARDAR_SHOP_EXTRA = "vardar_shop";

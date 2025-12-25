@@ -3,6 +3,8 @@ package com.hcvardar.manne.rkvaradr.ui.activity.gallery.photo;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,7 +21,8 @@ import com.hcvardar.manne.rkvaradr.ui.activity.gallery.video.YoutubeVideoActivit
 import com.hcvardar.manne.rkvaradr.ui.adapter.gallery.GalleryAdapter;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.ui.fragments.photo.GalleryPhotosFragment;
-import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
+import com.hcvardar.manne.rkvaradr.ui.model.gallery.PhotoGallery;
+import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.hcvardar.manne.rkvaradr.utils.GlobalClass;
 
 import butterknife.BindView;
@@ -76,8 +79,15 @@ public class GalleryActivity extends AppCompatActivity implements PhotoClickList
     @Override
     public void onPhotoClick(PhotoGallery photoGallery, int position) {
         if(photoGallery.isVideo()){
-            Intent intent = new Intent(GalleryActivity.this, YoutubeVideoActivity.class);
-            intent.putExtra("extra_video", photoGallery);
+            // Android 10+
+            Intent intent;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                intent = new Intent(GalleryActivity.this, YoutubeVideoActivity.class);
+                intent.putExtra("extra_video", photoGallery);
+            }else {
+                intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(Constants.YOUTUBE_SHORT_URL + photoGallery.getVideoId()));
+            }
             startActivity(intent);
         }else {
             GalleryPhotosFragment fragment = new GalleryPhotosFragment();

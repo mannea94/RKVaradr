@@ -23,7 +23,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.hcvardar.manne.rkvaradr.components.DepthPageTransformer;
 import com.hcvardar.manne.rkvaradr.ui.adapter.gallery.SectionsPagerAdapter;
-import com.hcvardar.manne.rkvaradr.ui.model.ImageModel;
+import com.hcvardar.manne.rkvaradr.ui.model.gallery.ImageModel;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.utils.ImageDownload;
 

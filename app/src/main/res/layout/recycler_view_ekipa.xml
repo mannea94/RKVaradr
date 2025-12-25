@@ -8,11 +8,25 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center">
-        <ImageView
+        
+        <FrameLayout
             android:layout_width="215dp"
-            android:layout_height="320dp"
-            android:id="@+id/imagePlayer"
-            />
+            android:layout_height="320dp">
+
+            <com.hcvardar.manne.rkvaradr.components.ShieldImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imagePlayer"
+                />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/player_frame"
+                android:scaleType="fitXY" />
+
+        </FrameLayout>
+        
 
         <LinearLayout
             android:layout_width="wrap_content"

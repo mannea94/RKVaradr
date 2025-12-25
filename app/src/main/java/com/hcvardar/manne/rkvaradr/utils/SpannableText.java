@@ -20,7 +20,7 @@ import androidx.annotation.NonNull;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.ui.activity.home.NewsActivity;
 import com.hcvardar.manne.rkvaradr.ui.fragments.news.PDFPreviewFragment;
-import com.hcvardar.manne.rkvaradr.ui.model.Report;
+import com.hcvardar.manne.rkvaradr.ui.model.news.Report;
 
 public class SpannableText {
 

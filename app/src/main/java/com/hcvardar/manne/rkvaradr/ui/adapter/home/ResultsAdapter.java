@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hcvardar.manne.rkvaradr.ui.model.Result;
+import com.hcvardar.manne.rkvaradr.ui.model.home.Result;
 import com.hcvardar.manne.rkvaradr.R;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Picasso;

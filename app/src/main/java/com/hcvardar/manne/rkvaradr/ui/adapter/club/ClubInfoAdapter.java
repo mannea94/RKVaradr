@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.ui.model.ClubInfo;
+import com.hcvardar.manne.rkvaradr.ui.model.club.ClubInfo;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.squareup.picasso.Picasso;
 

@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hcvardar.manne.rkvaradr.interfaces.PhotoClickListener;
 import com.hcvardar.manne.rkvaradr.R;
-import com.hcvardar.manne.rkvaradr.ui.model.PhotoGallery;
+import com.hcvardar.manne.rkvaradr.ui.model.gallery.PhotoGallery;
 import com.hcvardar.manne.rkvaradr.utils.Constants;
 import com.hcvardar.manne.rkvaradr.utils.ViewUtils;
 import com.squareup.picasso.Picasso;

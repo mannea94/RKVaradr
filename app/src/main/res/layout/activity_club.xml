@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hcvardar.manne.rkvaradr.ui.activity.home.KlubActivity"
+    tools:context="com.hcvardar.manne.rkvaradr.ui.activity.home.ClubActivity"
     android:fitsSystemWindows="true"
     android:background="@drawable/side_nav_bar">
 
